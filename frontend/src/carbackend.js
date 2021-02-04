@@ -8,7 +8,6 @@ const shopData = [
 				image: '/images/m8.jpg',
 				description:
 					'BMW M8 Gran Coupe. The M8 Gran Coupe is powered by a lusty twin-turbo 4.4-liter V-8 that makes 600 horsepower on the regular model and 617 on the Competition version. Both M8s send that power to all four wheels via an eight-speed automatic transmission.',
-				model: 'BMW M8',
 				category: 'vehicles',
 				price: 143450,
 				countInStock: 2,
@@ -21,7 +20,6 @@ const shopData = [
 				image: '/images/m6.jpg',
 				description:
 					'Bmw M6 Gran Coupe. A rear-wheel drive front-engined large coupé with 4 doors & 5 seats. With 552 hp, the twin turbocharged 4.4 Litre 32v quad-cam V8 petrol engine accelerates this M6 Gran Coupé to 62 mph in 4.2 seconds and on to a maximum speed of 155 mph. It has a kerb weight of 1875 kg. It comes with an 8 speed automatic gearbox.',
-				model: 'BMW M6',
 				category: 'vehicles',
 				price: 128695,
 				countInStock: 8,
@@ -34,7 +32,6 @@ const shopData = [
 				image: '/images/m5.jpg',
 				description:
 					'BMW M5 Automatic. The 4.4-liter V-8 engine with Twin Scroll Bi-Turbo includes an advanced cooling system and a unique oil pan design to maintain pressure through challenging corners. And with the optional Competition Package, it delivers up to 617 horsepower.',
-				model: 'BMW M6',
 				category: 'vehicles',
 				price: 106750,
 				countInStock: 5,
@@ -47,7 +44,6 @@ const shopData = [
 				image: '/images/m4.jpg',
 				description:
 					'BMW M4 F83 Coupe. The finely engineered 3.0-liter BMW M TwinPower Turbo inline-6 engine in the high-performance M4 Coupe can unleash intense power – up to 503 horsepower in the Competition model, taking you from 0-60 mph in 3.8 seconds.',
-				model: 'BMW M4',
 				category: 'vehicles',
 				price: 77600,
 				countInStock: 5,
@@ -60,7 +56,6 @@ const shopData = [
 				image: '/images/m3.jpg',
 				description:
 					'The M3 CS is fitted as standard with Adaptive M suspension, whose geometry has been tuned to deliver optimised performance on both the road and track. Ensuring the best possible grip in all driving conditions are the DSC (Dynamic Stability Control) system – which includes M Dynamic Mode – and the Active M Differential.',
-				brand: 'BMW M3',
 				category: 'vehicles',
 				price: 65990,
 				countInStock: 10,
@@ -73,7 +68,6 @@ const shopData = [
 				image: '/images/m2.jpg',
 				description:
 					"BMW M2 Competition Coupe. A true driver's machine, this monster combines the 2 Series' legacy of responsive handling with the legendary performance of M. The Active M Differential provides an optimum amount of locking between the rear wheels, for unmatched agility and constant stability through sharp corners.",
-				brand: 'BMW M2',
 				category: 'vehicles',
 				price: 55990,
 				countInStock: 10,
@@ -86,40 +80,76 @@ const shopData = [
 		_id: '2',
 		mercedes: [
 			{
-				id: 10,
-				name: 'Adidas NMD',
-				imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-				price: 220
+				_id: 7,
+				name: 'Mercedes AMG GT63s',
+				image: '/images/gt63s.jpg',
+				description:
+					'The Mercedes-AMG GT 63 is available in two variants: GT 63 and GT 63 S. The former is the base model, fitted with a 4.0-liter twin-turbo V8 producing 577 hp and 590 lb-ft of torque. A nine-speed auto and 4Matic+ all-wheel-drive are your only options here, but a rear-wheel-drive drift mode is available.',
+				category: 'vehicles',
+				price: 161900,
+				countInStock: 3,
+				rating: 5,
+				numReviews: 39
 			},
 			{
-				id: 11,
-				name: 'Adidas Yeezy',
-				imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-				price: 280
+				_id: 8,
+				name: 'Mercedes AMG CLS 63',
+				image: '/images/cls.jpg',
+				description:
+					'Under the hood is a 5.5-liter twin-turbo V-8 that makes a beastly 577 hp and 590 lb-ft with a seven-speed automatic. All-wheel drive (4Matic) is standard, as is an adaptive sport suspension.',
+				model: 'Mercedes',
+				price: 108900,
+				countInStock: 10,
+				rating: 4,
+				numReviews: 12
 			},
 			{
-				id: 12,
-				name: 'Black Converse',
-				imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-				price: 110
+				_id: 9,
+				name: 'Mercedes AMG S63',
+				image: '/images/s63.jpg',
+				description:
+					'The S63 Coupe is powered by an individually handcrafted 4.0-liter bi-turbo V8 engine, which in S63 guise, develops 603 hp between 5,500 and 6,000 rpm and a massive 664 lb-ft of torque available between 2,750 and 4,500 rpm.',
+				category: 'vehicles',
+				price: 171400,
+				countInStock: 10,
+				rating: 5,
+				numReviews: 12
 			},
 			{
-				id: 13,
-				name: 'Nike White AirForce',
-				imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
-				price: 160
+				_id: 10,
+				name: 'Mercedes AMG E63s',
+				image: '/images/e63s.jpg',
+				description:
+					"The E63 S's powerful twin-turbo 603-hp V-8 engine is a mild-mannered partner and a maniacal monster all wrapped up into one. Left in Comfort mode, the engine and nine-speed automatic transmission react with stoicism and smoothness. Select any of the sportier drive modes and the powertrain unleashes relentless fury.",
+				category: 'vehicles',
+				price: 107500,
+				countInStock: 1,
+				rating: 5,
+				numReviews: 28
 			},
 			{
-				id: 14,
-				name: 'Nike Red High Tops',
-				imageUrl: 'https://i.ibb.co/QcvzydB/nikes-red.png',
-				price: 160
+				_id: 11,
+				name: 'Mercedes AMG C63s',
+				image: '/images/c63s.jpg',
+				description:
+					'The Mercedes-AMG C63 and C63 S have a hand-built, twin-turbo 4.0-liter V-8 engine. In the C63, it makes 469 horsepower and 479 lb-ft of torque. The C63 S ups the performance ante with 503 horsepower and 516 lb-ft. Both engines use a nine-speed automatic with rear-wheel drive.',
+				category: 'vehicles',
+				price: 78250,
+				countInStock: 5,
+				rating: 4.5,
+				numReviews: 12
 			},
 			{
-				id: 15,
-				name: 'Nike Brown High Tops',
-				imageUrl: 'https://i.ibb.co/fMTV342/nike-brown.png',
-				price: 160
+				_id: 12,
+				name: 'Mercedes AMG G63',
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			}
 		]
 	},
@@ -128,40 +158,71 @@ const shopData = [
 		_id: '3',
 		audi: [
 			{
-				id: 23,
-				name: 'Blue Tanktop',
-				imageUrl: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
-				price: 25
+				_id: 13,
+				name: 'Audi RS7',
+				image: '/images/rs7.jpg',
+				description:
+					'Power comes from a twin-turbo 4.0-liter V-8 that pairs with a 48-volt hybrid system, eight-speed automatic transmission, and all-wheel drive. The RS7 makes 591 horsepower and 590 lb-ft of torque, which in our testing catapulted the girthy four-door from zero to 60 mph in just 3.0 seconds.',
+				category: 'vehicles',
+				price: 114000,
+				countInStock: 6,
+				rating: 5,
+				numReviews: 15
 			},
 			{
-				id: 24,
-				name: 'Floral Blouse',
-				imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
-				price: 20
+				_id: 14,
+				name: 'Audi RS6',
+				image: '/images/rs6.jpg',
+				description: '',
+				category: 'vehicles',
+				price: 100000,
+				countInStock: 8,
+				rating: 5,
+				numReviews: 3
 			},
 			{
-				id: 25,
-				name: 'Floral Dress',
-				imageUrl: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
-				price: 80
+				_id: 15,
+				name: 'Audi RS5',
+				image: '/images/rs5.jpg',
+				description: '',
+				category: 'vehicles',
+				price: 74200,
+				countInStock: 5,
+				rating: 3.5,
+				numReviews: 2
 			},
 			{
-				id: 26,
-				name: 'Red Dots Dress',
-				imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
-				price: 80
+				_id: 16,
+				name: 'Audi RS4',
+				image: '/images/rs4.jpg',
+				description: '',
+				category: 'vehicles',
+				price: 67625,
+				countInStock: 2,
+				rating: 4,
+				numReviews: 8
 			},
 			{
-				id: 27,
-				name: 'Striped Sweater',
-				imageUrl: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
-				price: 45
+				_id: 17,
+				name: 'Audi RS3',
+				image: '/images/rs3.jpg',
+				description: '',
+				category: 'vehicles',
+				price: 60570,
+				countInStock: 2,
+				rating: 4.5,
+				numReviews: 3
 			},
 			{
-				id: 28,
-				name: 'Yellow Track Suit',
-				imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
-				price: 135
+				_id: 18,
+				name: 'Audi R8',
+				image: '/images/r8.jpg',
+				description: '',
+				category: 'vehicles',
+				price: 208100,
+				countInStock: 1,
+				rating: 5,
+				numReviews: 6
 			}
 		]
 	},
@@ -169,40 +230,76 @@ const shopData = [
 		_id: '4',
 		mclaren: [
 			{
-				id: 30,
+				_id: 19,
 				name: 'Camo Down Vest',
-				imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-				price: 325
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 31,
+				_id: 20,
 				name: 'Floral T-shirt',
-				imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-				price: 20
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 32,
+				_id: 21,
 				name: 'Black & White Longsleeve',
-				imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 33,
+				_id: 22,
 				name: 'Pink T-shirt',
-				imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 34,
+				_id: 23,
 				name: 'Jean Long Sleeve',
-				imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-				price: 40
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 35,
+				_id: 24,
 				name: 'Burgundy T-shirt',
-				imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			}
 		]
 	},
@@ -210,40 +307,76 @@ const shopData = [
 		_id: '5',
 		ferrari: [
 			{
-				id: 30,
+				_id: 25,
 				name: 'Camo Down Vest',
-				imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-				price: 325
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 31,
+				_id: 26,
 				name: 'Floral T-shirt',
-				imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-				price: 20
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 32,
+				_id: 27,
 				name: 'Black & White Longsleeve',
-				imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 33,
+				_id: 28,
 				name: 'Pink T-shirt',
-				imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 34,
+				_id: 29,
 				name: 'Jean Long Sleeve',
-				imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-				price: 40
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 35,
+				_id: 30,
 				name: 'Burgundy T-shirt',
-				imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			}
 		]
 	},
@@ -251,40 +384,76 @@ const shopData = [
 		_id: '6',
 		lamborghini: [
 			{
-				id: 30,
+				_id: 31,
 				name: 'Camo Down Vest',
-				imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-				price: 325
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 31,
+				_id: 32,
 				name: 'Floral T-shirt',
-				imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-				price: 20
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 32,
+				_id: 33,
 				name: 'Black & White Longsleeve',
-				imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 33,
+				_id: 34,
 				name: 'Pink T-shirt',
-				imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 34,
+				_id: 35,
 				name: 'Jean Long Sleeve',
-				imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-				price: 40
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			},
 			{
-				id: 35,
+				_id: 36,
 				name: 'Burgundy T-shirt',
-				imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-				price: 25
+				image: '/images/g63.jpg',
+				description:
+					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+				category: 'vehicles',
+				price: 156450,
+				countInStock: 10,
+				rating: 3.5,
+				numReviews: 3
 			}
 		]
 	}
