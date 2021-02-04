@@ -9,7 +9,7 @@ const ShopPage = () => {
 		<div>
 			<h2 className='py-3'>Our Car Selection</h2>
 			<Row>
-				{carbackend[2].audi.map((car) => (
+				{carbackend[5].lamborghini.map((car) => (
 					<Col key={car._id} sm={12} md={6} lg={4}>
 						<CarBrands car={car} />
 					</Col>
