@@ -1,17 +1,17 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import CarBrands from '../components/CarBrands'
+import CarBrandPreview from '../components/CarBrandPreview'
 import cars from '../cars'
-import carbackend from '../carbackend'
+import { v4 as uuidv4 } from 'uuid'
 
 const ShopPage = () => {
 	return (
 		<div>
-			<h2 className='py-3'>Our Car Selection</h2>
+			<h2 className='py-4'>Our Car Selection</h2>
 			<Row>
-				{carbackend[5].lamborghini.map((car) => (
-					<Col key={car._id} sm={12} md={6} lg={4}>
-						<CarBrands car={car} />
+				{cars.map((car) => (
+					<Col key={uuidv4()} sm={12} md={6} lg={4}>
+						<CarBrandPreview car={car} />
 					</Col>
 				))}
 			</Row>

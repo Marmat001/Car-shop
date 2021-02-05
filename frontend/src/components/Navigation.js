@@ -10,7 +10,7 @@ const Navigation = () => {
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>
-							<i class='fas fa-tachometer-alt mx-1' /> Vroom
+							<i className='fas fa-tachometer-alt mx-1' /> Vroom
 						</Navbar.Brand>
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
