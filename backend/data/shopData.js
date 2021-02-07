@@ -1,9 +1,7 @@
 const shopData = [
 	{
-		_id: '1',
 		cars: [
 			{
-				_id: '1',
 				name: 'BMW M8',
 				image: '/images/m8.jpg',
 				description:
@@ -17,7 +15,6 @@ const shopData = [
 				reviewAmount: 1
 			},
 			{
-				_id: '2',
 				name: 'BMW M6',
 				image: '/images/m6.jpg',
 				description:
@@ -31,7 +28,6 @@ const shopData = [
 				reviewAmount: 10
 			},
 			{
-				_id: '3',
 				name: 'BMW M5',
 				image: '/images/m5.jpg',
 				description:
@@ -45,7 +41,6 @@ const shopData = [
 				reviewAmount: 6
 			},
 			{
-				_id: '4',
 				name: 'BMW M4',
 				image: '/images/m4.jpg',
 				description:
@@ -59,7 +54,6 @@ const shopData = [
 				reviewAmount: 14
 			},
 			{
-				_id: '5',
 				name: 'BMW M3',
 				image: '/images/m3.jpg',
 				description:
@@ -73,7 +67,6 @@ const shopData = [
 				reviewAmount: 9
 			},
 			{
-				_id: '6',
 				name: 'BMW M2',
 				image: '/images/m2.jpg',
 				description:
@@ -89,10 +82,8 @@ const shopData = [
 		]
 	},
 	{
-		_id: '2',
 		cars: [
 			{
-				_id: 7,
 				name: 'Mercedes AMG GT63s',
 				image: '/images/gt63s.jpg',
 				description:
@@ -106,7 +97,6 @@ const shopData = [
 				reviewAmount: 13
 			},
 			{
-				_id: 8,
 				name: 'Mercedes AMG CLS 63',
 				image: '/images/cls.jpg',
 				description:
@@ -120,7 +110,6 @@ const shopData = [
 				reviewAmount: 12
 			},
 			{
-				_id: 9,
 				name: 'Mercedes AMG S63',
 				image: '/images/s63.jpg',
 				description:
@@ -134,7 +123,6 @@ const shopData = [
 				reviewAmount: 8
 			},
 			{
-				_id: 10,
 				name: 'Mercedes AMG E63s',
 				image: '/images/e63s.jpg',
 				description:
@@ -148,7 +136,6 @@ const shopData = [
 				reviewAmount: 8
 			},
 			{
-				_id: 11,
 				name: 'Mercedes AMG C63s',
 				image: '/images/c63s.jpg',
 				description:
@@ -162,7 +149,6 @@ const shopData = [
 				reviewAmount: 12
 			},
 			{
-				_id: 12,
 				name: 'Mercedes AMG G63',
 				image: '/images/g63.jpg',
 				description:
@@ -179,10 +165,8 @@ const shopData = [
 	},
 
 	{
-		_id: '3',
 		cars: [
 			{
-				_id: 13,
 				name: 'Audi RS7',
 				image: '/images/rs7.jpg',
 				description:
@@ -196,7 +180,6 @@ const shopData = [
 				reviewAmount: 4
 			},
 			{
-				_id: 14,
 				name: 'Audi RS6',
 				image: '/images/rs6.jpg',
 				description:
@@ -210,7 +193,6 @@ const shopData = [
 				reviewAmount: 3
 			},
 			{
-				_id: 15,
 				name: 'Audi RS5',
 				image: '/images/rs5.jpg',
 				description:
@@ -224,7 +206,6 @@ const shopData = [
 				reviewAmount: 2
 			},
 			{
-				_id: 16,
 				name: 'Audi RS4',
 				image: '/images/rs4.jpg',
 				description:
@@ -238,7 +219,6 @@ const shopData = [
 				reviewAmount: 8
 			},
 			{
-				_id: 17,
 				name: 'Audi RS3',
 				image: '/images/rs3.jpg',
 				description:
@@ -252,7 +232,6 @@ const shopData = [
 				reviewAmount: 3
 			},
 			{
-				_id: 18,
 				name: 'Audi R8',
 				image: '/images/r8.jpg',
 				description:
@@ -268,10 +247,8 @@ const shopData = [
 		]
 	},
 	{
-		_id: '4',
 		cars: [
 			{
-				_id: 19,
 				name: 'Mclaren 540C',
 				image: '/images/540C.jpg',
 				description:
@@ -285,7 +262,6 @@ const shopData = [
 				reviewAmount: 0
 			},
 			{
-				_id: 20,
 				name: 'Mclaren 720S Spider',
 				image: '/images/720s.jpg',
 				description:
@@ -299,7 +275,6 @@ const shopData = [
 				reviewAmount: 1
 			},
 			{
-				_id: 21,
 				name: 'Mclaren Senna',
 				image: '/images/senna.jpg',
 				description:
@@ -315,10 +290,8 @@ const shopData = [
 		]
 	},
 	{
-		_id: '5',
 		cars: [
 			{
-				_id: 22,
 				name: 'Ferrari 488 GTB',
 				image: '/images/488gtb.jpg',
 				description:
@@ -332,7 +305,6 @@ const shopData = [
 				reviewAmount: 1
 			},
 			{
-				_id: 23,
 				name: 'Ferrari 458 Spider',
 				image: '/images/458spider.jpg',
 				description:
@@ -346,7 +318,6 @@ const shopData = [
 				reviewAmount: 0
 			},
 			{
-				_id: 24,
 				name: 'Ferrari 812 GTS',
 				image: '/images/812gts.jpg',
 				description:
@@ -362,10 +333,8 @@ const shopData = [
 		]
 	},
 	{
-		_id: '6',
 		cars: [
 			{
-				_id: 25,
 				name: 'Lamborghini Urus',
 				image: '/images/urus.jpg',
 				description:
@@ -379,7 +348,6 @@ const shopData = [
 				reviewAmount: 0
 			},
 			{
-				_id: 26,
 				name: 'Lamborghini Huracan',
 				image: '/images/huracan.jpg',
 				description:
@@ -393,7 +361,6 @@ const shopData = [
 				reviewAmount: 1
 			},
 			{
-				_id: 27,
 				name: 'Lamborghini Aventador',
 				image: '/images/aventador.jpg',
 				description:

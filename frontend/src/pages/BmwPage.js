@@ -14,7 +14,7 @@ const BmwPage = () => {
 		}
 		fetchCars()
 	}, [])
-
+ 
 	return (
 		<div>
 			<h2 className='py-3'>BMW</h2>
