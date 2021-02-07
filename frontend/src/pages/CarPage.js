@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listCarDetails } from '../actions/carActions'
 import { useLocation } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
-const CarPage = ({ match }) => {
+const CarPage = ({history, match }) => {
+	const [qty, setQty] = useState(1)
+
+
 	const dispatch = useDispatch()
 	const { pathname } = useLocation()
 
@@ -37,8 +40,12 @@ const CarPage = ({ match }) => {
 				dispatch(listCarDetails('lamborghini', match.params.model))
 			}
 		},
-		[ dispatch, match ]
+		[ dispatch, match, pathname ]
 	)
+
+	const AddCarToCartHandler = () => {
+		history.push(`/cart/${match.params.model}?qty=${qty}`)
+	}
 
 
 	return (
@@ -84,8 +91,24 @@ const CarPage = ({ match }) => {
 									<Col>{car[0]?.countInStock > 0 ? 'Available' : 'Not available'}</Col>
 								</Row>
 							</ListGroup.Item>
+							{car[0]?.countInStock > 0 && (
+								<ListGroup.Item>
+									<Row>
+										<Col>Qty</Col>
+										<Col>
+											<Form.Control as="select" value={qty} onChange={(e) => setQty(e.target.value)}>
+												{[...Array(car[0]?.countInStock).keys()].map((x) => (
+													<option key={x + 1} value={x + 1}>
+														{x + 1}
+													</option>
+												))}
+											</Form.Control>
+										</Col>
+									</Row>
+								</ListGroup.Item>
+							)}
 							<ListGroup.Item>
-								<Button className='btn-block' type='button' disabled={car[0]?.countInStock === 0}>
+								<Button onClick={AddCarToCartHandler} className='btn-block' type='button' disabled={car[0]?.countInStock === 0}>
 									Add To Cart
 								</Button>
 							</ListGroup.Item>

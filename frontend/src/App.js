@@ -13,6 +13,7 @@ import FerrariPage from './pages/FerrariPage'
 import LamborghiniPage from './pages/LamborghiniPage'
 import CarPage from './pages/CarPage'
 import ScrollTop from './components/ScrollTop'
+import CheckoutPage from './pages/CheckoutPage'
 
 const App = () => {
 	return (
@@ -35,6 +36,7 @@ const App = () => {
 					<Route path='/vehicles/ferrari/:model' component={CarPage} />
 					<Route path='/vehicles/lamborghini' component={LamborghiniPage} exact />
 					<Route path='/vehicles/lamborghini/:model' component={CarPage} />
+					<Route path='/cart/:model?' component={CheckoutPage} />
 				</Container>
 			</main>
 			<Footer />

@@ -10,6 +10,7 @@ import {
 	mclarenReducer,
 	mercedesReducer
 } from './reducers/carReducers'
+import { cartReducer } from './reducers/cartReducers'
 
 const reducer = combineReducers({
 	bmwList: bmwReducer,
@@ -18,10 +19,15 @@ const reducer = combineReducers({
 	mclarenList: mclarenReducer,
 	ferrariList: ferrariReducer,
 	lamborghiniList: lamborghiniReducer,
-	carDetails: carDetailReducer
+	carDetails: carDetailReducer,
+	cart: cartReducer
 })
 
-const intitialState = {}
+const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+
+const intitialState = {
+	cart: { cartItems: cartItemsFromStorage }
+}
 
 const middleware = [ thunk ]
 

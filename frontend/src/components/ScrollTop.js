@@ -14,7 +14,7 @@ export default function ScrollTop() {
 			})
 			dispatch({ type: 'CAR_DETAILS_CLEAR' })
 		},
-		[ pathname ]
+		[ pathname, dispatch ]
 	)
 	return null
 }
