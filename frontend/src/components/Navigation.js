@@ -6,7 +6,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 const Navigation = () => {
 	return (
 		<header>
-			<Navbar style={{ backgroundColor: '#00bc8c' }} expand='lg' collapseOnSelect>
+			<Navbar className='fixed-top' style={{ backgroundColor: '#00bc8c' }} expand='lg' collapseOnSelect>
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>

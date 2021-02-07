@@ -1,37 +1,70 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import shopData from '../shopData'
+import { listCarDetails } from '../actions/carActions'
+import { useLocation } from 'react-router-dom'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 const CarPage = ({ match }) => {
-	const carBrands = shopData.map((data) => data.cars.map((car) => car))
-	const cars = [ ...carBrands[0], ...carBrands[1], ...carBrands[2], ...carBrands[3], ...carBrands[4], ...carBrands[5] ]
-	const car = cars.find((c) => c.model === match.params.model)
+	const dispatch = useDispatch()
+	const { pathname } = useLocation()
+
+	const carDetails = useSelector((state) => state.carDetails)
+	const { loading, error, car } = carDetails
+
+	useEffect(
+		() => {
+			if (pathname.includes('/bmw')) {
+				dispatch(listCarDetails('bmw', match.params.model))
+			}
+
+			if (pathname.includes('/mercedes')) {
+				dispatch(listCarDetails('mercedes', match.params.model))
+			}
+			if (pathname.includes('/audi')) {
+				dispatch(listCarDetails('audi', match.params.model))
+			}
+			if (pathname.includes('/mclaren')) {
+				dispatch(listCarDetails('mclaren', match.params.model))
+			}
+			if (pathname.includes('/ferrari')) {
+				dispatch(listCarDetails('ferrari', match.params.model))
+			}
+			if (pathname.includes('/lamborghini')) {
+				dispatch(listCarDetails('lamborghini', match.params.model))
+			}
+		},
+		[ dispatch, match ]
+	)
+
 
 	return (
-		<div>
+		<>
 			<Link className='btn btn-light my-3' to='/'>
 				Go Back
 			</Link>
-			<Row>
+			{loading ? <Loader/> : error ? <Message variant="danger">{error}</Message> : (
+				<Row>
 				<Col md={6}>
-					<Image src={car.image} alt={car.name} fluid />
+					<Image src={car[0]?.image} alt={car[0]?.name} fluid />
 				</Col>
 
 				<Col md={3}>
 					<ListGroup variant='flush'>
 						<ListGroup.Item>
-							<h2>{car.name}</h2>
+							<h2>{car[0]?.name}</h2>
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<Rating
-								value={car.rating}
-								text={car.reviewAmount === 0 ? 'Not Rated Yet' : `${car.reviewAmount} reviews`}
+								value={car[0]?.rating}
+								text={car[0]?.reviewAmount === 0 ? 'Not Rated Yet' : `${car[0]?.reviewAmount} reviews`}
 							/>
 						</ListGroup.Item>
-						<ListGroup.Item>Price: $ {car.price}</ListGroup.Item>
-						<ListGroup.Item>{car.description}</ListGroup.Item>
+						<ListGroup.Item>Price: $ {car[0]?.price}</ListGroup.Item>
+						<ListGroup.Item>{car[0]?.description}</ListGroup.Item>
 					</ListGroup>
 				</Col>
 				<Col md={3}>
@@ -41,18 +74,18 @@ const CarPage = ({ match }) => {
 								<Row>
 									<Col>Price:</Col>
 									<Col>
-										<strong>${car.price}</strong>
+										<strong>${car[0]?.price}</strong>
 									</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>
 								<Row>
 									<Col>Status:</Col>
-									<Col>{car.countInStock > 0 ? 'Available' : 'Not available'}</Col>
+									<Col>{car[0]?.countInStock > 0 ? 'Available' : 'Not available'}</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>
-								<Button className='btn-block' type='button' disabled={car.countInStock === 0}>
+								<Button className='btn-block' type='button' disabled={car[0]?.countInStock === 0}>
 									Add To Cart
 								</Button>
 							</ListGroup.Item>
@@ -60,7 +93,9 @@ const CarPage = ({ match }) => {
 					</Card>
 				</Col>
 			</Row>
-		</div>
+			)}
+			
+		</>
 	)
 }
 

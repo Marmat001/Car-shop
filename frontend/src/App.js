@@ -12,10 +12,12 @@ import MclarenPage from './pages/MclarenPage'
 import FerrariPage from './pages/FerrariPage'
 import LamborghiniPage from './pages/LamborghiniPage'
 import CarPage from './pages/CarPage'
+import ScrollTop from './components/ScrollTop'
 
 const App = () => {
 	return (
 		<Router>
+			<ScrollTop />
 			<Navigation />
 			<main className='py-4'>
 				<Container fluid>

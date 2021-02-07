@@ -1,30 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import CarPreview from '../components/CarPreview'
-import axios from 'axios'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+import { listFerrariCars } from '../actions/carActions'
 
 const FerrariPage = () => {
-	const [ shopData, setShopData ] = useState([])
+	const dispatch = useDispatch()
 
-	useEffect(() => {
-		const fetchCars = async () => {
-			const { data } = await axios.get('/api/vehicles/ferrari')
+	const ferrariList = useSelector((state) => state.ferrariList)
+	const { loading, error, cars } = ferrariList
 
-			setShopData(data)
-		}
-		fetchCars()
-	}, [])
+	useEffect(
+		() => {
+			dispatch(listFerrariCars())
+		},
+		[ dispatch ]
+	)
 
 	return (
 		<div>
 			<h2 className='py-3'>Ferrari</h2>
-			<Row>
-				{shopData.map((car) => (
-					<Col key={car._id} sm={12} md={6} lg={4}>
-						<CarPreview car={car} />
-					</Col>
-				))}
-			</Row>
+			{loading ? (
+				<Loader />
+			) : error ? (
+				<Message variant='danger'>{error}</Message>
+			) : (
+				<Row>
+					{cars.map((car) => (
+						<Col key={car._id} sm={12} md={6} lg={4}>
+							<CarPreview car={car} />
+						</Col>
+					))}
+				</Row>
+			)}
 		</div>
 	)
 }
