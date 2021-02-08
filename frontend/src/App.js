@@ -14,6 +14,7 @@ import LamborghiniPage from './pages/LamborghiniPage'
 import CarPage from './pages/CarPage'
 import ScrollTop from './components/ScrollTop'
 import CheckoutPage from './pages/CheckoutPage'
+import LoginPage from './pages/LoginPage'
 
 const App = () => {
 	return (
@@ -23,6 +24,7 @@ const App = () => {
 			<main className='py-4'>
 				<Container fluid>
 					<Route path='/' component={HomePage} exact />
+					<Route path='/login' component={LoginPage} />
 					<Route path='/vehicles' component={ShopPage} exact />
 					<Route path='/vehicles/bmw' component={BmwPage} exact />
 					<Route path='/vehicles/bmw/:model' component={CarPage} />
