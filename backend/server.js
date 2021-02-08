@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 
 import carRoutes from './routes/carRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -11,11 +12,14 @@ connectDB()
 
 const app = express()
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
 	res.send('API is running...')
 })
 
 app.use('/api/vehicles', carRoutes)
+app.use('/api/users', userRoutes)
 
 app.use(notFound)
 
