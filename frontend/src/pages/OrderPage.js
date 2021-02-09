@@ -131,7 +131,7 @@ const OrderPage = ({ history }) => {
 							<ListGroup.Item>
 								<Row>
 									<Col>Shipping</Col>
-									<Col>${cart.shippingPrice}</Col>
+									<Col>${cart.shippingPrice.toFixed(0)}</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>
@@ -143,7 +143,7 @@ const OrderPage = ({ history }) => {
 							<ListGroup.Item>
 								<Row>
 									<Col>Total</Col>
-									<Col>${cart.totalPrice}</Col>
+									<Col>${cart.totalPrice.toFixed(0)}</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>{error && <Message variant='danger'>{error}</Message>}</ListGroup.Item>
