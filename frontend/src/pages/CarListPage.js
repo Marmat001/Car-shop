@@ -29,9 +29,11 @@ const CarListPage = ({ history, match }) => {
 		[ dispatch, history, userInfo, successDelete ]
 	)
 
-	const deleteHandler = (brand, id) => {
+	console.log(cars)
+
+	const deleteHandler = (brand, model) => {
 		if (window.confirm('Are you sure?')) {
-			dispatch(deleteCar(brand, id))
+			dispatch(deleteCar(brand, model))
 		}
 	}
 	const createCarHandler = (car) => {
@@ -82,7 +84,7 @@ const CarListPage = ({ history, match }) => {
 											<i className='fas fa-edit' />
 										</Button>
 									</LinkContainer>
-									<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(car._id)}>
+									<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(car.brand, car.model)}>
 										<i className='fas fa-trash' />
 									</Button>
 								</td>
