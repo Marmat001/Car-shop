@@ -4,7 +4,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import {
 	audiReducer,
 	bmwReducer,
+	carDeleteReducer,
 	carDetailReducer,
+	CarReducer,
 	ferrariReducer,
 	lamborghiniReducer,
 	mclarenReducer,
@@ -23,6 +25,7 @@ import {
 import { orderCreateReducer, orderDetailsReducer, orderListMyReducer, orderPayReducer } from './reducers/orderReducers'
 
 const reducer = combineReducers({
+	carList: CarReducer,
 	bmwList: bmwReducer,
 	mercedesList: mercedesReducer,
 	audiList: audiReducer,
@@ -41,7 +44,8 @@ const reducer = combineReducers({
 	orderListMy: orderListMyReducer,
 	userList: userListReducer,
 	userDelete: userDeleteReducer,
-	userUpdate: userUpdateReducer
+	userUpdate: userUpdateReducer,
+	carDelete: carDeleteReducer
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

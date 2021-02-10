@@ -1,3 +1,17 @@
+export const CarReducer = (state = { cars: [] }, action) => {
+	switch (action.type) {
+		case 'CAR_LIST_REQUEST':
+			return { loading: true, cars: [] }
+		case 'CAR_LIST_SUCCESS':
+			return { loading: false, cars: action.payload }
+		case 'CAR_LIST_FAIL':
+			return { loading: false, error: action.payload }
+
+		default:
+			return state
+	}
+}
+
 export const bmwReducer = (state = { cars: [] }, action) => {
 	switch (action.type) {
 		case 'BMW_LIST_REQUEST':
@@ -96,6 +110,20 @@ export const carDetailReducer = (state = { car: { reviews: [] } }, action) => {
 				searched: [],
 				loading: true
 			}
+
+		default:
+			return state
+	}
+}
+
+export const carDeleteReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'CAR_DELETE_REQUEST':
+			return { loading: true }
+		case 'CAR_DELETE_SUCCESS':
+			return { loading: false, success: true }
+		case 'CAR_DELETE_FAIL':
+			return { loading: false, error: action.payload }
 
 		default:
 			return state

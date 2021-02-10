@@ -4,51 +4,38 @@ import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import { listCars, deleteCar, createCars } from '../actions/carActions'
+import { listAllCars, deleteCar } from '../actions/carActions'
 
 const CarListPage = ({ history, match }) => {
-	const pageNumber = match.params.pageNumber || 1
-
 	const dispatch = useDispatch()
 
-	const carsList = useSelector((state) => state.carsList)
-	const { loading, error, Cars, page, pages } = carsList
+	const carList = useSelector((state) => state.carList)
+	const { loading, error, cars } = carList
 
-	const carsDelete = useSelector((state) => state.carsDelete)
-	const { loading: loadingDelete, error: errorDelete, success: successDelete } = carsDelete
-
-	const carsCreate = useSelector((state) => state.carsCreate)
-	const { loading: loadingCreate, error: errorCreate, success: successCreate, Cars: createdCars } = carsCreate
+	const carDelete = useSelector((state) => state.carDelete)
+	const { loading: loadingDelete, error: errorDelete, success: successDelete } = carDelete
 
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
 	useEffect(
 		() => {
-			dispatch({ type: 'CAR_CREATE_RESET' })
-
-			if (!userInfo || !userInfo.isAdmin) {
+			if (userInfo && userInfo.isAdmin) {
+				dispatch(listAllCars())
+			} else {
 				history.push('/login')
 			}
-
-			if (successCreate) {
-				history.push(`/admin/car/${createdCars._id}/edit`)
-			} else {
-				dispatch(listCars('', pageNumber))
-			}
 		},
-		[ dispatch, history, userInfo, successDelete, successCreate, createdCars, pageNumber ]
+		[ dispatch, history, userInfo, successDelete ]
 	)
 
-	const deleteHandler = (id, brand) => {
+	const deleteHandler = (brand, id) => {
 		if (window.confirm('Are you sure?')) {
-			dispatch(deleteCar(id, brand))
+			dispatch(deleteCar(brand, id))
 		}
 	}
-
-	const createCarHandler = () => {
-		dispatch(createCar())
+	const createCarHandler = (car) => {
+		//create car
 	}
 
 	return (
@@ -59,55 +46,50 @@ const CarListPage = ({ history, match }) => {
 				</Col>
 				<Col className='text-right'>
 					<Button className='my-3' onClick={createCarHandler}>
-						<i className='fas fa-plus' /> Create Car
+						<i className='fas fa-plus' /> Create Product
 					</Button>
 				</Col>
 			</Row>
 			{loadingDelete && <Loader />}
 			{errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-			{loadingCreate && <Loader />}
-			{errorCreate && <Message variant='danger'>{errorCreate}</Message>}
 			{loading ? (
 				<Loader />
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<div>
-					<Table striped bordered hover responsive className='table-sm'>
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>NAME</th>
-								<th>PRICE</th>
-								<th>CATEGORY</th>
-								<th>BRAND</th>
-								<th />
-							</tr>
-						</thead>
-						<tbody>
-							{cars.map((car) => (
-								<tr key={car._id}>
-									<td>{car._id}</td>
-									<td>{car.name}</td>
-									<td>${car.price}</td>
-									<td>{car.category}</td>
-									<td>{car.brand}</td>
-									<td>
-										<LinkContainer to={`/admin/car/${car._id}/edit`}>
-											<Button variant='light' className='btn-sm'>
-												<i className='fas fa-edit' />
-											</Button>
-										</LinkContainer>
-										<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(car._id)}>
-											<i className='fas fa-trash' />
+				<Table striped bordered hover responsive className='table-sm'>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>NAME</th>
+							<th>PRICE</th>
+							<th>CATEGORY</th>
+							<th>BRAND</th>
+							<th />
+						</tr>
+					</thead>
+					<tbody>
+						{cars.map((car) => (
+							<tr key={car._id}>
+								<td>{car._id}</td>
+								<td>{car.name}</td>
+								<td>${car.price}</td>
+								<td>{car.category.charAt(0).toUpperCase() + car.category.slice(1)}</td>
+								<td>{car.brand.charAt(0).toUpperCase() + car.brand.slice(1)}</td>
+								<td>
+									<LinkContainer to={`/admin/vehicles/${car.brand}/${car.model}/edit`}>
+										<Button variant='light' className='btn-sm'>
+											<i className='fas fa-edit' />
 										</Button>
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
-					<Paginate pages={pages} page={page} isAdmin={true} />
-				</div>
+									</LinkContainer>
+									<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(car._id)}>
+										<i className='fas fa-trash' />
+									</Button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</Table>
 			)}
 		</div>
 	)

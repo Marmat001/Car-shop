@@ -23,6 +23,7 @@ import OrderPage from './pages/OrderPage'
 import OrderSummaryPage from './pages/OrderSummaryPage'
 import UserListPage from './pages/UserListPage'
 import EditUserPage from './pages/EditUserPage'
+import CarListPage from './pages/CarListPage'
 
 const App = () => {
 	return (
@@ -39,6 +40,7 @@ const App = () => {
 					<Route path='/order/:id' component={OrderSummaryPage} />
 					<Route path='/admin/userlist' component={UserListPage} />
 					<Route path='/admin/user/:id/edit' component={EditUserPage} />
+					<Route path='/admin/carlist' component={CarListPage} />
 					<Route path='/register' component={RegisterPage} />
 					<Route path='/profile' component={ProfilePage} />
 					<Route path='/vehicles' component={ShopPage} exact />

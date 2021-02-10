@@ -1,6 +1,12 @@
 import asyncHandler from 'express-async-handler'
 import Car from '../models/carModel.js'
 
+const getAllCars = asyncHandler(async (req, res) => {
+	const cars = await Car.find({})
+	const bmw = await cars
+	res.json(cars)
+})
+
 const getBmwCars = asyncHandler(async (req, res) => {
 	const cars = await Car.find({})
 	const bmw = await [ cars[0], cars[1], cars[2], cars[3], cars[4], cars[5] ]
@@ -47,4 +53,25 @@ const getCarModel = asyncHandler(async (req, res) => {
 	}
 })
 
-export { getBmwCars, getMercedesCars, getAudiCars, getMclarenCars, getFerrariCars, getLamborghiniCars, getCarModel }
+const DeleteCar = asyncHandler(async (req, res) => {
+	const car = await Car.find({ model: req.params.model })
+	if (car.length) {
+		await car.remove()
+		res.json({ message: 'Car removed from magazine' })
+	} else {
+		res.status(404)
+		throw new Error('Car not found')
+	}
+})
+
+export {
+	getAllCars,
+	getBmwCars,
+	getMercedesCars,
+	getAudiCars,
+	getMclarenCars,
+	getFerrariCars,
+	getLamborghiniCars,
+	getCarModel,
+	DeleteCar
+}
