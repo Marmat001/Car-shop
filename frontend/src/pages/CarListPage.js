@@ -29,8 +29,6 @@ const CarListPage = ({ history, match }) => {
 		[ dispatch, history, userInfo, successDelete ]
 	)
 
-	console.log(cars)
-
 	const deleteHandler = (brand, model) => {
 		if (window.confirm('Are you sure?')) {
 			dispatch(deleteCar(brand, model))
@@ -79,7 +77,7 @@ const CarListPage = ({ history, match }) => {
 								<td>{car.category.charAt(0).toUpperCase() + car.category.slice(1)}</td>
 								<td>{car.brand.charAt(0).toUpperCase() + car.brand.slice(1)}</td>
 								<td>
-									<LinkContainer to={`/admin/vehicles/${car.brand}/${car.model}/edit`}>
+									<LinkContainer to={`/admin/vehicles/${car._id}/${car.model}/edit`}>
 										<Button variant='light' className='btn-sm'>
 											<i className='fas fa-edit' />
 										</Button>
