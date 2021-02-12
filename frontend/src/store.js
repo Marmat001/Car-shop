@@ -1,17 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import {
-	audiReducer,
-	bmwReducer,
-	carDeleteReducer,
-	carDetailReducer,
-	CarReducer,
-	ferrariReducer,
-	lamborghiniReducer,
-	mclarenReducer,
-	mercedesReducer
-} from './reducers/carReducers'
+import { carBrandReducer, carDeleteReducer, carDetailReducer, CarReducer } from './reducers/carReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
 	userDeleteReducer,
@@ -26,12 +16,7 @@ import { orderCreateReducer, orderDetailsReducer, orderListMyReducer, orderPayRe
 
 const reducer = combineReducers({
 	carList: CarReducer,
-	bmwList: bmwReducer,
-	mercedesList: mercedesReducer,
-	audiList: audiReducer,
-	mclarenList: mclarenReducer,
-	ferrariList: ferrariReducer,
-	lamborghiniList: lamborghiniReducer,
+	carBrands: carBrandReducer,
 	carDetails: carDetailReducer,
 	cart: cartReducer,
 	userLogin: userLoginReducer,

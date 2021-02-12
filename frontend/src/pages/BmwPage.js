@@ -4,17 +4,17 @@ import { Row, Col } from 'react-bootstrap'
 import CarPreview from '../components/CarPreview'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { listBmwCars } from '../actions/carActions'
+import { listCarBrands } from '../actions/carActions'
 
 const BmwPage = () => {
 	const dispatch = useDispatch()
 
-	const bmwList = useSelector((state) => state.bmwList)
-	const { loading, error, cars } = bmwList
+	const carBrands = useSelector((state) => state.carBrands)
+	const { loading, error, cars } = carBrands
 
 	useEffect(
 		() => {
-			dispatch(listBmwCars())
+			dispatch(listCarBrands('bmw'))
 		},
 		[ dispatch ]
 	)

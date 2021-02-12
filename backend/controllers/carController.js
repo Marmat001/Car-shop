@@ -6,60 +6,10 @@ const getAllCars = asyncHandler(async (req, res) => {
 	res.json(cars)
 })
 
-const getBmwCars = asyncHandler(async (req, res) => {
-	const bmw = await Car.find({ brand: 'bmw' })
-	if (bmw) {
-		res.json(bmw)
-	} else {
-		res.status(404)
-		throw new Error('No cars to display')
-	}
-})
-
-const getMercedesCars = asyncHandler(async (req, res) => {
-	const mercedes = await Car.find({ brand: 'mercedes' })
-	if (mercedes) {
-		res.json(mercedes)
-	} else {
-		res.status(404)
-		throw new Error('No cars to display')
-	}
-})
-
-const getAudiCars = asyncHandler(async (req, res) => {
-	const audi = await Car.find({ brand: 'audi' })
-	if (audi) {
-		res.json(audi)
-	} else {
-		res.status(404)
-		throw new Error('No cars to display')
-	}
-})
-
-const getMclarenCars = asyncHandler(async (req, res) => {
-	const mclaren = await Car.find({ brand: 'mclaren' })
-	if (mclaren) {
-		res.json(mclaren)
-	} else {
-		res.status(404)
-		throw new Error('No cars to display')
-	}
-})
-
-const getFerrariCars = asyncHandler(async (req, res) => {
-	const ferrari = await Car.find({ brand: 'ferrari' })
-	if (ferrari) {
-		res.json(ferrari)
-	} else {
-		res.status(404)
-		throw new Error('No cars to display')
-	}
-})
-
-const getLamborghiniCars = asyncHandler(async (req, res) => {
-	const lamborghini = await Car.find({ brand: 'lamborghini' })
-	if (lamborghini) {
-		res.json(lamborghini)
+const getCarBrands = asyncHandler(async (req, res) => {
+	const brand = await Car.find({ brand: req.params.brand })
+	if (brand) {
+		res.json(brand)
 	} else {
 		res.status(404)
 		throw new Error('No cars to display')
@@ -76,7 +26,7 @@ const getCarModel = asyncHandler(async (req, res) => {
 	}
 })
 
-const DeleteCar = asyncHandler(async (req, res) => {
+const deleteCar = asyncHandler(async (req, res) => {
 	const car = await Car.find({ model: req.params.model })
 	if (car) {
 		await car[0].remove()
@@ -87,14 +37,4 @@ const DeleteCar = asyncHandler(async (req, res) => {
 	}
 })
 
-export {
-	getAllCars,
-	getBmwCars,
-	getMercedesCars,
-	getAudiCars,
-	getMclarenCars,
-	getFerrariCars,
-	getLamborghiniCars,
-	getCarModel,
-	DeleteCar
-}
+export { getAllCars, getCarBrands, getCarModel, deleteCar }

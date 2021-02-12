@@ -12,83 +12,13 @@ export const CarReducer = (state = { cars: [] }, action) => {
 	}
 }
 
-export const bmwReducer = (state = { cars: [] }, action) => {
+export const carBrandReducer = (state = { cars: [] }, action) => {
 	switch (action.type) {
-		case 'BMW_LIST_REQUEST':
+		case 'BRAND_LIST_REQUEST':
 			return { loading: true, cars: [] }
-		case 'BMW_LIST_SUCCESS':
+		case 'BRAND_LIST_SUCCESS':
 			return { loading: false, cars: action.payload }
-		case 'BMW_LIST_FAIL':
-			return { loading: false, error: action.payload }
-
-		default:
-			return state
-	}
-}
-
-export const mercedesReducer = (state = { cars: [] }, action) => {
-	switch (action.type) {
-		case 'MERCEDES_LIST_REQUEST':
-			return { loading: true, cars: [] }
-		case 'MERCEDES_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
-		case 'MERCEDES_LIST_FAIL':
-			return { loading: false, error: action.payload }
-
-		default:
-			return state
-	}
-}
-
-export const audiReducer = (state = { cars: [] }, action) => {
-	switch (action.type) {
-		case 'AUDI_LIST_REQUEST':
-			return { loading: true, cars: [] }
-		case 'AUDI_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
-		case 'AUDI_LIST_FAIL':
-			return { loading: false, error: action.payload }
-
-		default:
-			return state
-	}
-}
-
-export const mclarenReducer = (state = { cars: [] }, action) => {
-	switch (action.type) {
-		case 'MCLAREN_LIST_REQUEST':
-			return { loading: true, cars: [] }
-		case 'MCLAREN_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
-		case 'MCLAREN_LIST_FAIL':
-			return { loading: false, error: action.payload }
-
-		default:
-			return state
-	}
-}
-
-export const ferrariReducer = (state = { cars: [] }, action) => {
-	switch (action.type) {
-		case 'FERRARI_LIST_REQUEST':
-			return { loading: true, cars: [] }
-		case 'FERRARI_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
-		case 'FERRARI_LIST_FAIL':
-			return { loading: false, error: action.payload }
-
-		default:
-			return state
-	}
-}
-
-export const lamborghiniReducer = (state = { cars: [] }, action) => {
-	switch (action.type) {
-		case 'LAMBORGHINI_LIST_REQUEST':
-			return { loading: true, cars: [] }
-		case 'LAMBORGHINI_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
-		case 'LAMBORGHINI_LIST_FAIL':
+		case 'BRAND_LIST_FAIL':
 			return { loading: false, error: action.payload }
 
 		default:

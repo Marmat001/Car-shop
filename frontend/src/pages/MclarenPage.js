@@ -4,38 +4,38 @@ import { Row, Col } from 'react-bootstrap'
 import CarPreview from '../components/CarPreview'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { listMclarenCars } from '../actions/carActions'
+import { listCarBrands } from '../actions/carActions'
 
 const MclarenPage = () => {
 	const dispatch = useDispatch()
 
-	const mclarenList = useSelector((state) => state.mclarenList)
-	const { loading, error, cars } = mclarenList
+	const carBrands = useSelector((state) => state.carBrands)
+	const { loading, error, cars } = carBrands
 
 	useEffect(
 		() => {
-			dispatch(listMclarenCars())
+			dispatch(listCarBrands('mclaren'))
 		},
 		[ dispatch ]
 	)
 
 	return (
 		<div>
-		<h2 className='py-3'>Mclaren</h2>
-		{loading ? (
-			<Loader />
-		) : error ? (
-			<Message variant='danger'>{error}</Message>
-		) : (
-			<Row>
-				{cars.map((car) => (
-					<Col key={car._id} sm={12} md={6} lg={4}>
-						<CarPreview car={car} />
-					</Col>
-				))}
-			</Row>
-		)}
-	</div>
+			<h2 className='py-3'>Mclaren</h2>
+			{loading ? (
+				<Loader />
+			) : error ? (
+				<Message variant='danger'>{error}</Message>
+			) : (
+				<Row>
+					{cars.map((car) => (
+						<Col key={car._id} sm={12} md={6} lg={4}>
+							<CarPreview car={car} />
+						</Col>
+					))}
+				</Row>
+			)}
+		</div>
 	)
 }
 
