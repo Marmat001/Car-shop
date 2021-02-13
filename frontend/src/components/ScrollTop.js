@@ -12,7 +12,7 @@ export default function ScrollTop() {
 				top: 0,
 				left: 0
 			})
-			// dispatch({ type: 'CAR_DETAILS_CLEAR' })
+			dispatch({ type: 'CAR_DETAILS_CLEAR' })
 		},
 		[ pathname, dispatch ]
 	)

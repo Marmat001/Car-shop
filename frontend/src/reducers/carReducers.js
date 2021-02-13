@@ -36,9 +36,7 @@ export const carDetailReducer = (state = { car: { reviews: [] } }, action) => {
 			return { loading: false, error: action.payload }
 		case 'CAR_DETAILS_CLEAR':
 			return {
-				...state,
-				searched: [],
-				loading: true
+				car: {}
 			}
 
 		default:

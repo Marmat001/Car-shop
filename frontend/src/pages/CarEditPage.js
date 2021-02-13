@@ -46,7 +46,6 @@ const CarEditPage = ({ match, history }) => {
 					setCategory(car.category)
 					setCountInStock(car.countInStock)
 					setDescription(car.description)
-					console.log('pyah')
 				}
 			}
 		},
