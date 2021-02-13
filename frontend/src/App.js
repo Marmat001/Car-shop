@@ -25,6 +25,7 @@ import UserListPage from './pages/UserListPage'
 import EditUserPage from './pages/EditUserPage'
 import CarListPage from './pages/CarListPage'
 import CarEditPage from './pages/CarEditPage'
+import CarCreatePage from './pages/CarCreatePage'
 
 const App = () => {
 	return (

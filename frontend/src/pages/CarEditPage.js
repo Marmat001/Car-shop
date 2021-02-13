@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
@@ -11,6 +13,8 @@ const CarEditPage = ({ match, history }) => {
 	const carId = match.params.id
 	const carModel = match.params.model
 	const carBrand = match.params.brand
+
+	const { pathname } = useLocation()
 
 	const [ name, setName ] = useState('')
 	const [ price, setPrice ] = useState(0)
@@ -35,9 +39,9 @@ const CarEditPage = ({ match, history }) => {
 				dispatch({ type: 'CAR_UPDATE_RESET' })
 				history.push('/admin/carlist')
 			} else {
-				if (!car.name || car._id !== carId) {
+				if ((!car.name && pathname.includes(carModel)) || (car._id !== carId && pathname.includes(carModel))) {
 					dispatch(listCarDetails(carBrand, carModel))
-				} else {
+				} else if (carModel) {
 					setName(car.name)
 					setPrice(car.price)
 					setImage(car.image)
@@ -46,6 +50,15 @@ const CarEditPage = ({ match, history }) => {
 					setCategory(car.category)
 					setCountInStock(car.countInStock)
 					setDescription(car.description)
+				} else {
+					setName('Sample name')
+					setPrice(0)
+					setImage('images/sample.jpg')
+					setModel('Sample model')
+					setBrand('Sample brand')
+					setCategory('Sample category')
+					setCountInStock(0)
+					setDescription('Sample description')
 				}
 			}
 		},
@@ -75,7 +88,8 @@ const CarEditPage = ({ match, history }) => {
 				Go Back
 			</Link>
 			<FormContainer>
-				<h1>Edit Car Info</h1>
+				{pathname.includes(carModel) ? <h1>Edit Car Information</h1> : <h1>Add New Car Information</h1>}
+
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{loading ? (
