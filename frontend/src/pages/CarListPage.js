@@ -4,7 +4,7 @@ import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { listAllCars, deleteCar } from '../actions/carActions'
+import { listAllCars, deleteCar, addCar } from '../actions/carActions'
 
 const CarListPage = ({ history, match }) => {
 	const dispatch = useDispatch()
@@ -15,18 +15,26 @@ const CarListPage = ({ history, match }) => {
 	const carDelete = useSelector((state) => state.carDelete)
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = carDelete
 
+	const carAdd = useSelector((state) => state.carAdd)
+	const { loading: loadingAdd, error: errorAdd, success: successAdd, car: addedCar } = carAdd
+
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
 	useEffect(
 		() => {
-			if (userInfo && userInfo.isAdmin) {
-				dispatch(listAllCars())
-			} else {
+			dispatch({ type: 'CAR_ADD_RESET' })
+
+			if (!userInfo.isAdmin) {
 				history.push('/login')
 			}
+			if (successAdd) {
+				history.push(`/admin/vehicles/${addedCar._id}/edit`)
+			} else {
+				dispatch(listAllCars())
+			}
 		},
-		[ dispatch, history, userInfo, successDelete ]
+		[ dispatch, history, userInfo, successDelete, successAdd, addedCar ]
 	)
 
 	const deleteHandler = (brand, model) => {
@@ -35,7 +43,7 @@ const CarListPage = ({ history, match }) => {
 		}
 	}
 	const createCarHandler = (car) => {
-		//create car
+		dispatch(addCar())
 	}
 
 	return (
@@ -52,6 +60,8 @@ const CarListPage = ({ history, match }) => {
 			</Row>
 			{loadingDelete && <Loader />}
 			{errorDelete && <Message variant='danger'>{errorDelete}</Message>}
+			{loadingAdd && <Loader />}
+			{errorAdd && <Message variant='danger'>{errorAdd}</Message>}
 			{loading ? (
 				<Loader />
 			) : error ? (

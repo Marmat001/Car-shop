@@ -24,6 +24,7 @@ import OrderSummaryPage from './pages/OrderSummaryPage'
 import UserListPage from './pages/UserListPage'
 import EditUserPage from './pages/EditUserPage'
 import CarListPage from './pages/CarListPage'
+import CarEditPage from './pages/CarEditPage'
 
 const App = () => {
 	return (
@@ -41,6 +42,7 @@ const App = () => {
 					<Route path='/admin/userlist' component={UserListPage} />
 					<Route path='/admin/user/:id/edit' component={EditUserPage} />
 					<Route path='/admin/carlist' component={CarListPage} />
+					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
 					<Route path='/register' component={RegisterPage} />
 					<Route path='/profile' component={ProfilePage} />
 					<Route path='/vehicles' component={ShopPage} exact />

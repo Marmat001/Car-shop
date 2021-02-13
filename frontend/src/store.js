@@ -1,7 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { carBrandReducer, carDeleteReducer, carDetailReducer, CarReducer } from './reducers/carReducers'
+import {
+	addCarReducer,
+	carBrandReducer,
+	carDeleteReducer,
+	carDetailReducer,
+	CarReducer,
+	updateCarReducer
+} from './reducers/carReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
 	userDeleteReducer,
@@ -30,7 +37,9 @@ const reducer = combineReducers({
 	userList: userListReducer,
 	userDelete: userDeleteReducer,
 	userUpdate: userUpdateReducer,
-	carDelete: carDeleteReducer
+	carDelete: carDeleteReducer,
+	carAdd: addCarReducer,
+	carUpdate: updateCarReducer
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

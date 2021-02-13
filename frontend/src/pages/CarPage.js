@@ -56,22 +56,22 @@ const CarPage = ({history, match }) => {
 			{loading ? <Loader/> : error ? <Message variant="danger">{error}</Message> : (
 				<Row>
 				<Col md={6}>
-					<Image src={car[0]?.image} alt={car[0]?.name} fluid />
+					<Image src={car?.image} alt={car?.name} fluid />
 				</Col>
 
 				<Col md={3}>
 					<ListGroup variant='flush'>
 						<ListGroup.Item>
-							<h2>{car[0]?.name}</h2>
+							<h2>{car?.name}</h2>
 						</ListGroup.Item>
 						<ListGroup.Item>
 							<Rating
-								value={car[0]?.rating}
-								text={car[0]?.reviewAmount === 0 ? 'Not Rated Yet' : `${car[0]?.reviewAmount} reviews`}
+								value={car?.rating}
+								text={car?.reviewAmount === 0 ? 'Not Rated Yet' : `${car?.reviewAmount} reviews`}
 							/>
 						</ListGroup.Item>
-						<ListGroup.Item>Price: $ {car[0]?.price}</ListGroup.Item>
-						<ListGroup.Item>{car[0]?.description}</ListGroup.Item>
+						<ListGroup.Item>Price: $ {car?.price}</ListGroup.Item>
+						<ListGroup.Item>{car?.description}</ListGroup.Item>
 					</ListGroup>
 				</Col>
 				<Col md={3}>
@@ -81,23 +81,23 @@ const CarPage = ({history, match }) => {
 								<Row>
 									<Col>Price:</Col>
 									<Col>
-										<strong>${car[0]?.price}</strong>
+										<strong>${car?.price}</strong>
 									</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>
 								<Row>
 									<Col>Status:</Col>
-									<Col>{car[0]?.countInStock > 0 ? 'Available' : 'Not available'}</Col>
+									<Col>{car?.countInStock > 0 ? 'Available' : 'Not available'}</Col>
 								</Row>
 							</ListGroup.Item>
-							{car[0]?.countInStock > 0 && (
+							{car?.countInStock > 0 && (
 								<ListGroup.Item>
 									<Row>
 										<Col>Qty</Col>
 										<Col>
 											<Form.Control as="select" value={qty} onChange={(e) => setQty(e.target.value)}>
-												{[...Array(car[0]?.countInStock).keys()].map((x) => (
+												{[...Array(car?.countInStock).keys()].map((x) => (
 													<option key={x + 1} value={x + 1}>
 														{x + 1}
 													</option>
@@ -108,7 +108,7 @@ const CarPage = ({history, match }) => {
 								</ListGroup.Item>
 							)}
 							<ListGroup.Item>
-								<Button onClick={AddCarToCartHandler} className='btn-block' type='button' disabled={car[0]?.countInStock === 0}>
+								<Button onClick={AddCarToCartHandler} className='btn-block' type='button' disabled={car?.countInStock === 0}>
 									Add To Cart
 								</Button>
 							</ListGroup.Item>

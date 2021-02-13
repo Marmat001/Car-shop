@@ -59,3 +59,33 @@ export const carDeleteReducer = (state = {}, action) => {
 			return state
 	}
 }
+
+export const addCarReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'CAR_ADD_REQUEST':
+			return { loading: true }
+		case 'CAR_ADD_SUCCESS':
+			return { loading: false, success: true, car: action.payload }
+		case 'CAR_ADD_FAIL':
+			return { loading: false, error: action.payload }
+		case 'CAR_ADD_RESET':
+			return {}
+		default:
+			return state
+	}
+}
+
+export const updateCarReducer = (state = { car: [] }, action) => {
+	switch (action.type) {
+		case 'CAR_UPDATE_REQUEST':
+			return { loading: true }
+		case 'CAR_UPDATE_SUCCESS':
+			return { loading: false, success: true, car: action.payload }
+		case 'CAR_UPDATE_FAIL':
+			return { loading: false, error: action.payload }
+		case 'CAR_UPDATE_RESET':
+			return { car: {} }
+		default:
+			return state
+	}
+}

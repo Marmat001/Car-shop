@@ -15,7 +15,7 @@ router.route('/').get(getAllCars).post(secure, admin, addNewCar)
 router.route('/:brand').get(getCarBrands)
 
 router.route('/:brand/:model').get(getCarModel).delete(secure, admin, deleteCar)
-	
-router.route('/:id/:model').put(secure, admin, updateCarInfo)
+
+router.route('/:id/:model?').put(secure, admin, updateCarInfo)
 
 export default router
