@@ -6,7 +6,6 @@ body {
 	padding-top: 5rem;
 }
 
-
 #nav-item {
 	color: white;
 }
@@ -35,4 +34,20 @@ h2 {
 
 .rating span {
 	margin: .1rem;
+}
+
+#searchinput {
+	width: 700px;
+}
+
+@media (max-width: 1500px) {
+	#searchinput {
+		width: 450px;
+	}
+}
+
+@media (max-width: 1280px) {
+	#searchinput {
+		width: 200px;
+	}
 }

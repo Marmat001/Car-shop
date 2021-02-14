@@ -2,7 +2,16 @@ import asyncHandler from 'express-async-handler'
 import Car from '../models/carModel.js'
 
 const getAllCars = asyncHandler(async (req, res) => {
-	const cars = await Car.find({})
+	const word = req.query.word
+		? {
+				name: {
+					$regex: req.query.word,
+					$options: 'i'
+				}
+			}
+		: {}
+
+	const cars = await Car.find({ ...word })
 	res.json(cars)
 })
 

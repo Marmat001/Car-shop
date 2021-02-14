@@ -15,11 +15,11 @@ export const listCarBrands = (brand) => async (dispatch) => {
 	}
 }
 
-export const listAllCars = () => async (dispatch) => {
+export const listAllCars = (word = '') => async (dispatch) => {
 	try {
 		dispatch({ type: 'CAR_LIST_REQUEST' })
 
-		const { data } = await axios.get('/api/vehicles')
+		const { data } = await axios.get(`/api/vehicles?word=${word}`)
 
 		dispatch({ type: 'CAR_LIST_SUCCESS', payload: data })
 	} catch (error) {

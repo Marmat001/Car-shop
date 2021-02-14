@@ -26,15 +26,18 @@ import EditUserPage from './pages/EditUserPage'
 import CarListPage from './pages/CarListPage'
 import CarEditPage from './pages/CarEditPage'
 import OrderListPage from './pages/OrderListPage'
+import SearchPage from './pages/SearchPage'
 
 const App = () => {
 	return (
 		<Router>
 			<ScrollTop />
-			<Navigation />
+
 			<main className='py-4'>
 				<Container fluid>
+					<Navigation />
 					<Route path='/' component={HomePage} exact />
+					<Route path='/vehicles/search/:word' component={SearchPage} />
 					<Route path='/login' component={LoginPage} />
 					<Route path='/shipping' component={ShippingPage} />
 					<Route path='/payment' component={PaymentPage} />

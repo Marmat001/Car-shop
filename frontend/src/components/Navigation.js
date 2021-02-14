@@ -1,8 +1,9 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import SearchField from './SearchField'
 import { logout } from '../actions/userActions'
 
 const Navigation = () => {
@@ -17,7 +18,7 @@ const Navigation = () => {
 	return (
 		<header>
 			<Navbar className='fixed-top' style={{ backgroundColor: '#00bc8c' }} expand='lg' collapseOnSelect>
-				<Container>
+				<Container fluid className='px-5'>
 					<LinkContainer to='/'>
 						<Navbar.Brand id='nav-item'>
 							<i className='fas fa-tachometer-alt mx-1' /> <strong>Vroom</strong>
@@ -25,6 +26,7 @@ const Navigation = () => {
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
+						<Route render={({ history }) => <SearchField history={history} />} />
 						<Nav className='ml-auto'>
 							<LinkContainer to='/vehicles'>
 								<Nav.Link id='nav-item' className='mx-3'>

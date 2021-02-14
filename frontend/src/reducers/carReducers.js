@@ -6,7 +6,10 @@ export const CarReducer = (state = { cars: [] }, action) => {
 			return { loading: false, cars: action.payload }
 		case 'CAR_LIST_FAIL':
 			return { loading: false, error: action.payload }
-
+		case 'CAR_LIST_RESET':
+			return {
+				cars: []
+			}
 		default:
 			return state
 	}

@@ -8,12 +8,12 @@ const CarBrandPreview = ({ car }) => {
 
 	return (
 		<Card className='my-3 p-3 rounded'>
-			<Link to={`${location.pathname}/${car.model}`}>
+			<Link to={`/vehicles/${car.brand}/${car.model}`}>
 				<Card.Img src={car.image} variant='top' />
 			</Link>
 
 			<Card.Body>
-				<Link to={`${location.pathname}/${car.model}`}>
+				<Link to={`/vehicles/${car.brand}/${car.model}`}>
 					<Card.Title as='div' style={{ textAlign: 'center' }}>
 						<h3>
 							<strong>{car.name}</strong>
