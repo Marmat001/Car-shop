@@ -3,7 +3,7 @@ export const CarReducer = (state = { cars: [] }, action) => {
 		case 'CAR_LIST_REQUEST':
 			return { loading: true, cars: [] }
 		case 'CAR_LIST_SUCCESS':
-			return { loading: false, cars: action.payload }
+			return { loading: false, cars: action.payload.cars, pages: action.payload.pages, page: action.payload.page }
 		case 'CAR_LIST_FAIL':
 			return { loading: false, error: action.payload }
 		case 'CAR_LIST_RESET':

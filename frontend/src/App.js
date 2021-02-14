@@ -37,7 +37,9 @@ const App = () => {
 				<Container fluid>
 					<Navigation />
 					<Route path='/' component={HomePage} exact />
-					<Route path='/vehicles/search/:word' component={SearchPage} />
+					<Route path='/vehicles/search/:word' component={SearchPage} exact />
+					{/* <Route path='/vehicles/page/:pageNumber' component={SearchPage} exact /> */}
+					<Route path='/vehicles/search/:word/page/:pageNumber' component={SearchPage} exact />
 					<Route path='/login' component={LoginPage} />
 					<Route path='/shipping' component={ShippingPage} />
 					<Route path='/payment' component={PaymentPage} />
@@ -45,7 +47,8 @@ const App = () => {
 					<Route path='/order/:id' component={OrderSummaryPage} />
 					<Route path='/admin/userlist' component={UserListPage} />
 					<Route path='/admin/user/:id/edit' component={EditUserPage} />
-					<Route path='/admin/carlist' component={CarListPage} />
+					<Route path='/admin/carlist' component={CarListPage} exact />
+					<Route path='/admin/carlist/:pageNumber' component={CarListPage} exact />
 					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
 					<Route path='/admin/orderlist' component={OrderListPage} />
 					<Route path='/register' component={RegisterPage} />

@@ -2,6 +2,9 @@ import asyncHandler from 'express-async-handler'
 import Car from '../models/carModel.js'
 
 const getAllCars = asyncHandler(async (req, res) => {
+	const pageProductSize = 10
+	const page = Number(req.query.pageNumber) || 1
+
 	const word = req.query.word
 		? {
 				name: {
@@ -11,8 +14,9 @@ const getAllCars = asyncHandler(async (req, res) => {
 			}
 		: {}
 
-	const cars = await Car.find({ ...word })
-	res.json(cars)
+	const count = await Car.countDocuments({ ...word })
+	const cars = await Car.find({ ...word }).limit(pageProductSize).skip(pageProductSize * (page - 1))
+	res.json({ cars, page, pages: Math.ceil(count / pageProductSize) })
 })
 
 const getCarBrands = asyncHandler(async (req, res) => {
