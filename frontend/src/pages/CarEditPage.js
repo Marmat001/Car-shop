@@ -63,8 +63,9 @@ const CarEditPage = ({ match, history }) => {
 					setDescription('Sample description')
 				}
 			}
+			console.log('wtf')
 		},
-		[ dispatch, history, carBrand, carModel, carId, successUpdate, car ]
+		[ dispatch, history, carBrand, carModel, carId, successUpdate, car.name ]
 	)
 
 	const uploadFileHandler = async (e) => {

@@ -6,12 +6,12 @@ export const addToCart = (model, brand, qty) => async (dispatch, getState) => {
 	dispatch({
 		type: 'CART_ADD_ITEM',
 		payload: {
-			car: data[0].model,
-			name: data[0].name,
-			brand: data[0].brand,
-			image: data[0].image,
-			price: data[0].price,
-			countInStock: data[0].countInStock,
+			car: data.model,
+			name: data.name,
+			brand: data.brand,
+			image: data.image,
+			price: data.price,
+			countInStock: data.countInStock,
 			qty
 		}
 	})
@@ -36,8 +36,6 @@ export const saveShippingAddress = (data) => (dispatch) => {
 
 	localStorage.setItem('shippingAddress', JSON.stringify(data))
 }
-
-
 
 export const savePaymentMethod = (data) => (dispatch) => {
 	dispatch({

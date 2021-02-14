@@ -6,7 +6,8 @@ import {
 	getCarModel,
 	deleteCar,
 	updateCarInfo,
-	addNewCar
+	addNewCar,
+	createNewReview
 } from '../controllers/carController.js'
 import { secure, admin } from '../middleware/authenticationMiddleware.js'
 
@@ -17,5 +18,7 @@ router.route('/:brand').get(getCarBrands)
 router.route('/:brand/:model').get(getCarModel).delete(secure, admin, deleteCar)
 
 router.route('/:id/:model?').put(secure, admin, updateCarInfo)
+
+router.route('/:id/:model/reviews').post(secure, createNewReview)
 
 export default router

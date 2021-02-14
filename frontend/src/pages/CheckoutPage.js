@@ -8,6 +8,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CheckoutPage = ({ match, location, history }) => {
 	const carModel = match.params.model
+	const carBrand = match.params.brand
 
 	const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -20,24 +21,7 @@ const CheckoutPage = ({ match, location, history }) => {
 	useEffect(
 		() => {
 			if (carModel) {
-				if (pathname.includes('/bmw')) {
-					dispatch(addToCart(carModel, 'bmw', qty))
-				}
-				if (pathname.includes('/mercedes')) {
-					dispatch(addToCart(carModel, 'mercedes', qty))
-				}
-				if (pathname.includes('/audi')) {
-					dispatch(addToCart(carModel, 'audi', qty))
-				}
-				if (pathname.includes('/mclaren')) {
-					dispatch(addToCart(carModel, 'mclaren', qty))
-				}
-				if (pathname.includes('/ferrari')) {
-					dispatch(addToCart(carModel, 'ferrari', qty))
-				}
-				if (pathname.includes('/lamborghini')) {
-					dispatch(addToCart(carModel, 'lamborghini', qty))
-				}
+				dispatch(addToCart(carModel, carBrand, qty))
 			}
 		},
 		[ dispatch, carModel, qty, pathname ]

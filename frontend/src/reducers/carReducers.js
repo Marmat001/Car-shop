@@ -87,3 +87,18 @@ export const updateCarReducer = (state = { car: [] }, action) => {
 			return state
 	}
 }
+
+export const createCarReviewReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'CAR_CREATE_REVIEW_REQUEST':
+			return { loading: true }
+		case 'CAR_CREATE_REVIEW_SUCCESS':
+			return { loading: false, success: true }
+		case 'CAR_CREATE_REVIEW_FAIL':
+			return { loading: false, error: action.payload }
+		case 'CAR_CREATE_REVIEW_RESET':
+			return {}
+		default:
+			return state
+	}
+}

@@ -19,7 +19,7 @@ const getCarBrands = asyncHandler(async (req, res) => {
 const getCarModel = asyncHandler(async (req, res) => {
 	const car = await Car.find({ model: req.params.model })
 	if (car.length) {
-		res.json(car)
+		res.json(car[0])
 	} else {
 		res.status(404)
 		throw new Error('Car not found')
@@ -48,7 +48,7 @@ const addNewCar = asyncHandler(async (req, res) => {
 		brand: 'Sample brand',
 		category: 'Sample category',
 		countInStock: 0,
-		numReviews: 0,
+		reviewAmount: 0,
 		description: 'Sample description'
 	})
 
@@ -79,4 +79,38 @@ const updateCarInfo = asyncHandler(async (req, res) => {
 	}
 })
 
-export { getAllCars, getCarBrands, getCarModel, deleteCar, addNewCar, updateCarInfo }
+const createNewReview = asyncHandler(async (req, res) => {
+	const { rating, comment } = req.body
+
+	const car = await Car.findById(req.params.id)
+
+	if (car) {
+		const reviewedAlready = car.reviews.find((r) => r.user.toString() === req.user._id.toString())
+
+		if (reviewedAlready) {
+			res.status(400)
+			throw new Error('Car already reviewed')
+		}
+
+		const review = {
+			name: req.user.name,
+			rating: Number(rating),
+			comment,
+			user: req.user._id
+		}
+
+		car.reviews.push(review)
+
+		car.reviewAmount = car.reviews.length
+
+		car.rating = car.reviews.reduce((acc, currval) => currval.rating + acc, 0) / car.reviews.length
+
+		await car.save()
+		res.status(201).json({ message: 'Review Added' })
+	} else {
+		res.status(404)
+		throw new Error('Car not found')
+	}
+})
+
+export { getAllCars, getCarBrands, getCarModel, deleteCar, addNewCar, updateCarInfo, createNewReview }

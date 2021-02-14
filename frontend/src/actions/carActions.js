@@ -35,7 +35,7 @@ export const listCarDetails = (brand, model) => async (dispatch) => {
 		dispatch({ type: 'CAR_DETAILS_REQUEST' })
 
 		const { data } = await axios.get(`/api/vehicles/${brand}/${model}`)
-		dispatch({ type: 'CAR_DETAILS_SUCCESS', payload: data[0] })
+		dispatch({ type: 'CAR_DETAILS_SUCCESS', payload: data })
 	} catch (error) {
 		dispatch({
 			type: 'CAR_DETAILS_FAIL',
@@ -123,6 +123,34 @@ export const updateCar = (car) => async (dispatch, getState) => {
 	} catch (error) {
 		dispatch({
 			type: 'CAR_UPDATE_FAIL',
+			payload: error.response && error.response.data.message ? error.response.data.message : error.message
+		})
+	}
+}
+
+export const createCarReview = (carId, carModel, review) => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: 'CAR_CREATE_REVIEW_REQUEST'
+		})
+
+		const { userLogin: { userInfo } } = getState()
+
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${userInfo.token}`
+			}
+		}
+
+		await axios.post(`/api/vehicles/${carId}/${carModel}/reviews`, review, config)
+
+		dispatch({
+			type: 'CAR_CREATE_REVIEW_SUCCESS'
+		})
+	} catch (error) {
+		dispatch({
+			type: 'CAR_CREATE_REVIEW_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
 	}
