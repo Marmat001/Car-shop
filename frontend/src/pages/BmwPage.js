@@ -5,6 +5,7 @@ import CarPreview from '../components/CarPreview'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listCarBrands } from '../actions/carActions'
+import CustomTitle from '../components/CustomTitle'
 
 const BmwPage = () => {
 	const dispatch = useDispatch()
@@ -28,6 +29,7 @@ const BmwPage = () => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<Row>
+					<CustomTitle title='BMW' />
 					{cars.map((car) => (
 						<Col key={car._id} sm={12} md={6} lg={4}>
 							<CarPreview car={car} />

@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listAllCars } from '../actions/carActions'
 import Paginate from '../components/Paginate'
+import CustomTitle from '../components/CustomTitle'
 
 const SearchPage = ({ match }) => {
 	const word = match.params.word
@@ -28,8 +29,6 @@ const SearchPage = ({ match }) => {
 		[ dispatch, word, pageNumber ]
 	)
 
-	console.log(cars)
-
 	return (
 		<div>
 			<h2 className='py-3'>Searched Cars</h2>
@@ -39,6 +38,7 @@ const SearchPage = ({ match }) => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<div>
+					<CustomTitle title='Searched Cars' />
 					<Row>
 						{cars.map((car) => (
 							<Col key={car._id} sm={12} md={6} lg={4}>

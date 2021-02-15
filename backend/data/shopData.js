@@ -11,7 +11,7 @@ const shopData = [
 				model: 'bmw-m8',
 				price: 143450,
 				countInStock: 2,
-				rating: 4.5,
+				rating: 5,
 				reviewAmount: 1
 			},
 			{
@@ -37,7 +37,7 @@ const shopData = [
 				model: 'bmw-m5',
 				price: 106750,
 				countInStock: 5,
-				rating: 5,
+				rating: 4.5,
 				reviewAmount: 6
 			},
 			{
@@ -50,7 +50,7 @@ const shopData = [
 				model: 'bmw-m4',
 				price: 77600,
 				countInStock: 0,
-				rating: 5,
+				rating: 4.5,
 				reviewAmount: 14
 			},
 			{
@@ -63,7 +63,7 @@ const shopData = [
 				model: 'bmw-m3',
 				price: 65990,
 				countInStock: 10,
-				rating: 5,
+				rating: 4.5,
 				reviewAmount: 9
 			},
 			{
@@ -94,7 +94,7 @@ const shopData = [
 				price: 161900,
 				countInStock: 3,
 				rating: 5,
-				reviewAmount: 13
+				reviewAmount: 4
 			},
 			{
 				name: 'Mercedes AMG CLS 63',
@@ -106,7 +106,7 @@ const shopData = [
 				model: 'mercedes-cls63',
 				price: 108900,
 				countInStock: 10,
-				rating: 4,
+				rating: 4.8,
 				reviewAmount: 12
 			},
 			{
@@ -119,7 +119,7 @@ const shopData = [
 				model: 'mercedes-s63',
 				price: 171400,
 				countInStock: 0,
-				rating: 5,
+				rating: 4.5,
 				reviewAmount: 8
 			},
 			{
@@ -132,7 +132,7 @@ const shopData = [
 				model: 'mercedes-e63s',
 				price: 107500,
 				countInStock: 1,
-				rating: 5,
+				rating: 4.5,
 				reviewAmount: 8
 			},
 			{
@@ -145,7 +145,7 @@ const shopData = [
 				model: 'mercedes-c63s',
 				price: 78250,
 				countInStock: 0,
-				rating: 4.5,
+				rating: 4.8,
 				reviewAmount: 12
 			},
 			{
@@ -176,7 +176,7 @@ const shopData = [
 				model: 'audi-rs7',
 				price: 114000,
 				countInStock: 6,
-				rating: 5,
+				rating: 4.9,
 				reviewAmount: 4
 			},
 			{
@@ -189,7 +189,7 @@ const shopData = [
 				model: 'audi-rs6',
 				price: 100000,
 				countInStock: 8,
-				rating: 5,
+				rating: 4.8,
 				reviewAmount: 3
 			},
 			{
@@ -215,8 +215,8 @@ const shopData = [
 				model: 'audi-rs4',
 				price: 67625,
 				countInStock: 2,
-				rating: 4,
-				reviewAmount: 8
+				rating: 5,
+				reviewAmount: 4
 			},
 			{
 				name: 'Audi RS3',
@@ -241,8 +241,8 @@ const shopData = [
 				model: 'audi-r8',
 				price: 208100,
 				countInStock: 1,
-				rating: 5,
-				reviewAmount: 6
+				rating: 4.8,
+				reviewAmount: 1
 			}
 		]
 	},
@@ -284,8 +284,8 @@ const shopData = [
 				model: 'mclaren-senna',
 				price: 750500,
 				countInStock: 1,
-				rating: 5,
-				reviewAmount: 1
+				rating: 0,
+				reviewAmount: 0
 			}
 		]
 	},
@@ -301,8 +301,8 @@ const shopData = [
 				model: 'ferrari-488gtb',
 				price: 262800,
 				countInStock: 1,
-				rating: 5,
-				reviewAmount: 1
+				rating: 0,
+				reviewAmount: 0
 			},
 			{
 				name: 'Ferrari 458 Spider',
@@ -371,7 +371,7 @@ const shopData = [
 				price: 417800,
 				countInStock: 3,
 				rating: 4.5,
-				reviewAmount: 3
+				reviewAmount: 2
 			}
 		]
 	}

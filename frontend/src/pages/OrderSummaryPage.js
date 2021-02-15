@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
+import CustomTitle from '../components/CustomTitle'
 
 const OrderSummaryPage = ({ match, history }) => {
 	const orderId = match.params.id
@@ -71,12 +72,15 @@ const OrderSummaryPage = ({ match, history }) => {
 		dispatch(deliverOrder(order))
 	}
 
+	console.log(order)
+
 	return loading ? (
 		<Loader />
 	) : error ? (
 		<Message variant='danger'>{error}</Message>
 	) : (
 		<div>
+			<CustomTitle title='Order Summary' />
 			<h1>Order {order._id}</h1>
 			<Row>
 				<Col md={8}>
@@ -127,25 +131,7 @@ const OrderSummaryPage = ({ match, history }) => {
 													<Image src={item.image} alt={item.name} fluid rounded />
 												</Col>
 												<Col>
-													<Link
-														to={
-															item.name.includes('BMW') ? (
-																`/vehicles/bmw/${item.car}`
-															) : item.name.includes('Mercedes') ? (
-																`/vehicles/mercedes/${item.car}`
-															) : item.name.includes('Audi') ? (
-																`/vehicles/audi/${item.car}`
-															) : item.name.includes('Mclaren') ? (
-																`/vehicles/mclaren/${item.car}`
-															) : item.name.includes('Ferrari') ? (
-																`/vehicles/ferrari/${item.car}`
-															) : item.name.includes('Lamborghini') ? (
-																`/vehicles/lamborghini/${item.car}`
-															) : null
-														}
-													>
-														{item.name}
-													</Link>
+													<Link to={`/vehicles/${item.brand}/${item.car}`}>{item.name}</Link>
 												</Col>
 												<Col md={4}>
 													{item.qty} x ${item.price} = ${item.qty * item.price}

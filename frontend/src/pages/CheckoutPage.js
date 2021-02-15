@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import CustomTitle from '../components/CustomTitle'
 
 const CheckoutPage = ({ match, location, history }) => {
 	const carModel = match.params.model
@@ -37,6 +38,7 @@ const CheckoutPage = ({ match, location, history }) => {
 
 	return (
 		<Row>
+			<CustomTitle title="Cart" />
 			<Col md={8}>
 				<h1>Shopping Cart</h1>
 				{cartItems.length === 0 ? (

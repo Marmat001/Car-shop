@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listAllCars, deleteCar, addCar } from '../actions/carActions'
 import Paginate from '../components/Paginate'
+import CustomTitle from '../components/CustomTitle'
 
 const CarListPage = ({ history, match }) => {
 	const pageNumber = match.params.pageNumber || 1
@@ -71,6 +72,7 @@ const CarListPage = ({ history, match }) => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<div>
+					<CustomTitle title='Car Inventory' />
 					<Table striped bordered hover responsive className='table-sm'>
 						<thead>
 							<tr>

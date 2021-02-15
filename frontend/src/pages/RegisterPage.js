@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
+import CustomTitle from '../components/CustomTitle'
 
 const RegisterPage = ({ location, history }) => {
 	const [ name, setName ] = useState('')
@@ -41,6 +42,7 @@ const RegisterPage = ({ location, history }) => {
 
 	return (
 		<FormContainer>
+			<CustomTitle title='Register' />
 			<h1>Sign Up</h1>
 			{message && <Message variant='danger'>{message}</Message>}
 			{error && <Message variant='danger'>{error}</Message>}

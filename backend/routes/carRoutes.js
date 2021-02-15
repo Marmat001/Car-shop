@@ -7,11 +7,14 @@ import {
 	deleteCar,
 	updateCarInfo,
 	addNewCar,
-	createNewReview
+	createNewReview,
+	getTopRatedCars
 } from '../controllers/carController.js'
 import { secure, admin } from '../middleware/authenticationMiddleware.js'
 
 router.route('/').get(getAllCars).post(secure, admin, addNewCar)
+
+router.get('/top', getTopRatedCars)
 
 router.route('/:brand').get(getCarBrands)
 

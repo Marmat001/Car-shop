@@ -155,3 +155,21 @@ export const createCarReview = (carId, carModel, review) => async (dispatch, get
 		})
 	}
 }
+
+export const listTopCars = () => async (dispatch) => {
+	try {
+		dispatch({ type: 'CAR_TOP_REQUEST ' })
+
+		const { data } = await axios.get(`/api/vehicles/top`)
+
+		dispatch({
+			type: 'CAR_TOP_SUCCESS',
+			payload: data
+		})
+	} catch (error) {
+		dispatch({
+			type: 'CAR_TOP_FAIL',
+			payload: error.response && error.response.data.message ? error.response.data.message : error.message
+		})
+	}
+}

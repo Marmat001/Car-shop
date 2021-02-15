@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
+import CustomTitle from '../components/CustomTitle'
 
 const LoginPage = ({ location, history }) => {
 	const [ email, setEmail ] = useState('')
@@ -34,6 +35,7 @@ const LoginPage = ({ location, history }) => {
 
 	return (
 		<FormContainer>
+			<CustomTitle title='Log In' />
 			<h1>Sign In</h1>
 			{error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />}

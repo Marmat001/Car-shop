@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
+import CustomTitle from '../components/CustomTitle'
 
 const OrderPage = ({ history }) => {
 	const dispatch = useDispatch()
@@ -29,8 +30,8 @@ const OrderPage = ({ history }) => {
 		() => {
 			if (success) {
 				history.push(`/order/${order._id}`)
-				// dispatch({ type: 'USER_DETAILS_RESET' })
-				// dispatch({ type: 'ORDER_CREATE_RESET' })
+				dispatch({ type: 'USER_DETAILS_RESET' })
+				dispatch({ type: 'ORDER_CREATE_RESET' })
 			}
 			// eslint-disable-next-line
 		},
@@ -53,6 +54,7 @@ const OrderPage = ({ history }) => {
 
 	return (
 		<div>
+			<CustomTitle title='Order Summary' />
 			<CheckoutSteps step1 step2 step3 step4 />
 			<Row>
 				<Col md={8}>
@@ -85,25 +87,7 @@ const OrderPage = ({ history }) => {
 													<Image src={item.image} alt={item.name} fluid rounded />
 												</Col>
 												<Col>
-													<Link
-														to={
-															item.name.includes('BMW') ? (
-																`/vehicles/bmw/${item.car}`
-															) : item.name.includes('Mercedes') ? (
-																`/vehicles/mercedes/${item.car}`
-															) : item.name.includes('Audi') ? (
-																`/vehicles/audi/${item.car}`
-															) : item.name.includes('Mclaren') ? (
-																`/vehicles/mclaren/${item.car}`
-															) : item.name.includes('Ferrari') ? (
-																`/vehicles/ferrari/${item.car}`
-															) : item.name.includes('Lamborghini') ? (
-																`/vehicles/lamborghini/${item.car}`
-															) : null
-														}
-													>
-														{item.name}
-													</Link>
+													<Link to={`/vehicles/${item.brand}/${item.car}`}>{item.name}</Link>
 												</Col>
 												<Col md={4}>
 													{item.qty} x ${item.price} = ${item.qty * item.price}

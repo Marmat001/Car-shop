@@ -40,6 +40,28 @@ h2 {
 	width: 700px;
 }
 
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+	display: flex;
+}
+
+.carousel img {
+	height: 50vh;
+	border-radius: 10px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+.carousel a {
+	margin: 0 auto;
+}
+@media (max-width: 900px) {
+	.carousel-caption h2 {
+		font-size: 2.5vw;
+	}
+}
+
 @media (max-width: 1500px) {
 	#searchinput {
 		width: 450px;

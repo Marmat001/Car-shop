@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
+import CustomTitle from '../components/CustomTitle'
 
 const ProfilePage = ({ location, history }) => {
 	const [ name, setName ] = useState('')
@@ -57,6 +58,7 @@ const ProfilePage = ({ location, history }) => {
 
 	return (
 		<Row>
+			<CustomTitle title='Profile' />
 			<Col md={3}>
 				<h2>User Profile</h2>
 				{message && <Message variant='danger'>{message}</Message>}

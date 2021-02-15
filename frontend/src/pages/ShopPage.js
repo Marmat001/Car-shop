@@ -3,10 +3,12 @@ import { Row, Col } from 'react-bootstrap'
 import CarBrandPreview from '../components/CarBrandPreview'
 import cars from '../cars'
 import { v4 as uuidv4 } from 'uuid'
+import CustomTitle from '../components/CustomTitle'
 
 const ShopPage = () => {
 	return (
 		<div>
+			<CustomTitle title='Vehicles' />
 			<h2 className='py-4'>Our Car Selection</h2>
 			<Row>
 				{cars.map((car) => (

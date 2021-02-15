@@ -105,3 +105,16 @@ export const createCarReviewReducer = (state = {}, action) => {
 			return state
 	}
 }
+
+export const topRatedCarReducer = (state = { cars: [] }, action) => {
+	switch (action.type) {
+		case 'CAR_TOP_REQUEST':
+			return { loading: true, cars: [] }
+		case 'CAR_TOP_SUCCESS':
+			return { loading: false, cars: action.payload }
+		case 'CAR_TOP_FAIL':
+			return { loading: false, error: action.payload }
+		default:
+			return state
+	}
+}

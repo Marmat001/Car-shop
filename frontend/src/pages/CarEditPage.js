@@ -9,6 +9,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listCarDetails, updateCar } from '../actions/carActions'
+import CustomTitle from '../components/CustomTitle'
 
 const CarEditPage = ({ match, history }) => {
 	const carId = match.params.id
@@ -123,6 +124,7 @@ const CarEditPage = ({ match, history }) => {
 					<Message variant='danger'>{error}</Message>
 				) : (
 					<Form onSubmit={submitHandler}>
+						<CustomTitle title='Car Information' />
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>
 							<Form.Control

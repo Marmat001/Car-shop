@@ -7,6 +7,7 @@ import { listCarDetails, createCarReview } from '../actions/carActions'
 import { useLocation } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import CustomTitle from '../components/CustomTitle'
 
 const CarPage = ({ history, match }) => {
 	const [ qty, setQty ] = useState(1)
@@ -55,7 +56,7 @@ const CarPage = ({ history, match }) => {
 	}
 
 	return (
-		<div>
+		<>
 			<Link className='btn btn-light my-3' to='/'>
 				Go Back
 			</Link>
@@ -64,7 +65,8 @@ const CarPage = ({ history, match }) => {
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<div>
+				<>
+					<CustomTitle title={car.name}/>
 					<Row>
 						<Col md={6}>
 							<Image src={car.image} alt={car.name} fluid />
@@ -183,9 +185,9 @@ const CarPage = ({ history, match }) => {
 							</ListGroup>
 						</Col>
 					</Row>
-				</div>
+				</>
 			)}
-		</div>
+		</>
 	)
 }
 

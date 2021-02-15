@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listUsers, deleteUser } from '../actions/userActions'
+import CustomTitle from '../components/CustomTitle'
 
 const UserListPage = ({ history }) => {
 	const dispatch = useDispatch()
@@ -44,6 +45,7 @@ const UserListPage = ({ history }) => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<Table striped bordered hover responsive className='table-sm'>
+					<CustomTitle title='Users' />
 					<thead>
 						<tr>
 							<th>ID</th>

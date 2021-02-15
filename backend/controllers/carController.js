@@ -2,7 +2,7 @@ import asyncHandler from 'express-async-handler'
 import Car from '../models/carModel.js'
 
 const getAllCars = asyncHandler(async (req, res) => {
-	const pageProductSize = 10
+	const pageProductSize = 9
 	const page = Number(req.query.pageNumber) || 1
 
 	const word = req.query.word
@@ -126,4 +126,10 @@ const createNewReview = asyncHandler(async (req, res) => {
 	}
 })
 
-export { getAllCars, getCarBrands, getCarModel, deleteCar, addNewCar, updateCarInfo, createNewReview }
+const getTopRatedCars = asyncHandler(async (req, res) => {
+	const cars = await Car.find({}).sort({ rating: -1 }).limit(6)
+
+	res.json(cars)
+})
+
+export { getAllCars, getCarBrands, getCarModel, deleteCar, addNewCar, updateCarInfo, createNewReview, getTopRatedCars }
