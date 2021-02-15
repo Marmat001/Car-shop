@@ -1,16 +1,16 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import AboutSection from '../components/AboutSection'
 import CustomTitle from '../components/CustomTitle'
-
-import TopRatedCarousel from '../components/TopRatedCarousel'
+import Wave from '../components/Wave'
 
 const HomePage = () => {
 	return (
-		<Container>
+		<div>
 			<CustomTitle title='Welcome To Vroom' />
-			<TopRatedCarousel />
-			{/* <h1 style={{ textAlign: 'center', marginBottom: '3rem', color: '#00bc8c' }}>Welcome to Vroom!</h1> */}
-		</Container>
+			<Wave />
+			<AboutSection />
+		</div>
 	)
 }
 

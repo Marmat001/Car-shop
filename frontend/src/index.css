@@ -56,6 +56,82 @@ h2 {
 .carousel a {
 	margin: 0 auto;
 }
+
+#wave {
+	position: absolute;
+	left: 0;
+}
+
+.about {
+	min-height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5rem 10rem;
+	color: white;
+
+	/* @media (max-width: 1300px) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+  } */
+}
+
+.description {
+	flex: 1;
+	padding-right: 5rem;
+	z-index: 2;
+
+	/* @media (max-width: 1300px) {
+    padding: 0;
+    button {
+      margin: 2rem 0rem 5rem 0rem;
+    } */
+}
+
+.image {
+	z-index: 2;
+	flex: 1;
+	overflow: hidden;
+}
+
+.image > img {
+	width: 100%;
+	height: 80vh;
+	object-fit: cover;
+}
+
+.hidden {
+	overflow: hidden;
+}
+
+.homebutton {
+	font-weight: bold;
+	font-size: 1.1.rem;
+	cursor: pointer;
+	padding: 1rem 2rem;
+	border: 3px solid #23d997;
+	background: transparent;
+	color: white;
+	transition: all .5s ease;
+	font-family: "Inter", sans-serif;
+}
+
+.homebutton:hover {
+	background-color: #23d997;
+	color: white;
+}
+
+.slogan {
+	font-weight: lighter;
+	font-size: 4rem;
+}
+
+.slogan > span {
+	font-weight: bold;
+	color: #23d997;
+}
+
 @media (max-width: 900px) {
 	.carousel-caption h2 {
 		font-size: 2.5vw;
