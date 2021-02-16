@@ -1,37 +1,46 @@
 import React from 'react'
-import wallpaper from '../img/road1.jpeg'
-import { motion } from 'framer-motion'
-import { titleAnim, photoAnim, fade } from '../animations'
+import car1 from '../img/car1.jpeg'
+import car2 from '../img/car2.jpeg'
+import car3 from '../img/car3.jpeg'
 
-export default function AboutSection() {
+import { Row, Col, Container, Image } from 'react-bootstrap'
+
+const AboutSection = () => {
 	return (
-		<motion.div className='about'>
-			<div className='description'>
-				<motion.div>
-					<div className='hidden'>
-						<motion.h2 className='slogan' variants={titleAnim}>
-							Our goal is to make
-						</motion.h2>
-					</div>
-					<div className='hidden'>
-						<motion.h2 className='slogan' variants={titleAnim}>
-							your <span>dream</span> car
-						</motion.h2>
-					</div>
-					<div className='hidden'>
-						<motion.h2 className='slogan' variants={titleAnim}>
-							yours.
-						</motion.h2>
-					</div>
-				</motion.div>
-				<motion.h5 variants={fade}>Contact us for any inquiries or questions regarding our car selection.</motion.h5>
-				<motion.button className='homebutton' variants={fade}>
-					Get In Touch
-				</motion.button>
+		<div className='about'>
+			<div className='text-center'>
+				<h2 className='secondary-heading' style={{ marginBottom: '10rem' }}>
+					The whiff of that new car smell has never been closer
+				</h2>
 			</div>
-			<motion.div className='image'>
-				<motion.img variants={photoAnim} src={wallpaper} alt='road' />
-			</motion.div>
-		</motion.div>
+
+			<Container fluid className='side-padding'>
+				<Row>
+					<Col lg={6}>
+						<h5 className='heading-tertiary'>Cars in which your every moment will be memorable</h5>
+						<p className='paragraph'>
+							With the best selection of cars you're looking for. You pick the one that suits you, and unleash your
+							passion on the road. It's as simple as that!
+						</p>
+
+						<h5 className='heading-tertiary'>Choose what is right for you</h5>
+						<p className='paragraph'>
+							The price you see is the price you pay. We will contact you after you've placed your order to ensure that
+							we can give you the quality you deserve. No need to pay until the car has been checked as available and
+							full disclosure is ensured.
+						</p>
+					</Col>
+					<Col lg={6}>
+						<div className='composition'>
+							<Image src={car1} alt='car 1' className='composition-photo photo-1' fluid />
+							<Image src={car2} alt='car 2' className='composition-photo photo-2' fluid />
+							<Image src={car3} alt='car 3' className='composition-photo photo-3' fluid />
+						</div>
+					</Col>
+				</Row>
+			</Container>
+		</div>
 	)
 }
+
+export default AboutSection

@@ -17,7 +17,12 @@ const Navigation = () => {
 
 	return (
 		<header>
-			<Navbar className='fixed-top' style={{ backgroundColor: '#00bc8c' }} expand='lg' collapseOnSelect>
+			<Navbar
+				className='fixed-top'
+				style={{ backgroundImage: 'linear-gradient(to right, #7ed57f, #28b486)' }}
+				expand='lg'
+				collapseOnSelect
+			>
 				<Container fluid className='px-5'>
 					<LinkContainer to='/'>
 						<Navbar.Brand id='nav-item'>

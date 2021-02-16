@@ -11,7 +11,7 @@ const CarBrandPreview = ({ car }) => {
 
 			<Card.Body>
 				<Link to={`/vehicles/${car.category}`}>
-					<Card.Title as='div' style={{ textAlign: 'center' }}>
+					<Card.Title as='div' className='text-center'>
 						<h3>
 							<strong>{car.name}</strong>
 						</h3>

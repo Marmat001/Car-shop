@@ -16,24 +16,23 @@ const ShopPage = () => {
 	const carTopRated = useSelector((state) => state.carTopRated)
 	const { loading, error, cars: carsTopRated } = carTopRated
 
+	console.log(loading)
 	useEffect(
 		() => {
 			dispatch(listTopCars())
-			console.log(carsTopRated)
 		},
 		[ dispatch ]
 	)
+	console.log(loading)
 
-	return loading ? (
+	return loading === undefined ? (
 		<Loader />
 	) : error ? (
 		<Message variant='danger'>{error}</Message>
 	) : (
 		<div>
 			<CustomTitle title='Vehicles' />
-			<h1 style={{ textAlign: 'center' }} className='py-3 pb-4'>
-				Latest Additions
-			</h1>
+			<h1 className='py-3 pb-4 text-center'>Latest Additions</h1>
 			<Carousel autoPlay={true} interval={2500} pause='hover' className='bg-dark'>
 				{carsTopRated.map((car) => (
 					<Carousel.Item key={car._id}>
