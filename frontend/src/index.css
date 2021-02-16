@@ -110,15 +110,16 @@ h2 {
 	font-size: 1.1.rem;
 	cursor: pointer;
 	padding: 1rem 2rem;
-	border: 3px solid #23d997;
+	border: 3px solid #00bc8c;
 	background: transparent;
 	color: white;
 	transition: all .5s ease;
 	font-family: "Inter", sans-serif;
+	margin-top: 1rem;
 }
 
 .homebutton:hover {
-	background-color: #23d997;
+	background-color: #00bc8c;
 	color: white;
 }
 
@@ -129,7 +130,11 @@ h2 {
 
 .slogan > span {
 	font-weight: bold;
-	color: #23d997;
+	color: #00bc8c;
+}
+
+.composition {
+	position: relative;
 }
 
 @media (max-width: 900px) {

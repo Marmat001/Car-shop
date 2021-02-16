@@ -1,13 +1,12 @@
 import React from 'react'
 import wallpaper from '../img/road1.jpeg'
 import { motion } from 'framer-motion'
-import { titleAnim, fade, photoAnim } from '../animations'
-import Wave from './Wave'
+import { titleAnim, photoAnim, fade } from '../animations'
 
 export default function AboutSection() {
 	return (
 		<motion.div className='about'>
-			<motion.div className='description'>
+			<div className='description'>
 				<motion.div>
 					<div className='hidden'>
 						<motion.h2 className='slogan' variants={titleAnim}>
@@ -25,13 +24,11 @@ export default function AboutSection() {
 						</motion.h2>
 					</div>
 				</motion.div>
-				<motion.p variants={fade}>
-					Contact us for any photography or videography ideas that you have. We have professionals with amazing skills
-				</motion.p>
+				<motion.h5 variants={fade}>Contact us for any inquiries or questions regarding our car selection.</motion.h5>
 				<motion.button className='homebutton' variants={fade}>
-					Contact Us
+					Get In Touch
 				</motion.button>
-			</motion.div>
+			</div>
 			<motion.div className='image'>
 				<motion.img variants={photoAnim} src={wallpaper} alt='road' />
 			</motion.div>

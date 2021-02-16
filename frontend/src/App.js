@@ -32,13 +32,11 @@ const App = () => {
 	return (
 		<Router>
 			<ScrollTop />
-
 			<main className='py-4'>
 				<Container fluid>
 					<Navigation />
 					<Route path='/' component={HomePage} exact />
 					<Route path='/vehicles/search/:word' component={SearchPage} exact />
-					{/* <Route path='/vehicles/page/:pageNumber' component={SearchPage} exact /> */}
 					<Route path='/vehicles/search/:word/page/:pageNumber' component={SearchPage} exact />
 					<Route path='/login' component={LoginPage} />
 					<Route path='/shipping' component={ShippingPage} />
