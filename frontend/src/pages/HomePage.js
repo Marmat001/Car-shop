@@ -5,6 +5,7 @@ import CustomTitle from '../components/CustomTitle'
 import { pageAnimation } from '../animations'
 import Wave from '../components/Wave'
 import AboutSection from '../components/AboutSection'
+import ContactForm from '../components/ContactForm'
 
 const HomePage = () => {
 	return (
@@ -13,6 +14,7 @@ const HomePage = () => {
 			<Wave />
 			<IntroSection />
 			<AboutSection />
+			<ContactForm />
 		</motion.div>
 	)
 }

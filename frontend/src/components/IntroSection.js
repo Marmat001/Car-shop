@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import wallpaper from '../img/wallpaper.jpeg'
 import { motion } from 'framer-motion'
 import { titleAnim, photoAnim, fade } from '../animations'
+import { Container } from 'react-bootstrap'
 
 const IntroSection = () => {
 	const history = useHistory()
@@ -12,7 +13,7 @@ const IntroSection = () => {
 		history.push('/vehicles')
 	}
 	return (
-		<div className='intro'>
+		<Container className='intro'>
 			<div className='description'>
 				<div className='hidden'>
 					<motion.h2 className='slogan' variants={titleAnim}>
@@ -38,7 +39,7 @@ const IntroSection = () => {
 			<div className='image'>
 				<motion.img variants={photoAnim} src={wallpaper} alt='road' />
 			</div>
-		</div>
+		</Container>
 	)
 }
 

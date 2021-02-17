@@ -2,7 +2,6 @@ import React from 'react'
 import car1 from '../img/car1.jpeg'
 import car2 from '../img/car2.jpeg'
 import car3 from '../img/car3.jpeg'
-
 import { Row, Col, Container, Image } from 'react-bootstrap'
 
 const AboutSection = () => {
@@ -14,9 +13,9 @@ const AboutSection = () => {
 				</h2>
 			</div>
 
-			<Container fluid className='side-padding'>
+			<Container>
 				<Row>
-					<Col lg={6}>
+					<Col lg={12} xl={6}>
 						<h5 className='heading-tertiary'>Cars in which your every moment will be memorable</h5>
 						<p className='paragraph'>
 							With the best selection of cars you're looking for. You pick the one that suits you, and unleash your
@@ -30,11 +29,11 @@ const AboutSection = () => {
 							full disclosure is ensured.
 						</p>
 					</Col>
-					<Col lg={6}>
+					<Col lg={12} xl={6}>
 						<div className='composition'>
-							<Image src={car1} alt='car 1' className='composition-photo photo-1' fluid />
-							<Image src={car2} alt='car 2' className='composition-photo photo-2' fluid />
-							<Image src={car3} alt='car 3' className='composition-photo photo-3' fluid />
+							<Image src={car1} alt='car 1' className='composition-photo photo-1' />
+							<Image src={car2} alt='car 2' className='composition-photo photo-2' />
+							<Image src={car3} alt='car 3' className='composition-photo photo-3' />
 						</div>
 					</Col>
 				</Row>
