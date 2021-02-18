@@ -80,6 +80,7 @@ h2 {
 	z-index: 2;
 	flex: 1;
 	overflow: hidden;
+	margin-top: 2rem;
 }
 
 .image > img {
@@ -192,6 +193,48 @@ h2 {
 	margin-bottom: 1.5rem;
 }
 
+.author {
+	border-top: 1px solid #28b486;
+	padding-top: 10px;
+	display: inline-block;
+}
+
+.vroom-icon-lg {
+	width: 8rem;
+	height: auto;
+}
+
+.vroom-icon-sm {
+	width: 2.5rem;
+	height: auto;
+	margin-right: .6rem;
+	margin-bottom: .5rem;
+}
+
+.large-icon {
+	font-size: 5rem;
+}
+
+.margin-bottom-xl {
+	margin-bottom: 15rem;
+}
+
+.margin-bottom-lg {
+	margin-bottom: 10rem;
+}
+
+.margin-bottom-md {
+	margin-bottom: 5rem;
+}
+
+.margin-bottom-sm {
+	margin-bottom: 2rem;
+}
+
+.margin-top-sm {
+	margin-top: 3rem;
+}
+
 .side-padding {
 	padding: 0 15rem;
 }
@@ -302,8 +345,6 @@ textarea {
 
 	.composition {
 		margin-top: 10rem;
-		display: flex;
-		
 	}
 }
 

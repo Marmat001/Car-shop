@@ -16,14 +16,13 @@ const ShopPage = () => {
 	const carTopRated = useSelector((state) => state.carTopRated)
 	const { loading, error, cars: carsTopRated } = carTopRated
 
-	console.log(loading)
+
 	useEffect(
 		() => {
 			dispatch(listTopCars())
 		},
 		[ dispatch ]
 	)
-	console.log(loading)
 
 	return loading === undefined ? (
 		<Loader />

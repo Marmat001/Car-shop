@@ -31,26 +31,11 @@ import SearchPage from './pages/SearchPage'
 const App = () => {
 	return (
 		<Router>
-			<ScrollTop />
 			<main className='py-4'>
 				<Container fluid>
 					<Navigation />
-					<Route path='/' component={HomePage} exact />
 					<Route path='/vehicles/search/:word' component={SearchPage} exact />
 					<Route path='/vehicles/search/:word/page/:pageNumber' component={SearchPage} exact />
-					<Route path='/login' component={LoginPage} />
-					<Route path='/shipping' component={ShippingPage} />
-					<Route path='/payment' component={PaymentPage} />
-					<Route path='/placeorder' component={OrderPage} />
-					<Route path='/order/:id' component={OrderSummaryPage} />
-					<Route path='/admin/userlist' component={UserListPage} />
-					<Route path='/admin/user/:id/edit' component={EditUserPage} />
-					<Route path='/admin/carlist' component={CarListPage} exact />
-					<Route path='/admin/carlist/:pageNumber' component={CarListPage} exact />
-					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
-					<Route path='/admin/orderlist' component={OrderListPage} />
-					<Route path='/register' component={RegisterPage} />
-					<Route path='/profile' component={ProfilePage} />
 					<Route path='/vehicles' component={ShopPage} exact />
 					<Route path='/vehicles/bmw' component={BmwPage} exact />
 					<Route path='/vehicles/bmw/:model' component={CarPage} />
@@ -64,8 +49,27 @@ const App = () => {
 					<Route path='/vehicles/ferrari/:model' component={CarPage} />
 					<Route path='/vehicles/lamborghini' component={LamborghiniPage} exact />
 					<Route path='/vehicles/lamborghini/:model' component={CarPage} />
-					<Route path='/cart/:model?' component={CheckoutPage} />
 				</Container>
+
+				<Route path='/' component={HomePage} exact />
+				<Container>
+					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
+					<Route path='/admin/orderlist' component={OrderListPage} />
+					<Route path='/admin/userlist' component={UserListPage} />
+					<Route path='/admin/user/:id/edit' component={EditUserPage} />
+					<Route path='/login' component={LoginPage} />
+					<Route path='/shipping' component={ShippingPage} />
+					<Route path='/payment' component={PaymentPage} />
+					<Route path='/placeorder' component={OrderPage} />
+					<Route path='/order/:id' component={OrderSummaryPage} />
+					<Route path='/register' component={RegisterPage} />
+					<Route path='/cart/:model?' component={CheckoutPage} />
+					<Route path='/profile' component={ProfilePage} />
+					<Route path='/admin/carlist' component={CarListPage} exact />
+					<Route path='/admin/carlist/:pageNumber' component={CarListPage} exact />
+				</Container>
+
+				<ScrollTop />
 			</main>
 			<Footer />
 		</Router>

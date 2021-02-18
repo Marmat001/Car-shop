@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import speedometer from '../img/speedometer.svg'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchField from './SearchField'
@@ -26,7 +27,8 @@ const Navigation = () => {
 				<Container fluid className='px-5'>
 					<LinkContainer to='/'>
 						<Navbar.Brand id='nav-item'>
-							<i className='fas fa-tachometer-alt mx-1' /> <strong>Vroom</strong>
+							<img className='vroom-icon-sm' src={speedometer} alt='speedometer' />
+							<strong>Vroom</strong>
 						</Navbar.Brand>
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />

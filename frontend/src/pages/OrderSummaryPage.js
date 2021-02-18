@@ -72,7 +72,7 @@ const OrderSummaryPage = ({ match, history }) => {
 		dispatch(deliverOrder(order))
 	}
 
-	console.log(order)
+
 
 	return loading ? (
 		<Loader />
