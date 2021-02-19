@@ -137,9 +137,9 @@ const CarPage = ({ history, match }) => {
 					<Row>
 						<Col md={6}>
 							<h2>Reviews</h2>
-							{car.reviews?.length === 0 && <Message>No Reviews</Message>}
+							{car.reviews.length === 0 && <Message>No Reviews</Message>}
 							<ListGroup variant='flush'>
-								{car.reviews?.map((review) => (
+								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
 										<strong>{review.name}</strong>
 										<Rating value={review.rating} />

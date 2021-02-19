@@ -20,8 +20,6 @@ const ContactForm = () => {
 					<h3 className='text-center'>Get In Touch</h3>
 
 					<form id='contact-form'>
-						<a name='contact' />
-
 						<label>Your Name</label>
 						<input className='input-field name' type='text' name='name' required />
 

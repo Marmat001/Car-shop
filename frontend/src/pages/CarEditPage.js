@@ -35,7 +35,7 @@ const CarEditPage = ({ match, history }) => {
 
 	const carUpdate = useSelector((state) => state.carUpdate)
 	const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = carUpdate
-
+	console.log(car)
 	useEffect(
 		() => {
 			if (successUpdate) {
@@ -43,7 +43,7 @@ const CarEditPage = ({ match, history }) => {
 				history.push('/admin/carlist')
 			} else {
 				if ((!car.name && pathname.includes(carModel)) || (car._id !== carId && pathname.includes(carModel))) {
-					dispatch(listCarDetails(carBrand, carModel))
+					dispatch(listCarDetails(carModel))
 				} else if (carModel) {
 					setName(car.name)
 					setPrice(car.price)
@@ -64,7 +64,6 @@ const CarEditPage = ({ match, history }) => {
 					setDescription('Sample description')
 				}
 			}
-		
 		},
 		[ dispatch, history, carBrand, carModel, carId, successUpdate, car.name ]
 	)
