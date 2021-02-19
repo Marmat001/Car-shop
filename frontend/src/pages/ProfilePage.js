@@ -8,7 +8,7 @@ import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 import CustomTitle from '../components/CustomTitle'
 
-const ProfilePage = ({ location, history }) => {
+const ProfilePage = ({ history }) => {
 	const [ name, setName ] = useState('')
 	const [ email, setEmail ] = useState('')
 	const [ password, setPassword ] = useState('')

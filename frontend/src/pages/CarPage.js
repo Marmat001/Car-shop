@@ -15,7 +15,6 @@ const CarPage = ({ history, match }) => {
 	const [ comment, setComment ] = useState('')
 
 	const carModel = match.params.model
-	const carBrand = match.params.brand
 
 	const dispatch = useDispatch()
 	const { pathname } = useLocation()
@@ -38,12 +37,12 @@ const CarPage = ({ history, match }) => {
 				dispatch({ type: 'CAR_CREATE_REVIEW_RESET' })
 			}
 
-			dispatch(listCarDetails(carBrand, carModel))
+			dispatch(listCarDetails(carModel))
 
 		
 		
 		},
-		[ dispatch, match, pathname, successCarReview, carBrand, carModel ]
+		[ dispatch, match, pathname, successCarReview, carModel ]
 	)
 
 	const AddCarToCartHandler = () => {
@@ -55,12 +54,13 @@ const CarPage = ({ history, match }) => {
 		dispatch(createCarReview(car._id, match.params.model, { rating, comment }))
 	}
 
+
 	return (
 		<>
 			<Link className='btn btn-light my-3' to='/'>
 				Go Back
 			</Link>
-			{loading ? (
+			{loading === undefined ? (
 				<Loader />
 			) : error ? (
 				<Message variant='danger'>{error}</Message>

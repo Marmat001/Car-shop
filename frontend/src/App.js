@@ -32,26 +32,21 @@ const App = () => {
 	return (
 		<Router>
 			<main className='py-4'>
+				<Route path='/' component={HomePage} exact />
 				<Container fluid>
 					<Navigation />
 					<Route path='/vehicles/search/:word' component={SearchPage} exact />
 					<Route path='/vehicles/search/:word/page/:pageNumber' component={SearchPage} exact />
 					<Route path='/vehicles' component={ShopPage} exact />
 					<Route path='/vehicles/bmw' component={BmwPage} exact />
-					<Route path='/vehicles/bmw/:model' component={CarPage} />
 					<Route path='/vehicles/mercedes' component={MercedesPage} exact />
-					<Route path='/vehicles/mercedes/:model' component={CarPage} />
 					<Route path='/vehicles/audi' component={AudiPage} exact />
-					<Route path='/vehicles/audi/:model' component={CarPage} />
 					<Route path='/vehicles/mclaren' component={MclarenPage} exact />
-					<Route path='/vehicles/mclaren/:model' component={CarPage} />
 					<Route path='/vehicles/ferrari' component={FerrariPage} exact />
-					<Route path='/vehicles/ferrari/:model' component={CarPage} />
 					<Route path='/vehicles/lamborghini' component={LamborghiniPage} exact />
-					<Route path='/vehicles/lamborghini/:model' component={CarPage} />
+					<Route path='/vehicles/:brand/:model' component={CarPage} />
 				</Container>
 
-				<Route path='/' component={HomePage} exact />
 				<Container>
 					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
 					<Route path='/admin/orderlist' component={OrderListPage} />

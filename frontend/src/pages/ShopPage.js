@@ -16,7 +16,6 @@ const ShopPage = () => {
 	const carTopRated = useSelector((state) => state.carTopRated)
 	const { loading, error, cars: carsTopRated } = carTopRated
 
-
 	useEffect(
 		() => {
 			dispatch(listTopCars())
@@ -31,7 +30,7 @@ const ShopPage = () => {
 	) : (
 		<div>
 			<CustomTitle title='Vehicles' />
-			<h1 className='py-3 pb-4 text-center'>Latest Additions</h1>
+			<h1 className='py-3 pb-4 text-center car-heading'>Latest Additions</h1>
 			<Carousel autoPlay={true} interval={2500} pause='hover' className='bg-dark'>
 				{carsTopRated.map((car) => (
 					<Carousel.Item key={car._id}>
@@ -42,7 +41,7 @@ const ShopPage = () => {
 				))}
 			</Carousel>
 			<div>
-				<h1 className='py-4 pt-5'>Our Car Selection</h1>
+				<h1 className='py-4 pt-5 car-heading'>Our Car Selection</h1>
 				<Row>
 					{cars.map((car) => (
 						<Col key={uuidv4()} sm={12} md={6} lg={4}>

@@ -22,7 +22,7 @@ const FerrariPage = () => {
 
 	return (
 		<div>
-			<h2 className='py-3'>Ferrari</h2>
+			<h2 className='py-3 car-heading'>Ferrari</h2>
 			{loading ? (
 				<Loader />
 			) : error ? (

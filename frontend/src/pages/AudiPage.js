@@ -22,7 +22,7 @@ const AudiPage = () => {
 
 	return (
 		<div>
-			<h2 className='py-3'>Audi</h2>
+			<h2 className='py-3 car-heading'>Audi</h2>
 			{loading ? (
 				<Loader />
 			) : error ? (

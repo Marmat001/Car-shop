@@ -25,6 +25,22 @@ h2 {
 	padding: .5rem 0;
 }
 
+.message {
+	animation: FadeAnimation 1.5s ease-in .2s forwards;
+}
+
+@keyframes FadeAnimation {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
 #username {
 	color: white;
 }
@@ -160,6 +176,17 @@ h2 {
 .slogan {
 	font-weight: lighter;
 	font-size: 4rem;
+}
+
+.car-heading {
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	font-weight: 750;
+	background-image: linear-gradient(to right, rgb(255, 255, 255), #d6cbcb);
+	background-clip: text;
+	color: transparent;
+	letter-spacing: 2.5px;
+	transition: all .3s;
 }
 
 .primary-heading {
