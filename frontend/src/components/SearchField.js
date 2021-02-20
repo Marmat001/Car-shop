@@ -8,7 +8,7 @@ const SearchField = ({ history }) => {
 		e.preventDefault()
 		if (word.length > 0) {
 			if (word.trim()) {
-				history.push(`/vehicles/search/${word}`)
+				history.push(`/vehicles/search/inventory/${word}`)
 			} else {
 				history.push('/')
 			}
