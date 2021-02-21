@@ -60,7 +60,7 @@ const ProfilePage = ({ history }) => {
 	return (
 		<Row>
 			<CustomTitle title='Profile' />
-			<Col md={5}>
+			<Col xl={5}>
 				<h2>User Profile</h2>
 				{message && <Message variant='danger'>{message}</Message>}
 				{error && <Message variant='danger'>{error}</Message>}
@@ -118,7 +118,7 @@ const ProfilePage = ({ history }) => {
 					</Form>
 				</FormContainer>
 			</Col>
-			<Col md={7}>
+			<Col xl={7}>
 				<h2>My Orders</h2>
 				{loadingOrders ? (
 					<Loader />

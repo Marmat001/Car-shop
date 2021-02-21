@@ -36,15 +36,22 @@ const CheckoutPage = ({ match, location, history }) => {
 		history.push('/login?redirect=shipping')
 	}
 
+	const onClickHandler = () => {
+		history.push('/vehicles')
+	}
+
 	return (
 		<Row>
-			<CustomTitle title="Cart" />
+			<CustomTitle title='Cart' />
 			<Col md={8}>
 				<h1>Shopping Cart</h1>
 				{cartItems.length === 0 ? (
-					<Message>
-						Your cart is empty<Link to='/'> Go Back</Link>
-					</Message>
+					<div>
+						<Message className='homebutton mb-3'>Your cart is empty</Message>
+						<button onClick={onClickHandler} className='homebutton'>
+							View Vehicles
+						</button>
+					</div>
 				) : (
 					<ListGroup variant='flush'>
 						{cartItems.map((item) => (

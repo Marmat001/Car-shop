@@ -30,7 +30,8 @@ const ShippingPage = ({ history }) => {
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='address'>
 					<Form.Label>Address</Form.Label>
-					<Form.Control
+					<input
+						className='input-field padding-top-bottom address'
 						type='text'
 						placeholder='Enter address'
 						value={address}
@@ -41,7 +42,8 @@ const ShippingPage = ({ history }) => {
 
 				<Form.Group controlId='city'>
 					<Form.Label>City</Form.Label>
-					<Form.Control
+					<input
+						className='input-field padding-top-bottom city'
 						type='text'
 						placeholder='Enter city'
 						value={city}
@@ -52,7 +54,8 @@ const ShippingPage = ({ history }) => {
 
 				<Form.Group controlId='postalCode'>
 					<Form.Label>Postal Code</Form.Label>
-					<Form.Control
+					<input
+						className='input-field padding-top-bottom postalcode'
 						type='text'
 						placeholder='Enter postal code'
 						value={postalCode}
@@ -63,7 +66,8 @@ const ShippingPage = ({ history }) => {
 
 				<Form.Group controlId='country'>
 					<Form.Label>Country</Form.Label>
-					<Form.Control
+					<input
+						className='input-field padding-top-bottom country'
 						type='text'
 						placeholder='Enter country'
 						value={country}

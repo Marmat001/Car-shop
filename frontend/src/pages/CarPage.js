@@ -137,7 +137,7 @@ const CarPage = ({ history, match }) => {
 					<Row>
 						<Col md={6}>
 							<h2>Reviews</h2>
-							{car.reviews.length === 0 && <Message>No Reviews</Message>}
+							{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
 							<ListGroup variant='flush'>
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
@@ -148,7 +148,7 @@ const CarPage = ({ history, match }) => {
 									</ListGroup.Item>
 								))}
 								<ListGroup.Item>
-									<h2>Write a Customer Review</h2>
+									<h2 className="car-heading">WRITE A CUSTOMER REVIEW</h2>
 									{errorCarReview && <Message variant='danger'>{errorCarReview}</Message>}
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>

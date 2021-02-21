@@ -35,7 +35,7 @@ const CarEditPage = ({ match, history }) => {
 
 	const carUpdate = useSelector((state) => state.carUpdate)
 	const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = carUpdate
-	console.log(car)
+
 	useEffect(
 		() => {
 			if (successUpdate) {
@@ -219,7 +219,7 @@ const CarEditPage = ({ match, history }) => {
 							/>
 						</Form.Group>
 
-						<Button type='submit' variant='primary'>
+						<Button type='submit' id='submit-btn'>
 							{pathname.includes(carModel) ? 'Update' : 'Add'}
 						</Button>
 					</Form>
