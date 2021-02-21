@@ -64,11 +64,11 @@ const CarPage = ({ history, match }) => {
 				<>
 					<CustomTitle title={car.name} />
 					<Row className='pt-3'>
-						<Col id='contact-form' className='mt-0' lg={6}>
+						<Col id='contact-form' className='mt-0' lg={12}>
 							<Image src={car.image} alt={car.name} fluid />
 						</Col>
 
-						<Col lg={3}>
+						<Col lg={12}>
 							<ListGroup id='contact-form' className='mt-0'>
 								<ListGroup.Item>
 									<h2>{car.name}</h2>
@@ -81,10 +81,6 @@ const CarPage = ({ history, match }) => {
 								</ListGroup.Item>
 								<ListGroup.Item>Price: $ {car.price}</ListGroup.Item>
 								<ListGroup.Item>{car.description}</ListGroup.Item>
-							</ListGroup>
-						</Col>
-						<Col lg={3}>
-							<ListGroup id='contact-form' className='mt-0'>
 								<ListGroup.Item>
 									<Row>
 										<Col>Price:</Col>
@@ -104,13 +100,13 @@ const CarPage = ({ history, match }) => {
 										<Row>
 											<Col>Qty</Col>
 											<Col>
-												<Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
+												<select className='input-field countInStock padding-top-bottom' value={qty} onChange={(e) => setQty(e.target.value)}>
 													{[ ...Array(car.countInStock).keys() ].map((x) => (
 														<option key={x + 1} value={x + 1}>
 															{x + 1}
 														</option>
 													))}
-												</Form.Control>
+												</select>
 											</Col>
 										</Row>
 									</ListGroup.Item>
@@ -127,12 +123,14 @@ const CarPage = ({ history, match }) => {
 								</ListGroup.Item>
 							</ListGroup>
 						</Col>
+						
 					</Row>
 					<Row>
-						<Col lg={6}>
+						<Col lg={12}>
 							<h2 id='contact-form' className='mb-0'>Reviews</h2>
-							{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
 							<ListGroup id='contact-form' className='mt-0'>
+							{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
+
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
 										<strong>{review.name}</strong>
@@ -148,18 +146,19 @@ const CarPage = ({ history, match }) => {
 										<Form onSubmit={submitHandler}>
 											<Form.Group controlId='rating'>
 												<Form.Label>Rating</Form.Label>
-												<Form.Control as='select' value={rating} onChange={(e) => setRating(e.target.value)}>
+												<select className='input-field rating padding-top-bottom' value={rating} onChange={(e) => setRating(e.target.value)}>
 													<option value=''>Select...</option>
 													<option value='1'>Poor</option>
 													<option value='2'>Fair</option>
 													<option value='3'>Good</option>
 													<option value='4'>Very Good</option>
 													<option value='5'>Excellent</option>
-												</Form.Control>
+												</select>
 											</Form.Group>
 											<Form.Group controlId='comment'>
 												<Form.Label>Comment</Form.Label>
-												<Form.Control
+												<input
+												className='input-field comment padding-top-bottom' 
 													as='textarea'
 													row='3'
 													value={comment}
