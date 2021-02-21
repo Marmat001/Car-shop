@@ -43,7 +43,7 @@ const LoginPage = ({ location, history }) => {
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
 					<input
-						className='input-field email authentication'
+						className='input-field email padding-top-bottom'
 						type='email'
 						placeholder='Enter email'
 						value={email}
@@ -54,7 +54,7 @@ const LoginPage = ({ location, history }) => {
 				<Form.Group controlId='password'>
 					<Form.Label>Password</Form.Label>
 					<input
-						className='input-field password authentication'
+						className='input-field password padding-top-bottom'
 						type='password'
 						placeholder='Enter password'
 						value={password}

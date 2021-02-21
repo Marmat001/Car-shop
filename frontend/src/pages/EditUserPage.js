@@ -26,7 +26,7 @@ const EditUserPage = ({ match, history }) => {
 		() => {
 			if (successUpdate) {
 				dispatch({ type: 'USER_UPDATE_RESET' })
-				history.push('/admin/userlist') 
+				history.push('/admin/userlist')
 			} else {
 				if (!user.name || user._id !== userId) {
 					dispatch(getUserDetails(userId))
@@ -51,7 +51,7 @@ const EditUserPage = ({ match, history }) => {
 				Go Back
 			</Link>
 			<FormContainer>
-				<h1>Edit User</h1>
+				<h1 className='secondary-heading text-center'>Edit User</h1>
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{loading ? (
@@ -62,7 +62,8 @@ const EditUserPage = ({ match, history }) => {
 					<Form onSubmit={submitHandler}>
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>
-							<Form.Control
+							<input
+								className='input-field name'
 								type='name'
 								placeholder='Enter name'
 								value={name}
@@ -72,7 +73,8 @@ const EditUserPage = ({ match, history }) => {
 
 						<Form.Group controlId='email'>
 							<Form.Label>Email Address</Form.Label>
-							<Form.Control
+							<input
+								className='input-field email'
 								type='email'
 								placeholder='Enter email'
 								value={email}
@@ -89,7 +91,7 @@ const EditUserPage = ({ match, history }) => {
 							/>
 						</Form.Group>
 
-						<Button type='submit' variant='primary'>
+						<Button type='submit' id='submit-btn'>
 							Update
 						</Button>
 					</Form>

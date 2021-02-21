@@ -53,7 +53,7 @@ const RegisterPage = ({ location, history }) => {
 					<input
 						type='name'
 						placeholder='Enter name'
-						className='input-field name authentication'
+						className='input-field name padding-top-bottom'
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 					/>
@@ -62,7 +62,7 @@ const RegisterPage = ({ location, history }) => {
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
 					<input
-						className='input-field email authentication'
+						className='input-field email padding-top-bottom'
 						type='email'
 						placeholder='Enter email'
 						value={email}
@@ -73,7 +73,7 @@ const RegisterPage = ({ location, history }) => {
 				<Form.Group controlId='password'>
 					<Form.Label>Password</Form.Label>
 					<input
-						className='input-field password authentication'
+						className='input-field password padding-top-bottom'
 						type='password'
 						placeholder='Enter password'
 						value={password}
@@ -84,7 +84,7 @@ const RegisterPage = ({ location, history }) => {
 				<Form.Group controlId='confirmPassword'>
 					<Form.Label>Confirm Password</Form.Label>
 					<input
-						className='input-field password authentication'
+						className='input-field password padding-top-bottom'
 						type='password'
 						placeholder='Confirm password'
 						value={confirmPassword}

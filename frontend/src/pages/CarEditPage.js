@@ -126,7 +126,8 @@ const CarEditPage = ({ match, history }) => {
 						<CustomTitle title='Car Information' />
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom name'
 								type='name'
 								placeholder='Enter name'
 								value={name}
@@ -136,7 +137,8 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='price'>
 							<Form.Label>Price</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom price'
 								type='number'
 								placeholder='Enter price'
 								value={price}
@@ -146,7 +148,9 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='image'>
 							<Form.Label>Image</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom image'
+								t
 								type='text'
 								placeholder='Enter image url'
 								value={image}
@@ -159,7 +163,8 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='model'>
 							<Form.Label>Model</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom model'
 								type='text'
 								placeholder='Enter model'
 								value={model}
@@ -169,7 +174,8 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='brand'>
 							<Form.Label>Brand</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom brand'
 								type='text'
 								placeholder='Enter brand'
 								value={brand}
@@ -179,7 +185,9 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='countInStock'>
 							<Form.Label>Count In Stock</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom countInStock'
+								t
 								type='number'
 								placeholder='Enter countInStock'
 								value={countInStock}
@@ -189,7 +197,9 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='category'>
 							<Form.Label>Category</Form.Label>
-							<Form.Control
+							<input
+								className='input-field padding-top-bottom category'
+								t
 								type='text'
 								placeholder='Enter category'
 								value={category}
@@ -199,7 +209,9 @@ const CarEditPage = ({ match, history }) => {
 
 						<Form.Group controlId='description'>
 							<Form.Label>Description</Form.Label>
-							<Form.Control
+							<textarea
+								className='input-field padding-top-bottom description'
+								t
 								type='text'
 								placeholder='Enter description'
 								value={description}

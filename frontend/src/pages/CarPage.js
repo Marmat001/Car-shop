@@ -57,9 +57,9 @@ const CarPage = ({ history, match }) => {
 
 	return (
 		<>
-			<Link className='btn btn-light my-3' to='/'>
+			{/* <Link className='btn btn-light my-3' to='/'>
 				Go Back
-			</Link>
+			</Link> */}
 			{loading === undefined ? (
 				<Loader />
 			) : error ? (
@@ -67,7 +67,7 @@ const CarPage = ({ history, match }) => {
 			) : (
 				<>
 					<CustomTitle title={car.name}/>
-					<Row>
+					<Row className="pt-3">
 						<Col md={6}>
 							<Image src={car.image} alt={car.name} fluid />
 						</Col>
