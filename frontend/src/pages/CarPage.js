@@ -38,9 +38,6 @@ const CarPage = ({ history, match }) => {
 			}
 
 			dispatch(listCarDetails(carModel))
-
-		
-		
 		},
 		[ dispatch, match, pathname, successCarReview, carModel ]
 	)
@@ -54,7 +51,6 @@ const CarPage = ({ history, match }) => {
 		dispatch(createCarReview(car._id, match.params.model, { rating, comment }))
 	}
 
-
 	return (
 		<>
 			{/* <Link className='btn btn-light my-3' to='/'>
@@ -66,79 +62,77 @@ const CarPage = ({ history, match }) => {
 				<Message variant='danger'>{error}</Message>
 			) : (
 				<>
-					<CustomTitle title={car.name}/>
-					<Row className="pt-3">
-						<Col md={6}>
+					<CustomTitle title={car.name} />
+					<Row className='pt-3'>
+						<Col id='contact-form' className='mt-0' lg={6}>
 							<Image src={car.image} alt={car.name} fluid />
 						</Col>
 
-						<Col md={3}>
-							<ListGroup variant='flush'>
+						<Col lg={3}>
+							<ListGroup id='contact-form' className='mt-0'>
 								<ListGroup.Item>
 									<h2>{car.name}</h2>
 								</ListGroup.Item>
 								<ListGroup.Item>
 									<Rating
 										value={car.rating}
-										text={car.reviewAmount === 0 ? 'Not Rated Yet' : `${car.reviewAmount} reviews`}
+										text={car.reviewAmount === 0 ? 'Not Rated Yet' : car.reviewAmount > 1 ? `${car.reviewAmount} reviews` : `${car.reviewAmount} review`}
 									/>
 								</ListGroup.Item>
 								<ListGroup.Item>Price: $ {car.price}</ListGroup.Item>
 								<ListGroup.Item>{car.description}</ListGroup.Item>
 							</ListGroup>
 						</Col>
-						<Col md={3}>
-							<Card>
-								<ListGroup variant='flush'>
+						<Col lg={3}>
+							<ListGroup id='contact-form' className='mt-0'>
+								<ListGroup.Item>
+									<Row>
+										<Col>Price:</Col>
+										<Col>
+											<strong>${car.price}</strong>
+										</Col>
+									</Row>
+								</ListGroup.Item>
+								<ListGroup.Item>
+									<Row>
+										<Col>Status:</Col>
+										<Col>{car.countInStock > 0 ? 'Available' : 'Not available'}</Col>
+									</Row>
+								</ListGroup.Item>
+								{car.countInStock > 0 && (
 									<ListGroup.Item>
 										<Row>
-											<Col>Price:</Col>
+											<Col>Qty</Col>
 											<Col>
-												<strong>${car.price}</strong>
+												<Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
+													{[ ...Array(car.countInStock).keys() ].map((x) => (
+														<option key={x + 1} value={x + 1}>
+															{x + 1}
+														</option>
+													))}
+												</Form.Control>
 											</Col>
 										</Row>
 									</ListGroup.Item>
-									<ListGroup.Item>
-										<Row>
-											<Col>Status:</Col>
-											<Col>{car.countInStock > 0 ? 'Available' : 'Not available'}</Col>
-										</Row>
-									</ListGroup.Item>
-									{car.countInStock > 0 && (
-										<ListGroup.Item>
-											<Row>
-												<Col>Qty</Col>
-												<Col>
-													<Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
-														{[ ...Array(car.countInStock).keys() ].map((x) => (
-															<option key={x + 1} value={x + 1}>
-																{x + 1}
-															</option>
-														))}
-													</Form.Control>
-												</Col>
-											</Row>
-										</ListGroup.Item>
-									)}
-									<ListGroup.Item>
-										<Button
-											onClick={AddCarToCartHandler}
-											className='btn-block'
-											type='button'
-											disabled={car.countInStock === 0}
-										>
-											Add To Cart
-										</Button>
-									</ListGroup.Item>
-								</ListGroup>
-							</Card>
+								)}
+								<ListGroup.Item>
+									<Button
+										onClick={AddCarToCartHandler}
+										className='btn-block'
+										type='button'
+										disabled={car.countInStock === 0}
+									>
+										Add To Cart
+									</Button>
+								</ListGroup.Item>
+							</ListGroup>
 						</Col>
 					</Row>
 					<Row>
-						<Col md={6}>
-							<h2>Reviews</h2>
+						<Col lg={6}>
+							<h2 id='contact-form' className='mb-0'>Reviews</h2>
 							{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
-							<ListGroup variant='flush'>
+							<ListGroup id='contact-form' className='mt-0'>
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
 										<strong>{review.name}</strong>
@@ -148,7 +142,7 @@ const CarPage = ({ history, match }) => {
 									</ListGroup.Item>
 								))}
 								<ListGroup.Item>
-									<h2 className="car-heading">WRITE A CUSTOMER REVIEW</h2>
+									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
 									{errorCarReview && <Message variant='danger'>{errorCarReview}</Message>}
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>
@@ -192,7 +186,3 @@ const CarPage = ({ history, match }) => {
 }
 
 export default CarPage
-
-{
-	/* <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}> */
-}

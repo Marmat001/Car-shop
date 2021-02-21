@@ -149,7 +149,7 @@ const CarEditPage = ({ match, history }) => {
 						<Form.Group controlId='image'>
 							<Form.Label>Image</Form.Label>
 							<input
-								className='input-field padding-top-bottom image'
+								className='input-field padding-top-bottom upload-image'
 								t
 								type='text'
 								placeholder='Enter image url'

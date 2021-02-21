@@ -297,7 +297,7 @@ h2 {
 
 #contact-form {
 	display: block;
-	max-width: 600px;
+	max-width: 900px;
 	margin: 0 auto;
 	border: 3px solid rgb(17, 17, 17);
 	padding: 15px;
@@ -327,6 +327,8 @@ textarea {
 	border: 1px solid rgb(37, 36, 36);
 	font-size: 1rem;
 }
+
+
 
 .padding-top-bottom {
 	padding-top: 15px;
