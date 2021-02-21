@@ -36,13 +36,14 @@ const LoginPage = ({ location, history }) => {
 	return (
 		<FormContainer>
 			<CustomTitle title='Log In' />
-			<h1>Sign In</h1>
+			<h1 className='secondary-heading text-center'>Sign In</h1>
 			{error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
-					<Form.Control
+					<input
+						className='input-field email authentication'
 						type='email'
 						placeholder='Enter email'
 						value={email}
@@ -52,7 +53,8 @@ const LoginPage = ({ location, history }) => {
 
 				<Form.Group controlId='password'>
 					<Form.Label>Password</Form.Label>
-					<Form.Control
+					<input
+						className='input-field password authentication'
 						type='password'
 						placeholder='Enter password'
 						value={password}
@@ -60,7 +62,7 @@ const LoginPage = ({ location, history }) => {
 					/>
 				</Form.Group>
 
-				<Button type='submit' variant='primary'>
+				<Button type='submit' id='submit-btn'>
 					Sign In
 				</Button>
 			</Form>

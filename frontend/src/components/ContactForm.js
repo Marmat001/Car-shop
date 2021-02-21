@@ -30,6 +30,7 @@ const ContactForm = () => {
 						<input className='input-field email' type='email' name='email' required />
 
 						<label>Your Message</label>
+
 						<textarea className='input-field message' name='message' required />
 
 						<input id='submit-btn' type='submit' value='Send Message' />

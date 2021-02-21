@@ -25,7 +25,7 @@ h2 {
 	padding: .5rem 0;
 }
 
-.message {
+.message-animation {
 	animation: FadeAnimation 1.5s ease-in .2s forwards;
 }
 
@@ -197,7 +197,7 @@ h2 {
 }
 
 .secondary-heading {
-	display: inline-block;
+	/* display: inline-block; */
 	font-size: 2rem;
 	text-transform: uppercase;
 	font-weight: 750;
@@ -312,13 +312,13 @@ h2 {
 	line-height: 2.7em;
 }
 
-#contact-form > input,
+input,
 select,
 textarea {
 	color: #fff;
 }
 
-#contact-form > .input-field {
+.input-field {
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -328,7 +328,12 @@ textarea {
 	font-size: 1rem;
 }
 
-#contact-form > #submit-btn {
+.authentication {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#submit-btn {
 	margin-top: 10px;
 	width: 100%;
 	padding-top: 10px;

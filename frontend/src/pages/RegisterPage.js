@@ -43,19 +43,26 @@ const RegisterPage = ({ location, history }) => {
 	return (
 		<FormContainer>
 			<CustomTitle title='Register' />
-			<h1>Sign Up</h1>
+			<h1 className='secondary-heading text-center'>Sign Up</h1>
 			{message && <Message variant='danger'>{message}</Message>}
 			{error && <Message variant='danger'>Information missing. Please fill out all fields.</Message>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='name'>
 					<Form.Label>Name</Form.Label>
-					<Form.Control type='name' placeholder='Enter name' value={name} onChange={(e) => setName(e.target.value)} />
+					<input
+						type='name'
+						placeholder='Enter name'
+						className='input-field name authentication'
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					/>
 				</Form.Group>
 
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
-					<Form.Control
+					<input
+						className='input-field email authentication'
 						type='email'
 						placeholder='Enter email'
 						value={email}
@@ -65,7 +72,8 @@ const RegisterPage = ({ location, history }) => {
 
 				<Form.Group controlId='password'>
 					<Form.Label>Password</Form.Label>
-					<Form.Control
+					<input
+						className='input-field password authentication'
 						type='password'
 						placeholder='Enter password'
 						value={password}
@@ -75,7 +83,8 @@ const RegisterPage = ({ location, history }) => {
 
 				<Form.Group controlId='confirmPassword'>
 					<Form.Label>Confirm Password</Form.Label>
-					<Form.Control
+					<input
+						className='input-field password authentication'
 						type='password'
 						placeholder='Confirm password'
 						value={confirmPassword}
@@ -83,7 +92,7 @@ const RegisterPage = ({ location, history }) => {
 					/>
 				</Form.Group>
 
-				<Button type='submit' variant='primary'>
+				<Button type='submit' id='submit-btn'>
 					Register
 				</Button>
 			</Form>

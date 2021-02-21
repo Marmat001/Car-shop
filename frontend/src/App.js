@@ -45,6 +45,7 @@ const App = () => {
 					<Route path='/vehicles/ferrari' component={FerrariPage} exact />
 					<Route path='/vehicles/lamborghini' component={LamborghiniPage} exact />
 					<Route path='/vehicles/:brand/:model' component={CarPage} exact />
+					<Route path='/profile' component={ProfilePage} />
 				</Container>
 
 				<Container>
@@ -59,7 +60,6 @@ const App = () => {
 					<Route path='/order/:id' component={OrderSummaryPage} />
 					<Route path='/register' component={RegisterPage} />
 					<Route path='/cart/:model?' component={CheckoutPage} />
-					<Route path='/profile' component={ProfilePage} />
 					<Route path='/admin/carlist' component={CarListPage} exact />
 					<Route path='/admin/carlist/:pageNumber' component={CarListPage} exact />
 				</Container>
