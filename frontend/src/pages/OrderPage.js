@@ -19,9 +19,9 @@ const OrderPage = ({ history }) => {
 	}
 
 	cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-	cart.shippingPrice = cart.itemsPrice * 0.05
+	cart.shippingPrice = cart.itemsPrice * 0.02
 	cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(0))
-	cart.totalPrice = Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)
+	cart.totalPrice = Number(cart.itemsPrice) + Number(cart.taxPrice) // + Number(cart.shippingPrice)
 
 	const orderCreate = useSelector((state) => state.orderCreate)
 	const { order, success, error } = orderCreate
@@ -115,7 +115,7 @@ const OrderPage = ({ history }) => {
 							<ListGroup.Item>
 								<Row>
 									<Col>Shipping</Col>
-									<Col>${cart.shippingPrice.toFixed(0)}</Col>
+									<Col>Information on inquiry</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>
@@ -132,7 +132,12 @@ const OrderPage = ({ history }) => {
 							</ListGroup.Item>
 							<ListGroup.Item>{error && <Message variant='danger'>{error}</Message>}</ListGroup.Item>
 							<ListGroup.Item>
-								<Button type='button' className='btn-block' disabled={cart.cartItems === 0} onClick={placeOrderHandler}>
+								<Button
+									className='btn btn-block homebutton'
+									type='button'
+									disabled={cart.cartItems === 0}
+									onClick={placeOrderHandler}
+								>
 									Place Order
 								</Button>
 							</ListGroup.Item>

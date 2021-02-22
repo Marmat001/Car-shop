@@ -91,7 +91,7 @@ const EditUserPage = ({ match, history }) => {
 							/>
 						</Form.Group>
 
-						<Button type='submit' id='submit-btn'>
+						<Button type='submit' className='btn btn-block homebutton'>
 							Update
 						</Button>
 					</Form>

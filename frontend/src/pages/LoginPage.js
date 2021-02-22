@@ -62,7 +62,7 @@ const LoginPage = ({ location, history }) => {
 					/>
 				</Form.Group>
 
-				<Button type='submit' id='submit-btn'>
+				<Button type='submit' className='btn btn-block homebutton'>
 					Sign In
 				</Button>
 			</Form>

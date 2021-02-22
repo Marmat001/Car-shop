@@ -72,8 +72,6 @@ const OrderSummaryPage = ({ match, history }) => {
 		dispatch(deliverOrder(order))
 	}
 
-
-
 	return loading ? (
 		<Loader />
 	) : error ? (
@@ -191,7 +189,7 @@ const OrderSummaryPage = ({ match, history }) => {
 							order.isPaid &&
 							!order.isDelivered && (
 								<ListGroup.Item>
-									<Button type='button' className='btn btn-block' onClick={deliverHandler}>
+									<Button type='button' className='btn btn-block homebutton' onClick={deliverHandler}>
 										Mark As Delivered
 									</Button>
 								</ListGroup.Item>

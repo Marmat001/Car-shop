@@ -53,7 +53,7 @@ const PaymentPage = ({ history }) => {
 					</Col>
 				</Form.Group>
 
-				<Button type='submit' variant='primary'>
+				<Button type='submit' className='btn btn-block homebutton'>
 					Continue
 				</Button>
 			</Form>

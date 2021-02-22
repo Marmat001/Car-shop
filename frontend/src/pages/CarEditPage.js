@@ -109,7 +109,7 @@ const CarEditPage = ({ match, history }) => {
 
 	return (
 		<div>
-			<Link to='/admin/carlist' className='btn btn-light my-3'>
+			<Link to='/admin/carlist' className='btn homebutton my-3'>
 				Go Back
 			</Link>
 			<FormContainer>
@@ -219,7 +219,7 @@ const CarEditPage = ({ match, history }) => {
 							/>
 						</Form.Group>
 
-						<Button type='submit' id='submit-btn'>
+						<Button type='submit' className='btn btn-block homebutton'>
 							{pathname.includes(carModel) ? 'Update' : 'Add'}
 						</Button>
 					</Form>

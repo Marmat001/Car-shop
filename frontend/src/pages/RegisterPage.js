@@ -92,7 +92,7 @@ const RegisterPage = ({ location, history }) => {
 					/>
 				</Form.Group>
 
-				<Button type='submit' id='submit-btn'>
+				<Button type='submit' className='btn btn-block homebutton'>
 					Register
 				</Button>
 			</Form>

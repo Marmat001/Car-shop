@@ -114,7 +114,7 @@ const CarPage = ({ history, match }) => {
 								<ListGroup.Item>
 									<Button
 										onClick={AddCarToCartHandler}
-										className='btn-block'
+										className='btn btn-block homebutton'
 										type='button'
 										disabled={car.countInStock === 0}
 									>
@@ -165,7 +165,7 @@ const CarPage = ({ history, match }) => {
 													onChange={(e) => setComment(e.target.value)}
 												/>
 											</Form.Group>
-											<Button type='submit' variant='primary'>
+											<Button type='submit' className='btn btn-block homebutton'>
 												Submit
 											</Button>
 										</Form>

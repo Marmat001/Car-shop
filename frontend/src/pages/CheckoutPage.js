@@ -96,7 +96,12 @@ const CheckoutPage = ({ match, location, history }) => {
 							${cartItems.reduce((acc, currVal) => acc + currVal.qty * currVal.price, 0).toFixed(0)}
 						</ListGroup.Item>
 						<ListGroup.Item>
-							<Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandler}>
+							<Button
+								type='button'
+								className='btn-block homebutton'
+								disabled={cartItems.length === 0}
+								onClick={checkOutHandler}
+							>
 								Proceed To Checkout
 							</Button>
 						</ListGroup.Item>
