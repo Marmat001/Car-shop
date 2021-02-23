@@ -35,8 +35,16 @@ h2 {
 		visibility: visible;
 	}
 
-	100% {
+	50% {
 		opacity: 0;
+		visibility: hidden;
+	}
+
+	100% {
+		margin-top: -45px;
+		opacity: 0;
+		width: 0vw;
+		height: 0vh;
 		visibility: hidden;
 	}
 }

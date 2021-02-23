@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listCarDetails, createCarReview } from '../actions/carActions'
-import { useLocation } from 'react-router-dom'
 import Loader from '../components/Loader'
-import Message from '../components/Message'
+import { Message, FadeMessage } from '../components/Message'
 import CustomTitle from '../components/CustomTitle'
 
 const CarPage = ({ history, match }) => {
@@ -17,7 +16,6 @@ const CarPage = ({ history, match }) => {
 	const carModel = match.params.model
 
 	const dispatch = useDispatch()
-	const { pathname } = useLocation()
 
 	const carDetails = useSelector((state) => state.carDetails)
 	const { loading, error, car } = carDetails
@@ -30,38 +28,42 @@ const CarPage = ({ history, match }) => {
 
 	useEffect(
 		() => {
+			if (car.model !== carModel || !car.name || successCarReview) {
+				dispatch(listCarDetails(carModel))
+				dispatch({ type: 'CAR_CREATE_REVIEW_RESET' })
+			}
+
 			if (successCarReview) {
 				alert('Review Submitted!')
 				setRating(0)
 				setComment('')
-				dispatch({ type: 'CAR_CREATE_REVIEW_RESET' })
 			}
-
-			dispatch(listCarDetails(carModel))
+			console.log('puto')
 		},
-		[ dispatch, match, pathname, successCarReview, carModel ]
+		[ dispatch, match, successCarReview ]
 	)
+	console.log(car, loading)
 
 	const AddCarToCartHandler = () => {
-		history.push(`/cart/${match.params.model}?qty=${qty}`)
+		history.push(`/cart/${carModel}?qty=${qty}`)
 	}
 
 	const submitHandler = (e) => {
 		e.preventDefault()
-		dispatch(createCarReview(car._id, match.params.model, { rating, comment }))
+		dispatch(createCarReview(car._id, carModel, { rating, comment }))
 	}
 
 	return (
-		<>
-			{/* <Link className='btn btn-light my-3' to='/'>
+		<div>
+			<Button className='btn homebutton' onClick={() => history.goBack()}>
 				Go Back
-			</Link> */}
-			{loading === undefined ? (
+			</Button>
+			{loading ? (
 				<Loader />
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<>
+				<div>
 					<CustomTitle title={car.name} />
 					<Row className='pt-3'>
 						<Col id='contact-form' className='mt-0' lg={12}>
@@ -76,7 +78,15 @@ const CarPage = ({ history, match }) => {
 								<ListGroup.Item>
 									<Rating
 										value={car.rating}
-										text={car.reviewAmount === 0 ? 'Not Rated Yet' : car.reviewAmount > 1 ? `${car.reviewAmount} reviews` : `${car.reviewAmount} review`}
+										text={
+											car.reviewAmount === 0 ? (
+												'Not Rated Yet'
+											) : car.reviewAmount > 1 ? (
+												`${car.reviewAmount} reviews`
+											) : (
+												`${car.reviewAmount} review`
+											)
+										}
 									/>
 								</ListGroup.Item>
 								<ListGroup.Item>Price: $ {car.price}</ListGroup.Item>
@@ -100,7 +110,11 @@ const CarPage = ({ history, match }) => {
 										<Row>
 											<Col>Qty</Col>
 											<Col>
-												<select className='input-field countInStock padding-top-bottom' value={qty} onChange={(e) => setQty(e.target.value)}>
+												<select
+													className='input-field countInStock padding-top-bottom'
+													value={qty}
+													onChange={(e) => setQty(e.target.value)}
+												>
 													{[ ...Array(car.countInStock).keys() ].map((x) => (
 														<option key={x + 1} value={x + 1}>
 															{x + 1}
@@ -123,13 +137,14 @@ const CarPage = ({ history, match }) => {
 								</ListGroup.Item>
 							</ListGroup>
 						</Col>
-						
 					</Row>
 					<Row>
 						<Col lg={12}>
-							<h2 id='contact-form' className='mb-0'>Reviews</h2>
+							<h2 id='contact-form' className='mb-0'>
+								Reviews
+							</h2>
 							<ListGroup id='contact-form' className='mt-0'>
-							{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
+								{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
 
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
@@ -141,12 +156,16 @@ const CarPage = ({ history, match }) => {
 								))}
 								<ListGroup.Item>
 									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
-									{errorCarReview && <Message variant='danger'>{errorCarReview}</Message>}
+									{errorCarReview && <FadeMessage variant='danger'>{errorCarReview}</FadeMessage>}
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>
 											<Form.Group controlId='rating'>
 												<Form.Label>Rating</Form.Label>
-												<select className='input-field rating padding-top-bottom' value={rating} onChange={(e) => setRating(e.target.value)}>
+												<select
+													className='input-field rating padding-top-bottom'
+													value={rating}
+													onChange={(e) => setRating(e.target.value)}
+												>
 													<option value=''>Select...</option>
 													<option value='1'>Poor</option>
 													<option value='2'>Fair</option>
@@ -158,7 +177,7 @@ const CarPage = ({ history, match }) => {
 											<Form.Group controlId='comment'>
 												<Form.Label>Comment</Form.Label>
 												<input
-												className='input-field comment padding-top-bottom' 
+													className='input-field comment padding-top-bottom'
 													as='textarea'
 													row='3'
 													value={comment}
@@ -178,9 +197,9 @@ const CarPage = ({ history, match }) => {
 							</ListGroup>
 						</Col>
 					</Row>
-				</>
+				</div>
 			)}
-		</>
+		</div>
 	)
 }
 

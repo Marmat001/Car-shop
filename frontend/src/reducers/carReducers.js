@@ -32,7 +32,7 @@ export const carBrandReducer = (state = { cars: [] }, action) => {
 export const carDetailReducer = (state = { car: { reviews: [] } }, action) => {
 	switch (action.type) {
 		case 'CAR_DETAILS_REQUEST':
-			return { loading: true, ...state }
+			return { ...state, loading: true }
 		case 'CAR_DETAILS_SUCCESS':
 			return { loading: false, car: action.payload }
 		case 'CAR_DETAILS_FAIL':

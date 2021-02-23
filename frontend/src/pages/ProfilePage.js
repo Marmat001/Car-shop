@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col, Table } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
+import { FadeMessage, Message } from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
@@ -62,11 +62,11 @@ const ProfilePage = ({ history }) => {
 			<CustomTitle title='Profile' />
 			<Col xl={5}>
 				<h2>User Profile</h2>
-				{message && <Message variant='danger'>{message}</Message>}
 				{error && <Message variant='danger'>{error}</Message>}
-				{success && <Message variant='success'>Profile Updated</Message>}
 				{loading && <Loader />}
 				<FormContainer>
+					{message && <Message variant='danger'>{message}</Message>}
+					{success && <Message variant='success'>Profile Updated</Message>}
 					<Form onSubmit={submitHandler}>
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>

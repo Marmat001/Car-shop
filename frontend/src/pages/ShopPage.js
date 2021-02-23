@@ -6,7 +6,7 @@ import cars from '../cars'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import Loader from '../components/Loader'
-import Message from '../components/Message'
+import {Message} from '../components/Message'
 import { listTopCars } from '../actions/carActions'
 import CustomTitle from '../components/CustomTitle'
 

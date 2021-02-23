@@ -5,8 +5,20 @@ const Message = ({ variant, children }) => {
 	return <Alert variant={variant}>{children}</Alert>
 }
 
+const FadeMessage = ({ variant, children }) => {
+	return (
+		<Alert className='message-animation' variant={variant}>
+			{children}
+		</Alert>
+	)
+}
+
 Message.defaultProps = {
 	variant: 'info'
 }
 
-export default Message
+FadeMessage.defaultProps = {
+	variant: 'info'
+}
+
+export { Message, FadeMessage }

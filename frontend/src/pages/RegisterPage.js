@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
+import { Message, FadeMessage } from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
@@ -44,8 +44,8 @@ const RegisterPage = ({ location, history }) => {
 		<FormContainer>
 			<CustomTitle title='Register' />
 			<h1 className='secondary-heading text-center'>Sign Up</h1>
-			{message && <Message variant='danger'>{message}</Message>}
-			{error && <Message variant='danger'>Information missing. Please fill out all fields.</Message>}
+			{message && <FadeMessage variant='danger'>{message}</FadeMessage>}
+			{error && <FadeMessage variant='danger'>Information missing. Please fill out all fields.</FadeMessage>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='name'>
@@ -56,6 +56,7 @@ const RegisterPage = ({ location, history }) => {
 						className='input-field name padding-top-bottom'
 						value={name}
 						onChange={(e) => setName(e.target.value)}
+						required
 					/>
 				</Form.Group>
 
@@ -67,6 +68,7 @@ const RegisterPage = ({ location, history }) => {
 						placeholder='Enter email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
 				</Form.Group>
 
@@ -78,6 +80,7 @@ const RegisterPage = ({ location, history }) => {
 						placeholder='Enter password'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						required
 					/>
 				</Form.Group>
 
@@ -89,6 +92,7 @@ const RegisterPage = ({ location, history }) => {
 						placeholder='Confirm password'
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
+						required
 					/>
 				</Form.Group>
 

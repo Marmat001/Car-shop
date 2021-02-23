@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import Message from '../components/Message'
+import {Message} from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listCarDetails, updateCar } from '../actions/carActions'
@@ -68,6 +68,8 @@ const CarEditPage = ({ match, history }) => {
 		[ dispatch, history, carBrand, carModel, carId, successUpdate, car.name ]
 	)
 
+
+
 	const uploadFileHandler = async (e) => {
 		const file = e.target.files[0]
 		const formData = new FormData()
@@ -114,7 +116,6 @@ const CarEditPage = ({ match, history }) => {
 			</Link>
 			<FormContainer>
 				{pathname.includes(carModel) ? <h1>Edit Car Information</h1> : <h1>Add New Car Information</h1>}
-
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{loading ? (

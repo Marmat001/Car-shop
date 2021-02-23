@@ -30,9 +30,9 @@ const getCarBrands = asyncHandler(async (req, res) => {
 })
 
 const getCarModel = asyncHandler(async (req, res) => {
-	const car = await Car.find({ model: req.params.model })
-	if (car.length) {
-		res.json(car[0])
+	const car = await Car.findOne({ model: req.params.model })
+	if (car) {
+		res.json(car)
 	} else {
 		res.status(404)
 		throw new Error('Car not found')
@@ -40,10 +40,10 @@ const getCarModel = asyncHandler(async (req, res) => {
 })
 
 const deleteCar = asyncHandler(async (req, res) => {
-	const car = await Car.find({ model: req.params.model })
+	const car = await Car.findOne({ model: req.params.model })
 
 	if (car) {
-		await car[0].remove()
+		await car.remove()
 		res.json({ message: 'Car removed from magazine' })
 	} else {
 		res.status(404)

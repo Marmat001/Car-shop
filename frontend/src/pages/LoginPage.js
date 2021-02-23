@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
+import { Message, FadeMessage } from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
@@ -37,7 +37,7 @@ const LoginPage = ({ location, history }) => {
 		<FormContainer>
 			<CustomTitle title='Log In' />
 			<h1 className='secondary-heading text-center'>Sign In</h1>
-			{error && <Message variant='danger'>{error}</Message>}
+			{error && <FadeMessage variant='danger'>{error}</FadeMessage>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='email'>
@@ -48,6 +48,7 @@ const LoginPage = ({ location, history }) => {
 						placeholder='Enter email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
 				</Form.Group>
 
@@ -59,6 +60,7 @@ const LoginPage = ({ location, history }) => {
 						placeholder='Enter password'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						required
 					/>
 				</Form.Group>
 
