@@ -28,8 +28,15 @@ const Navigation = () => {
 		})
 	}
 
+	const exitHandler = (e) => {
+		const element = e.target
+		if (!element.classList.contains('nav-cart')) {
+			console.log("pyah")
+		}
+	}
+
 	return (
-		<header>
+		<header onClick={exitHandler}>
 			<Navbar
 				className='fixed-top'
 				style={{ backgroundImage: 'linear-gradient(to right, #7ed57f, #28b486)' }}
@@ -54,7 +61,7 @@ const Navigation = () => {
 								</Nav.Link>
 							</LinkContainer>
 							<LinkContainer to='/cart'>
-								<Nav.Link onClick={toggleCart} id='nav-item-cart' className='mx-3'>
+								<Nav.Link onClick={toggleCart} id='nav-item-cart' className='mx-3 nav-cart'>
 									<CartIcon />
 									<strong>Cart</strong>
 								</Nav.Link>
