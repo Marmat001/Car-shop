@@ -8,10 +8,35 @@ body {
 
 #nav-item {
 	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#nav-item-cart {
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#nav-item-cart svg {
+	fill: white;
+}
+
+#nav-item-cart:hover {
+	color: black;
 }
 
 #nav-item:hover {
 	color: black;
+}
+#nav-item-cart:hover .item-count {
+	color: black;
+}
+
+#nav-item-cart:hover svg {
+	fill: black;
 }
 
 h1 {
@@ -246,6 +271,12 @@ h2 {
 	margin-bottom: .5rem;
 }
 
+.vroom-icon {
+	width: 1.5rem;
+	height: auto;
+	margin-right: .6rem;
+}
+
 .large-icon {
 	font-size: 5rem;
 }
@@ -349,6 +380,27 @@ textarea {
 	color: #fff;
 	background-color: rgb(37, 36, 36);
 	border: none;
+}
+
+.cart-icon {
+	width: 45px;
+	height: 45px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cart-icon .shopping-icon {
+	width: 24px;
+	height: 24px;
+	color: white;
+}
+.cart-icon .item-count {
+	position: absolute;
+	font-size: 10px;
+	font-weight: bold;
+	bottom: 12px;
+	color: white;
 }
 
 @media (max-width: 1500px) {

@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import speedometer from '../img/speedometer.svg'
+import CartIcon from './CartIcon'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchField from './SearchField'
@@ -34,7 +35,7 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Route render={({ history }) => <SearchField history={history} />} />
-						<Nav className='ml-auto'>
+						<Nav id="nav-item" className='ml-auto'>
 							<LinkContainer to='/vehicles'>
 								<Nav.Link id='nav-item' className='mx-3'>
 									<i className='fas fa-car mx-1' />
@@ -42,8 +43,8 @@ const Navigation = () => {
 								</Nav.Link>
 							</LinkContainer>
 							<LinkContainer to='/cart'>
-								<Nav.Link id='nav-item' className='mx-3'>
-									<i className='fas fa-shopping-cart mx-1' />
+								<Nav.Link id='nav-item-cart' className='mx-3'>
+									<CartIcon />
 									<strong>Cart</strong>
 								</Nav.Link>
 							</LinkContainer>
