@@ -26,8 +26,6 @@ const UserListPage = ({ history }) => {
 			} else {
 				history.push('/login')
 			}
-
-			console.log("hi")
 		},
 		[ dispatch, history, successDelete, userInfo ]
 	)
@@ -37,8 +35,6 @@ const UserListPage = ({ history }) => {
 			dispatch(deleteUser(id))
 		}
 	}
-
-	console.log(userInfo)
 
 	return (
 		<div>

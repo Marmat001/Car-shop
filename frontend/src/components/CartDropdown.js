@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import CartItem from './CartItem'
+import Loader from './Loader'
 
 const CartDropdown = ({ match, location, history }) => {
 	const carModel = match.params.model
@@ -24,10 +25,6 @@ const CartDropdown = ({ match, location, history }) => {
 
 	const cart = useSelector((state) => state.cart)
 	const { cartItems } = cart
-
-	const removeFromCartHandler = (model) => {
-		dispatch(removeFromCart(model))
-	}
 
 	const onClickHandler = () => {
 		history.push('/cart')
