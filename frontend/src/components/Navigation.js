@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import speedometer from '../img/speedometer.svg'
@@ -12,31 +12,17 @@ import { logout } from '../actions/userActions'
 const Navigation = () => {
 	const dispatch = useDispatch()
 
+	const [ hidden, setHidden ] = useState(true)
+
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
-
-	const cart = useSelector((state) => state.cartToggle)
-	const { hidden } = cart
 
 	const logoutHandler = () => {
 		dispatch(logout())
 	}
 
-	const toggleCart = () => {
-		dispatch({
-			type: 'CART_TOGGLE_HIDDEN'
-		})
-	}
-
-	const exitHandler = (e) => {
-		const element = e.target
-		if (!element.classList.contains('nav-cart')) {
-			console.log("pyah")
-		}
-	}
-
 	return (
-		<header onClick={exitHandler}>
+		<header>
 			<Navbar
 				className='fixed-top'
 				style={{ backgroundImage: 'linear-gradient(to right, #7ed57f, #28b486)' }}
@@ -60,13 +46,23 @@ const Navigation = () => {
 									<strong>Vehicles</strong>
 								</Nav.Link>
 							</LinkContainer>
-							<LinkContainer to='/cart'>
-								<Nav.Link onClick={toggleCart} id='nav-item-cart' className='mx-3 nav-cart'>
-									<CartIcon />
-									<strong>Cart</strong>
-								</Nav.Link>
-							</LinkContainer>
-							{hidden ? null : <CartDropdown />}
+							<div onMouseEnter={() => setHidden(false)} onMouseLeave={() => setHidden(true)}>
+								<LinkContainer to='/cart'>
+									<Nav.Link id='nav-item-cart' className='mx-3 nav-cart'>
+										<CartIcon />
+										<strong>Cart</strong>
+									</Nav.Link>
+								</LinkContainer>
+								{hidden ? null : (
+									<div>
+										<Route
+											render={({ history, location, match }) => (
+												<CartDropdown history={history} location={location} match={match} />
+											)}
+										/>
+									</div>
+								)}
+							</div>
 
 							{userInfo ? (
 								<NavDropdown title={userInfo.name} id='username'>

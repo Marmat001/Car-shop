@@ -35,7 +35,6 @@ const reducer = combineReducers({
 	carBrands: carBrandReducer,
 	carDetails: carDetailReducer,
 	cart: cartReducer,
-	cartToggle: cartToggleReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,
