@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import CustomTitle from '../components/CustomTitle'
 
@@ -96,14 +96,14 @@ const CheckoutPage = ({ match, location, history }) => {
 							${cartItems.reduce((acc, currVal) => acc + currVal.qty * currVal.price, 0).toFixed(0)}
 						</ListGroup.Item>
 						<ListGroup.Item>
-							<Button
+							<button
 								type='button'
 								className='btn-block homebutton'
 								disabled={cartItems.length === 0}
 								onClick={checkOutHandler}
 							>
 								Proceed To Checkout
-							</Button>
+							</button>
 						</ListGroup.Item>
 					</ListGroup>
 				</Card>

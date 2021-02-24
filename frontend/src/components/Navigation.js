@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import speedometer from '../img/speedometer.svg'
 import CartIcon from './CartIcon'
+import CartDropdown from './CartDropdown'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchField from './SearchField'
@@ -10,11 +11,21 @@ import { logout } from '../actions/userActions'
 
 const Navigation = () => {
 	const dispatch = useDispatch()
+
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
+	const cart = useSelector((state) => state.cartToggle)
+	const { hidden } = cart
+
 	const logoutHandler = () => {
 		dispatch(logout())
+	}
+
+	const toggleCart = () => {
+		dispatch({
+			type: 'CART_TOGGLE_HIDDEN'
+		})
 	}
 
 	return (
@@ -35,7 +46,7 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Route render={({ history }) => <SearchField history={history} />} />
-						<Nav id="nav-item" className='ml-auto'>
+						<Nav id='nav-item' className='ml-auto'>
 							<LinkContainer to='/vehicles'>
 								<Nav.Link id='nav-item' className='mx-3'>
 									<i className='fas fa-car mx-1' />
@@ -43,11 +54,13 @@ const Navigation = () => {
 								</Nav.Link>
 							</LinkContainer>
 							<LinkContainer to='/cart'>
-								<Nav.Link id='nav-item-cart' className='mx-3'>
+								<Nav.Link onClick={toggleCart} id='nav-item-cart' className='mx-3'>
 									<CartIcon />
 									<strong>Cart</strong>
 								</Nav.Link>
 							</LinkContainer>
+							{hidden ? null : <CartDropdown />}
+
 							{userInfo ? (
 								<NavDropdown title={userInfo.name} id='username'>
 									<LinkContainer to='/profile'>

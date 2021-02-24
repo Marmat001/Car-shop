@@ -45,3 +45,15 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, acti
 			return state
 	}
 }
+
+export const cartToggleReducer = (state = { hidden: true }, action) => {
+	switch (action.type) {
+		case 'CART_TOGGLE_HIDDEN':
+			return {
+				...state,
+				hidden: !state.hidden
+			}
+		default:
+			return state
+	}
+}

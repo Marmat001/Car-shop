@@ -11,7 +11,7 @@ import {
 	topRatedCarReducer,
 	updateCarReducer
 } from './reducers/carReducers'
-import { cartReducer } from './reducers/cartReducers'
+import { cartReducer, cartToggleReducer } from './reducers/cartReducers'
 import {
 	userDeleteReducer,
 	userDetailsReducer,
@@ -35,6 +35,7 @@ const reducer = combineReducers({
 	carBrands: carBrandReducer,
 	carDetails: carDetailReducer,
 	cart: cartReducer,
+	cartToggle: cartToggleReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,

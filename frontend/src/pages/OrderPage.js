@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
 import CustomTitle from '../components/CustomTitle'
@@ -132,14 +132,14 @@ const OrderPage = ({ history }) => {
 							</ListGroup.Item>
 							<ListGroup.Item>{error && <Message variant='danger'>{error}</Message>}</ListGroup.Item>
 							<ListGroup.Item>
-								<Button
+								<button
 									className='btn btn-block homebutton'
 									type='button'
 									disabled={cart.cartItems === 0}
 									onClick={placeOrderHandler}
 								>
 									Place Order
-								</Button>
+								</button>
 							</ListGroup.Item>
 						</ListGroup>
 					</Card>
