@@ -38,11 +38,11 @@ const CarPage = ({ history, match }) => {
 				setRating(0)
 				setComment('')
 			}
-			console.log('puto')
+			
 		},
 		[ dispatch, match, successCarReview ]
 	)
-	console.log(car, loading)
+	
 
 	const AddCarToCartHandler = () => {
 		history.push(`/cart/${carModel}?qty=${qty}`)

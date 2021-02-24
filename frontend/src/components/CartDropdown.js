@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions'
-import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
+import CartItem from './CartItem'
 
 const CartDropdown = ({ match, location, history }) => {
 	const carModel = match.params.model
@@ -36,23 +35,7 @@ const CartDropdown = ({ match, location, history }) => {
 
 	return (
 		<div className='cart-dropdown'>
-			<div className='cart-items'>
-				<ListGroup variant='flush'>
-					{cartItems.map((item) => (
-						<ListGroup.Item key={item.car}>
-							<Row>
-								<Col md={2}>
-									<Image src={item.image} alt={item.name} fluid rounded />
-								</Col>
-								<Col md={3}>
-									<Link to={`/vehicles/${item.brand}/${item.car}`}>{item.name}</Link>
-								</Col>
-								<Col md={2}>${item.price}</Col>
-							</Row>
-						</ListGroup.Item>
-					))}
-				</ListGroup>
-			</div>
+			<div className='cart-items'>{cartItems.map((cartItem) => <CartItem key={cartItem.id} item={cartItem} />)}</div>
 			<button className='custombutton' onClick={onClickHandler}>
 				GO TO CHECKOUT
 			</button>

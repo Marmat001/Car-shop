@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import Loader from '../components/Loader'
 import { listUsers, deleteUser } from '../actions/userActions'
 import CustomTitle from '../components/CustomTitle'
@@ -26,6 +26,8 @@ const UserListPage = ({ history }) => {
 			} else {
 				history.push('/login')
 			}
+
+			console.log("hi")
 		},
 		[ dispatch, history, successDelete, userInfo ]
 	)
@@ -35,6 +37,8 @@ const UserListPage = ({ history }) => {
 			dispatch(deleteUser(id))
 		}
 	}
+
+	console.log(userInfo)
 
 	return (
 		<div>
