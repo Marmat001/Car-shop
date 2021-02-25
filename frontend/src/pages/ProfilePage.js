@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import axios from 'axios'
+import { Form, Button, Row, Col, Table, Image } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { FadeMessage, Message } from '../components/Message'
@@ -15,6 +16,8 @@ const ProfilePage = ({ history }) => {
 	const [ password, setPassword ] = useState('')
 	const [ confirmPassword, setConfirmPassword ] = useState('')
 	const [ message, setMessage ] = useState(null)
+	const [ image, setImage ] = useState('')
+	const [ uploading, setUploading ] = useState(false)
 
 	const dispatch = useDispatch()
 
@@ -59,11 +62,47 @@ const ProfilePage = ({ history }) => {
 		}
 	}
 
+	const uploadFileHandler = async (e) => {
+		const file = e.target.files[0]
+		const formData = new FormData()
+		formData.append('image', file)
+		setUploading(true)
+
+		try {
+			const config = {
+				header: {
+					'Content-Type': 'multipart/form-data'
+				}
+			}
+			const { data } = await axios.post('/api/upload', formData, config)
+
+			setImage(data)
+			setUploading(false)
+			
+		} catch (error) {
+			console.error(error)
+			setUploading(false)
+		}
+	}
+
 	return (
 		<Row>
 			<CustomTitle title='Profile' />
 			<Col xl={5}>
 				<h2>User Profile</h2>
+				<Form.Group className='layout-profile' controlId='image'>
+					<h4>Profile Image</h4>
+					<Image className='profile-image' src={image} />
+					<Form.File
+						className='small-fileloader'
+						id='image-file'
+						label='Choose file'
+						custom
+						onChange={uploadFileHandler}
+					>
+						{uploading && <Loader />}
+					</Form.File>
+				</Form.Group>
 				{error && <Message variant='danger'>{error}</Message>}
 				{loading && <Loader />}
 				<FormContainer>
@@ -170,6 +209,7 @@ const ProfilePage = ({ history }) => {
 						</tbody>
 					</Table>
 				)}
+				{orders?.length === 0 ? <h1 style={{ textAlign: 'center' }}>No Orders To display</h1> : ''}
 			</Col>
 		</Row>
 	)

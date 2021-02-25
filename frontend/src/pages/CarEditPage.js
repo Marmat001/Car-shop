@@ -107,7 +107,6 @@ const CarEditPage = ({ match, history }) => {
 		)
 	}
 
-	console.log(loading)
 	return (
 		<div>
 			<Button className='btn homebutton my-3' onClick={() => history.goBack()}>
