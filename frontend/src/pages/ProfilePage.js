@@ -48,6 +48,8 @@ const ProfilePage = ({ history }) => {
 		[ history, userInfo, dispatch, user, success ]
 	)
 
+	console.log(user)
+
 	const submitHandler = (e) => {
 		e.preventDefault()
 		if (password !== confirmPassword) {

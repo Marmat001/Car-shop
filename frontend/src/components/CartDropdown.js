@@ -32,7 +32,7 @@ const CartDropdown = ({ match, location, history }) => {
 
 	return (
 		<div className='cart-dropdown'>
-			<div className='cart-items'>{cartItems.map((cartItem) => <CartItem key={cartItem.id} item={cartItem} />)}</div>
+			<div className='cart-items'>{cartItems.map((cartItem) => <CartItem key={cartItem.name} item={cartItem} />)}</div>
 			<button className='custombutton' onClick={onClickHandler}>
 				GO TO CHECKOUT
 			</button>

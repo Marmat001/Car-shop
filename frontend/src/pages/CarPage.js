@@ -7,6 +7,7 @@ import { listCarDetails, createCarReview } from '../actions/carActions'
 import Loader from '../components/Loader'
 import { Message, FadeMessage } from '../components/Message'
 import CustomTitle from '../components/CustomTitle'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CarPage = ({ history, match }) => {
 	const [ qty, setQty ] = useState(1)
@@ -38,14 +39,12 @@ const CarPage = ({ history, match }) => {
 				setRating(0)
 				setComment('')
 			}
-			
 		},
 		[ dispatch, match, successCarReview ]
 	)
-	
 
 	const AddCarToCartHandler = () => {
-		history.push(`/cart/${carModel}?qty=${qty}`)
+		dispatch(addToCart(carModel, car.brand, qty))
 	}
 
 	const submitHandler = (e) => {
@@ -113,7 +112,7 @@ const CarPage = ({ history, match }) => {
 												<select
 													className='input-field countInStock padding-top-bottom'
 													value={qty}
-													onChange={(e) => setQty(e.target.value)}
+													onChange={(e) => setQty(Number(e.target.value))}
 												>
 													{[ ...Array(car.countInStock).keys() ].map((x) => (
 														<option key={x + 1} value={x + 1}>

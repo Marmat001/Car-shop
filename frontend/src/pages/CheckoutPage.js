@@ -19,14 +19,14 @@ const CheckoutPage = ({ match, location, history }) => {
 	const cart = useSelector((state) => state.cart)
 	const { cartItems } = cart
 
-	useEffect(
-		() => {
-			if (carModel) {
-				dispatch(addToCart(carModel, carBrand, qty))
-			}
-		},
-		[ dispatch, carModel, qty, pathname ]
-	)
+	// useEffect(
+	// 	() => {
+	// 		if (carModel) {
+	// 			dispatch(addToCart(carModel, carBrand, qty))
+	// 		}
+	// 	},
+	// 	[ dispatch, carModel, qty, pathname ]
+	// )
 
 	const removeFromCartHandler = (model) => {
 		dispatch(removeFromCart(model))
@@ -92,6 +92,7 @@ const CheckoutPage = ({ match, location, history }) => {
 				<Card>
 					<ListGroup variant='flush'>
 						<ListGroup.Item>
+							{console.log(cartItems)}
 							<h2>Subtotal ({cartItems.reduce((acc, currVal) => acc + currVal.qty, 0)}) items</h2>
 							${cartItems.reduce((acc, currVal) => acc + currVal.qty * currVal.price, 0).toFixed(0)}
 						</ListGroup.Item>
