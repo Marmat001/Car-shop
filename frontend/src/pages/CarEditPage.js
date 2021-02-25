@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listCarDetails, updateCar } from '../actions/carActions'
@@ -40,7 +40,7 @@ const CarEditPage = ({ match, history }) => {
 		() => {
 			if (successUpdate) {
 				dispatch({ type: 'CAR_UPDATE_RESET' })
-				history.push('/admin/carlist')
+				history.goBack()
 			} else {
 				if ((!car.name && pathname.includes(carModel)) || (car._id !== carId && pathname.includes(carModel))) {
 					dispatch(listCarDetails(carModel))
@@ -65,10 +65,8 @@ const CarEditPage = ({ match, history }) => {
 				}
 			}
 		},
-		[ dispatch, history, carBrand, carModel, carId, successUpdate, car.name ]
+		[ dispatch, history, carBrand, carModel, carId, successUpdate, car ]
 	)
-
-
 
 	const uploadFileHandler = async (e) => {
 		const file = e.target.files[0]
@@ -109,11 +107,12 @@ const CarEditPage = ({ match, history }) => {
 		)
 	}
 
+	console.log(loading)
 	return (
 		<div>
-			<Link to='/admin/carlist' className='btn homebutton my-3'>
+			<Button className='btn homebutton my-3' onClick={() => history.goBack()}>
 				Go Back
-			</Link>
+			</Button>
 			<FormContainer>
 				{pathname.includes(carModel) ? <h1>Edit Car Information</h1> : <h1>Add New Car Information</h1>}
 				{loadingUpdate && <Loader />}
@@ -151,7 +150,6 @@ const CarEditPage = ({ match, history }) => {
 							<Form.Label>Image</Form.Label>
 							<input
 								className='input-field padding-top-bottom upload-image'
-								t
 								type='text'
 								placeholder='Enter image url'
 								value={image}
@@ -188,7 +186,6 @@ const CarEditPage = ({ match, history }) => {
 							<Form.Label>Count In Stock</Form.Label>
 							<input
 								className='input-field padding-top-bottom countInStock'
-								t
 								type='number'
 								placeholder='Enter countInStock'
 								value={countInStock}
@@ -200,7 +197,6 @@ const CarEditPage = ({ match, history }) => {
 							<Form.Label>Category</Form.Label>
 							<input
 								className='input-field padding-top-bottom category'
-								t
 								type='text'
 								placeholder='Enter category'
 								value={category}
@@ -212,7 +208,6 @@ const CarEditPage = ({ match, history }) => {
 							<Form.Label>Description</Form.Label>
 							<textarea
 								className='input-field padding-top-bottom description'
-								t
 								type='text'
 								placeholder='Enter description'
 								value={description}

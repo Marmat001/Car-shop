@@ -16,8 +16,6 @@ const CarListPage = ({ history, match }) => {
 	const carList = useSelector((state) => state.carList)
 	const { loading, error, cars, page, pages } = carList
 
-		console.log(carList)
-
 
 	const carDelete = useSelector((state) => state.carDelete)
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = carDelete

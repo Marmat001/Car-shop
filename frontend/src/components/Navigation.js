@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import speedometer from '../img/speedometer.svg'
@@ -12,10 +12,11 @@ import { logout } from '../actions/userActions'
 const Navigation = () => {
 	const dispatch = useDispatch()
 
-	const [ hidden, setHidden ] = useState(true)
-
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
+
+	const cart = useSelector((state) => state.cartToggle)
+	const { hidden } = cart
 
 	const logoutHandler = () => {
 		dispatch(logout())
@@ -46,7 +47,17 @@ const Navigation = () => {
 									<strong>Vehicles</strong>
 								</Nav.Link>
 							</LinkContainer>
-							<div onMouseEnter={() => setHidden(false)} onMouseLeave={() => setHidden(true)}>
+							<div
+								className='dropdown-container'
+								onMouseEnter={() =>
+									dispatch({
+										type: 'CART_TOGGLE_SHOW'
+									})}
+								onMouseLeave={() =>
+									dispatch({
+										type: 'CART_TOGGLE_HIDDEN'
+									})}
+							>
 								<LinkContainer to='/cart'>
 									<Nav.Link id='nav-item-cart' className='mx-3 nav-cart'>
 										<CartIcon />

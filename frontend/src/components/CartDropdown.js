@@ -1,28 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
-import { addToCart, removeFromCart } from '../actions/cartActions'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import CartItem from './CartItem'
-import Loader from './Loader'
 
-const CartDropdown = ({ match, location, history }) => {
-	const carModel = match.params.model
-	const carBrand = match.params.brand
-
-	const dispatch = useDispatch()
-	const { pathname } = useLocation()
-
-	const qty = location.search ? Number(location.search.split('=')[1]) : 1
-
-	useEffect(
-		() => {
-			if (carModel) {
-				dispatch(addToCart(carModel, carBrand, qty))
-			}
-		},
-		[ dispatch, carModel, qty, pathname ]
-	)
-
+const CartDropdown = ({ history }) => {
 	const cart = useSelector((state) => state.cart)
 	const { cartItems } = cart
 

@@ -7,7 +7,7 @@ import { listCarDetails, createCarReview } from '../actions/carActions'
 import Loader from '../components/Loader'
 import { Message, FadeMessage } from '../components/Message'
 import CustomTitle from '../components/CustomTitle'
-import { addToCart, removeFromCart } from '../actions/cartActions'
+import { addToCart } from '../actions/cartActions'
 
 const CarPage = ({ history, match }) => {
 	const [ qty, setQty ] = useState(1)
@@ -43,8 +43,22 @@ const CarPage = ({ history, match }) => {
 		[ dispatch, match, successCarReview ]
 	)
 
+
 	const AddCarToCartHandler = () => {
 		dispatch(addToCart(carModel, car.brand, qty))
+
+		dispatch({
+			type: 'CART_TOGGLE_SHOW'
+		})
+
+		const delay = setTimeout(() => {
+			dispatch({
+				type: 'CART_TOGGLE_HIDDEN'
+			})
+		}, 1000)
+		return () => {
+			clearTimeout(delay)
+		}
 	}
 
 	const submitHandler = (e) => {
