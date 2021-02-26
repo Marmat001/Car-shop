@@ -55,7 +55,7 @@ const CheckoutPage = ({ match, location, history }) => {
 				) : (
 					<ListGroup variant='flush'>
 						{cartItems.map((item) => (
-							<ListGroup.Item key={item.car}>
+							<ListGroup.Item className='bg-transparent' key={item.car}>
 								<Row>
 									<Col md={2}>
 										<Image src={item.image} alt={item.name} fluid rounded />
@@ -65,8 +65,8 @@ const CheckoutPage = ({ match, location, history }) => {
 									</Col>
 									<Col md={2}>${item.price}</Col>
 									<Col md={2}>
-										<Form.Control
-											as='select'
+										<select
+											className='input-field'
 											value={item.qty}
 											onChange={(e) => dispatch(addToCart(item.car, item.brand, Number(e.target.value)))}
 										>
@@ -75,11 +75,11 @@ const CheckoutPage = ({ match, location, history }) => {
 													{x + 1}
 												</option>
 											))}
-										</Form.Control>
+										</select>
 									</Col>
 									<Col md={2}>
-										<Button type='button' variant='light' onClick={() => removeFromCartHandler(item.car)}>
-											<i className='fas fa-trash' />
+										<Button type='button' variant='danger' onClick={() => removeFromCartHandler(item.car)}>
+											<i className='fas fa-trash-alt' />
 										</Button>
 									</Col>
 								</Row>
@@ -89,14 +89,14 @@ const CheckoutPage = ({ match, location, history }) => {
 				)}
 			</Col>
 			<Col md={4}>
-				<Card>
+				<Card className='bg-transparent'>
 					<ListGroup variant='flush'>
-						<ListGroup.Item>
+						<ListGroup.Item className='bg-transparent'>
 							{console.log(cartItems)}
 							<h2>Subtotal ({cartItems.reduce((acc, currVal) => acc + currVal.qty, 0)}) items</h2>
 							${cartItems.reduce((acc, currVal) => acc + currVal.qty * currVal.price, 0).toFixed(0)}
 						</ListGroup.Item>
-						<ListGroup.Item>
+						<ListGroup.Item className='bg-transparent'>
 							<button
 								type='button'
 								className='btn-block homebutton'

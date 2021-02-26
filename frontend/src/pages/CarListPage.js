@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import {Message }from '../components/Message'
+import { Message } from '../components/Message'
 import Loader from '../components/Loader'
 import { listAllCars, deleteCar, addCar } from '../actions/carActions'
 import Paginate from '../components/Paginate'
@@ -15,7 +15,6 @@ const CarListPage = ({ history, match }) => {
 
 	const carList = useSelector((state) => state.carList)
 	const { loading, error, cars, page, pages } = carList
-
 
 	const carDelete = useSelector((state) => state.carDelete)
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = carDelete
@@ -100,7 +99,7 @@ const CarListPage = ({ history, match }) => {
 											</Button>
 										</LinkContainer>
 										<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(car.brand, car.model)}>
-											<i className='fas fa-trash' />
+											<i className='fas fa-trash-alt' />
 										</Button>
 									</td>
 								</tr>

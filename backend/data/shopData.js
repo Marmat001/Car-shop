@@ -87,7 +87,7 @@ const shopData = [
 				name: 'Mercedes AMG GT63s',
 				image: '/images/gt63s.jpg',
 				description:
-					'The Mercedes-AMG GT 63 is available in two variants: GT 63 and GT 63 S. The former is the base model, fitted with a 4.0-liter twin-turbo V8 producing 577 hp and 590 lb-ft of torque. A nine-speed auto and 4Matic+ all-wheel-drive are your only options here, but a rear-wheel-drive drift mode is available.',
+					"The Mercedes-AMG GT 63 is available in two variants: GT 63 and GT 63 S. The former is the base model, fitted with a 4.0-liter twin-turbo V8 producing 577 hp and 590 lb-ft of torque. A nine-speed auto and 4Matic+ all-wheel-drive are your only options here, but a rear-wheel-drive drift mode is available. Determined to squeeze every last drop of turnover out of every last niche imaginable, Mercedes-AMG was not content with its CLS and instead made another 'four-door coupe' for a select few to buy. The difference, however, is that this one is claimed to share DNA with the AMG GT supercar. Funny, then, that it's actually based on an E-Class. Confusing money-making tactics aside, the GT 63 and GT 63 S four-door coupes are impressive machines, both powered by a 4.0-liter twin-turbo V8 that sends power to all four wheels via a nine-speed MCT auto. In the base model, the figures are 577 horsepower and 590 lb-ft of torque, but if that doesn't satisfy your lust for insanity, the S version has a stratospheric 630 hp and 664 lb-ft. With 0-60 mph times as low as 3.1 seconds, the GT 63 leaves the Porsche Panamera Turbo behind in terms of performance.",
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-gt63s',
@@ -100,7 +100,7 @@ const shopData = [
 				name: 'Mercedes AMG CLS 63',
 				image: '/images/cls.jpg',
 				description:
-					'Under the hood is a 5.5-liter twin-turbo V-8 that makes a beastly 577 hp and 590 lb-ft with a seven-speed automatic. All-wheel drive (4Matic) is standard, as is an adaptive sport suspension.',
+					'Under the hood is a 5.5-liter twin-turbo V-8 that makes a beastly 577 hp and 590 lb-ft with a seven-speed automatic. All-wheel drive (4Matic) is standard, as is an adaptive sport suspension. In both four-door Coupe and rakish-estate Shooting Brake form, the Mercedes CLS63 AMG has long been one of the more characterful German heavyweights. It occupied an alternative territory to its E63 AMG stablemate or BMW’s M5; it was only really concerned with long-distance luxury and sports car-crushing straight-line pace, leaving the E63 and M5 to trouble themselves with such vulgar contemplations as steering feel and turn-in agility. With more power and minor upgrades inside and out, this facelifted version, badged CLS63 AMG S, should offer more of the same. The output of the twin-turbocharged V8 has risen for this AMG S application by 28bhp and 59lb ft, to 577bhp and 590lb ft respectively. That’s enough for a claimed 4.1sec 0-60 time and an inevitable electronically limited 155mph top speed.',
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-cls63',
@@ -113,7 +113,7 @@ const shopData = [
 				name: 'Mercedes AMG S63',
 				image: '/images/s63.jpg',
 				description:
-					'The S63 Coupe is powered by an individually handcrafted 4.0-liter bi-turbo V8 engine, which in S63 guise, develops 603 hp between 5,500 and 6,000 rpm and a massive 664 lb-ft of torque available between 2,750 and 4,500 rpm.',
+					"The S63 Coupe is powered by an individually handcrafted 4.0-liter bi-turbo V8 engine, which in S63 guise, develops 603 hp between 5,500 and 6,000 rpm and a massive 664 lb-ft of torque available between 2,750 and 4,500 rpm. Making use of a 4.0-liter bi-turbo V8 engine with 603 hp and 664 lb-ft of torque, the S63 will blast to 60 mph in only 3.5 seconds. A nine-speed AMG automatic transmission, 4Matic+ all-wheel-drive, and an adaptive sport suspension are standard. No other S-Class is faster. The AMG 4Matic+ all-wheel-drive system does a remarkable job of transferring all that grunt to the road and endows the S63 with more agility than other models in the range. And yet, the V8's fury and the AMG styling touches have done nothing to erode those typical S-Class qualities of insulation and a sublime ride, along with every available comfort and safety feature there is. The mischievous kids always stay out a bit later, and the S63 is the S-Class that'll ensure you always take the long way home.",
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-s63',
@@ -126,7 +126,7 @@ const shopData = [
 				name: 'Mercedes AMG E63s',
 				image: '/images/e63s.jpg',
 				description:
-					"The E63 S's powerful twin-turbo 603-hp V-8 engine is a mild-mannered partner and a maniacal monster all wrapped up into one. Left in Comfort mode, the engine and nine-speed automatic transmission react with stoicism and smoothness. Select any of the sportier drive modes and the powertrain unleashes relentless fury.",
+					"The E63 S's powerful twin-turbo 603-hp V-8 engine is a mild-mannered partner and a maniacal monster all wrapped up into one. Left in Comfort mode, the engine and nine-speed automatic transmission react with stoicism and smoothness. Select any of the sportier drive modes and the powertrain unleashes relentless fury. It's based on the regular Mercedes-Benz E-class, but the E63 S is actually a more powerful version of the AMG E53. However, this significantly more expensive sibling features a fire-breathing 603-hp twin-turbo V-8 that helps it accelerate with breathtaking speed. Plus, the E63 S's talented all-wheel-drive system has a Drift mode that routes all of the engine's power to the rear wheels for entertaining sideways action. Of course, this mightiest E is hardly meant for adolescent indulgences. Its rowdy soundtrack and incredible handling make it a machine that can intimidate and challenge even the most exotic cars.",
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-e63s',
@@ -139,7 +139,7 @@ const shopData = [
 				name: 'Mercedes AMG C63s',
 				image: '/images/c63s.jpg',
 				description:
-					'The Mercedes-AMG C63 and C63 S have a hand-built, twin-turbo 4.0-liter V-8 engine. In the C63, it makes 469 horsepower and 479 lb-ft of torque. The C63 S ups the performance ante with 503 horsepower and 516 lb-ft. Both engines use a nine-speed automatic with rear-wheel drive.',
+					"The Mercedes-AMG C63 and C63 S have a hand-built, twin-turbo 4.0-liter V-8 engine. In the C63, it makes 469 horsepower and 479 lb-ft of torque. The C63 S ups the performance ante with 503 horsepower and 516 lb-ft. Both engines use a nine-speed automatic with rear-wheel drive. It’s based on the Mercedes-Benz C-class, but has a twin-turbocharged V-8 engine making 469 horsepower in the C63 and 503 hp in the C63 S. The C63 also has a sportier suspension tune (you’ll notice a harsher ride) and some exterior differences compared to the regular C-class that add some aggression to its appearance. It’s available as a sedan, a coupe, or a convertible, and it goes like it's got a Saturn V booster rocket strapped to its roof. Plus, it has a legitimately luxurious interior and plenty of up-to-the-minute technology, so you’re not trading anything away in return for the performance.",
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-c63s',
@@ -152,7 +152,7 @@ const shopData = [
 				name: 'Mercedes AMG G63',
 				image: '/images/g63.jpg',
 				description:
-					'Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system.',
+					"Mercedes-AMG G63 comes with a twin-turbocharged 4.0-liter V-8 engine that makes 577 horsepower and 627 lb-ft of torque. A nine-speed automatic gearbox with steering-wheel-mounted paddle shifters sends all that power to the all-wheel-drive system. The Mercedes-AMG G63 is all about making things seem effortless, whether that's blasting down the autobahn with the speedometer in the triple digits or crawling rocks in Moab at single-digit speeds. It also will undoubtedly make your valet experience effortless as those guys are sure to leave your truck up front. This modernized version of the iconic original G-class has all of AMG's go-fast bits and baubles, including a 577-hp twin-turbo V-8 engine under its squared-off hood. Inside, a host of contemporary infotainment and tech features is at your fingertips and your behind is perched on a leather-wrapped throne with just the right amount of bolstering to keep you upright during any of the G63's off-road antics.",
 				category: 'vehicles',
 				brand: 'mercedes',
 				model: 'mercedes-g63',
