@@ -45,20 +45,21 @@ const ProfilePage = ({ history }) => {
 				} else {
 					setName(user.name)
 					setEmail(user.email)
+					setImage(user.image)
 				}
 			}
+
+			console.log('fire')
 		},
 		[ history, userInfo, dispatch, user, success ]
 	)
-
-	console.log(user)
 
 	const submitHandler = (e) => {
 		e.preventDefault()
 		if (password !== confirmPassword) {
 			setMessage('Passwords do not match')
 		} else {
-			dispatch(updateUserProfile({ id: user._id, name, email, password }))
+			dispatch(updateUserProfile({ id: user._id, name, email, password, image }))
 		}
 	}
 
@@ -67,7 +68,6 @@ const ProfilePage = ({ history }) => {
 		const formData = new FormData()
 		formData.append('image', file)
 		setUploading(true)
-
 		try {
 			const config = {
 				header: {
@@ -75,10 +75,8 @@ const ProfilePage = ({ history }) => {
 				}
 			}
 			const { data } = await axios.post('/api/upload', formData, config)
-
 			setImage(data)
 			setUploading(false)
-			
 		} catch (error) {
 			console.error(error)
 			setUploading(false)
@@ -90,25 +88,20 @@ const ProfilePage = ({ history }) => {
 			<CustomTitle title='Profile' />
 			<Col xl={5}>
 				<h2>User Profile</h2>
-				<Form.Group className='layout-profile' controlId='image'>
-					<h4>Profile Image</h4>
-					<Image className='profile-image' src={image} />
-					<Form.File
-						className='small-fileloader'
-						id='image-file'
-						label='Choose file'
-						custom
-						onChange={uploadFileHandler}
-					>
-						{uploading && <Loader />}
-					</Form.File>
-				</Form.Group>
 				{error && <Message variant='danger'>{error}</Message>}
-				{loading && <Loader />}
+				{/* {loading && <Loader />} */}
 				<FormContainer>
 					{message && <Message variant='danger'>{message}</Message>}
 					{success && <Message variant='success'>Profile Updated</Message>}
 					<Form onSubmit={submitHandler}>
+						<Form.Group className='layout-profile' controlId='image'>
+							<h4>Profile Image</h4>
+							{loading ? <Loader /> : <Image className='profile-image' src={image} />}
+
+							<Form.File id='image-file' label='Choose file' custom onChange={uploadFileHandler}>
+								{uploading && <Loader />}
+							</Form.File>
+						</Form.Group>
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>
 							<input

@@ -11,6 +11,7 @@ const authUser = asyncHandler(async (req, res) => {
 		res.json({
 			_id: user._id,
 			name: user.name,
+			image: user.image,
 			email: user.email,
 			isAdmin: user.isAdmin,
 			token: getWebToken(user._id)
@@ -41,6 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
 		res.status(201).json({
 			_id: user._id,
 			name: user.name,
+			image: user.image,
 			email: user.email,
 			isAdmin: user.isAdmin,
 			token: getWebToken(user._id)
@@ -57,6 +59,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 	if (user) {
 		res.json({
 			_id: user._id,
+			image: user.image,
 			name: user.name,
 			email: user.email,
 			isAdmin: user.isAdmin
@@ -73,6 +76,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 	if (user) {
 		user.name = req.body.name || user.name
 		user.email = req.body.email || user.email
+		user.image = req.body.image || user.image
 
 		if (req.body.password) {
 			user.password = req.body.password
@@ -83,6 +87,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 		res.json({
 			_id: updatedUser._id,
 			name: updatedUser.name,
+			image: updatedUser.image,
 			email: updatedUser.email,
 			isAdmin: updatedUser.isAdmin,
 			token: getWebToken(updatedUser._id)
@@ -135,6 +140,7 @@ const updateUser = asyncHandler(async (req, res) => {
 		res.json({
 			_id: updatedUser._id,
 			name: updatedUser.name,
+			image: user.image,
 			email: updatedUser.email,
 			isAdmin: updatedUser.isAdmin
 		})

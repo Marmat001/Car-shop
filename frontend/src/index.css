@@ -482,10 +482,6 @@ textarea {
 	border-radius: 25%;
 }
 
-.small-fileloader {
-	width: 50%;
-}
-
 @media (max-width: 1500px) {
 	#searchinput {
 		width: 450px;
