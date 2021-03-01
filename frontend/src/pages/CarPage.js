@@ -13,19 +13,20 @@ const CarPage = ({ history, match }) => {
 	const [ qty, setQty ] = useState(1)
 	const [ rating, setRating ] = useState(0)
 	const [ comment, setComment ] = useState('')
+	const [ loading, setLoading ] = useState(true)
 
 	const carModel = match.params.model
 
 	const dispatch = useDispatch()
 
 	const carDetails = useSelector((state) => state.carDetails)
-	const { loading, error, car } = carDetails
+	const { loading: loadingDetails, error, car } = carDetails
 
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
 	const carCreateReview = useSelector((state) => state.carCreateReview)
-	const { success: successCarReview, error: errorCarReview } = carCreateReview
+	const { success: successCarReview, loading: loadingCarReview, error: errorCarReview } = carCreateReview
 
 	useEffect(
 		() => {
@@ -35,14 +36,16 @@ const CarPage = ({ history, match }) => {
 			}
 
 			if (successCarReview) {
-				alert('Review Submitted!')
 				setRating(0)
 				setComment('')
 			}
+
+			setTimeout(() => {
+				setLoading(false)
+			}, 150)
 		},
 		[ dispatch, match, successCarReview ]
 	)
-
 
 	const AddCarToCartHandler = () => {
 		dispatch(addToCart(carModel, car.brand, qty))
@@ -158,7 +161,6 @@ const CarPage = ({ history, match }) => {
 							</h2>
 							<ListGroup id='contact-form' className='mt-0'>
 								{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
-
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
 										<strong>{review.name}</strong>
@@ -169,6 +171,8 @@ const CarPage = ({ history, match }) => {
 								))}
 								<ListGroup.Item>
 									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
+									{successCarReview && <FadeMessage variant='success'>Review submitted successfully</FadeMessage>}
+									{loadingCarReview && <Loader />}
 									{errorCarReview && <FadeMessage variant='danger'>{errorCarReview}</FadeMessage>}
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>
