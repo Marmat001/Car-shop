@@ -42,7 +42,7 @@ const CarPage = ({ history, match }) => {
 
 			setTimeout(() => {
 				setLoading(false)
-			}, 150)
+			}, 200)
 		},
 		[ dispatch, match, successCarReview ]
 	)
@@ -171,8 +171,8 @@ const CarPage = ({ history, match }) => {
 								))}
 								<ListGroup.Item>
 									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
-									{successCarReview && <FadeMessage variant='success'>Review submitted successfully</FadeMessage>}
 									{loadingCarReview && <Loader />}
+									{successCarReview && <Message variant='success'>Review submitted successfully</Message>}
 									{errorCarReview && <FadeMessage variant='danger'>{errorCarReview}</FadeMessage>}
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>

@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Carousel, Image, Row, Col } from 'react-bootstrap'
 import CarBrandPreview from '../components/CarBrandPreview'
+import Typewriter from '../components/TypeWriter'
 import cars from '../cars'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import Loader from '../components/Loader'
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import { listTopCars } from '../actions/carActions'
 import CustomTitle from '../components/CustomTitle'
 
@@ -30,7 +31,18 @@ const ShopPage = () => {
 	) : (
 		<div>
 			<CustomTitle title='Vehicles' />
-			<h1 className='py-3 pb-4 text-center car-heading'>Latest Additions</h1>
+
+			<div className='py-5 pb-4 text-center tertiary-heading jumbotron'>
+				<Typewriter
+					text={[
+						'New Arrivals every week',
+						'Only the most exclusive brands',
+						'The effort-free way to buy a car',
+						'We deliver what we promise',
+						'Cars that have a passion for the road'
+					]}
+				/>
+			</div>
 			<Carousel autoPlay={true} interval={2500} pause='hover' className='bg-dark'>
 				{carsTopRated.map((car) => (
 					<Carousel.Item key={car._id}>
@@ -40,6 +52,8 @@ const ShopPage = () => {
 					</Carousel.Item>
 				))}
 			</Carousel>
+			<h1 className='py-3 pb-4 text-center car-heading'>Latest Additions</h1>
+
 			<div>
 				<h1 className='py-4 pt-5 car-heading'>Our Car Selection</h1>
 				<Row>

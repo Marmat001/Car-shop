@@ -228,6 +228,17 @@ h2 {
 	transition: all .3s;
 }
 
+.tertiary-heading {
+	/* display: inline-block; */
+	font-size: 3rem;
+	text-transform: uppercase;
+	font-weight: 750;
+	background-image: linear-gradient(to right, #7ed57f, #28b486);
+	background-clip: text;
+	color: transparent;
+	letter-spacing: 2.5px;
+}
+
 .secondary-heading:hover {
 	transform: skewY(3deg) skewX(16deg) scale(1.1);
 	text-shadow: .6rem 1rem 2rem rgba(#222422, .3);
@@ -249,6 +260,16 @@ h2 {
 .vroom-icon-lg {
 	width: 8rem;
 	height: auto;
+}
+
+input:focus {
+	outline: none;
+	border-bottom: 5px solid#28b486;
+}
+
+textarea:focus {
+	outline: none;
+	border-bottom: 5px solid#28b486;
 }
 
 .vroom-icon-sm {
