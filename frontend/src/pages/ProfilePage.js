@@ -49,7 +49,7 @@ const ProfilePage = ({ history }) => {
 				}
 			}
 
-			console.log('fire')
+			
 		},
 		[ history, userInfo, dispatch, user, success ]
 	)

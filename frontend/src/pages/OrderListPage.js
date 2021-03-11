@@ -16,9 +16,6 @@ const OrderListPage = ({ history }) => {
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
-	console.log(userInfo)
-	console.log(orders)
-
 	useEffect(
 		() => {
 			if (userInfo && userInfo.isAdmin) {

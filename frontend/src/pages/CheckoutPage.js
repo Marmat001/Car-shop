@@ -92,7 +92,6 @@ const CheckoutPage = ({ match, location, history }) => {
 				<Card className='bg-transparent'>
 					<ListGroup variant='flush'>
 						<ListGroup.Item className='bg-transparent'>
-							{console.log(cartItems)}
 							<h2>Subtotal ({cartItems.reduce((acc, currVal) => acc + currVal.qty, 0)}) items</h2>
 							${cartItems.reduce((acc, currVal) => acc + currVal.qty * currVal.price, 0).toFixed(0)}
 						</ListGroup.Item>
