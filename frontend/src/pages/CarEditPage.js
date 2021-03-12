@@ -22,6 +22,7 @@ const CarEditPage = ({ match, history }) => {
 	const [ price, setPrice ] = useState(0)
 	const [ image, setImage ] = useState('')
 	const [ model, setModel ] = useState('')
+	const [ color, setColor ] = useState('')
 	const [ brand, setBrand ] = useState('')
 	const [ category, setCategory ] = useState('')
 	const [ countInStock, setCountInStock ] = useState(0)
@@ -49,6 +50,7 @@ const CarEditPage = ({ match, history }) => {
 					setPrice(car.price)
 					setImage(car.image)
 					setModel(car.model)
+					setColor(car.color)
 					setBrand(car.brand)
 					setCategory(car.category)
 					setCountInStock(car.countInStock)
@@ -58,6 +60,7 @@ const CarEditPage = ({ match, history }) => {
 					setPrice(0)
 					setImage('images/sample.jpg')
 					setModel('Sample model')
+					setColor('Sample color')
 					setBrand('Sample brand')
 					setCategory('Sample category')
 					setCountInStock(0)
@@ -99,6 +102,7 @@ const CarEditPage = ({ match, history }) => {
 				price,
 				image,
 				model,
+				color,
 				brand,
 				category,
 				description,
@@ -167,6 +171,17 @@ const CarEditPage = ({ match, history }) => {
 								placeholder='Enter model'
 								value={model}
 								onChange={(e) => setModel(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group controlId='color'>
+							<Form.Label>Color</Form.Label>
+							<input
+								className='input-field padding-top-bottom model'
+								type='text'
+								placeholder='Enter color'
+								value={color}
+								onChange={(e) => setColor(e.target.value)}
 							/>
 						</Form.Group>
 

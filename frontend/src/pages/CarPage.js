@@ -115,6 +115,15 @@ const CarPage = ({ history, match }) => {
 										</Col>
 									</Row>
 								</ListGroup.Item>
+
+								<ListGroup.Item>
+									<Row>
+										<Col>Color:</Col>
+										<Col>
+											<strong>{car.color}</strong>
+										</Col>
+									</Row>
+								</ListGroup.Item>
 								<ListGroup.Item>
 									<Row>
 										<Col>Status:</Col>

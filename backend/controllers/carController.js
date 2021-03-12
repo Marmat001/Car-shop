@@ -58,6 +58,7 @@ const addNewCar = asyncHandler(async (req, res) => {
 		user: req.user._id,
 		image: '/images/sample.jpg',
 		model: 'Sample model',
+		color: 'Sample Color',
 		brand: 'Sample brand',
 		category: 'Sample category',
 		countInStock: 0,
@@ -70,7 +71,7 @@ const addNewCar = asyncHandler(async (req, res) => {
 })
 
 const updateCarInfo = asyncHandler(async (req, res) => {
-	const { name, price, description, image, model, brand, category, countInStock } = req.body
+	const { name, price, description, image, model, color, brand, category, countInStock } = req.body
 
 	const car = await Car.findById(req.params.id)
 
@@ -80,6 +81,7 @@ const updateCarInfo = asyncHandler(async (req, res) => {
 		car.description = description
 		car.image = image
 		car.model = model
+		car.color = color
 		car.brand = brand
 		car.category = category
 		car.countInStock = countInStock

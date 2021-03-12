@@ -4,10 +4,12 @@ import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import {Message} from '../components/Message'
+import { Message } from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import CustomTitle from '../components/CustomTitle'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import Invoice from '../components/Invoice'
 
 const OrderSummaryPage = ({ match, history }) => {
 	const orderId = match.params.id
@@ -97,7 +99,9 @@ const OrderSummaryPage = ({ match, history }) => {
 								{order.shippingAddress.country}
 							</p>
 							{order.isDelivered ? (
-								<Message variant='success'>Delivered on {order.deliveredAt}</Message>
+								<Message variant='success'>
+									Delivered on {`${order.deliveredAt.substring(0, 10)} ${order.deliveredAt.substring(11, 19)}`}
+								</Message>
 							) : (
 								<Message variant='danger'>Not Delivered</Message>
 							)}
@@ -110,7 +114,9 @@ const OrderSummaryPage = ({ match, history }) => {
 								{order.paymentMethod}
 							</p>
 							{order.isPaid ? (
-								<Message variant='success'>Paid on {order.paidAt}</Message>
+								<Message variant='success'>
+									Paid on {`${order.paidAt.substring(0, 10)} ${order.paidAt.substring(11, 19)}`}
+								</Message>
 							) : (
 								<Message variant='danger'>Not Paid</Message>
 							)}
@@ -193,8 +199,17 @@ const OrderSummaryPage = ({ match, history }) => {
 										Mark As Delivered
 									</Button>
 								</ListGroup.Item>
+							)}
 
-								//adda download pdf document här
+							{userInfo &&
+							order.isPaid && (
+								<ListGroup.Item>
+									<PDFDownloadLink document={<Invoice order={order} />} fileName='invoice.pdf'>
+										<Button type='button' className='btn btn-block homebutton'>
+											Download PDF
+										</Button>
+									</PDFDownloadLink>
+								</ListGroup.Item>
 							)}
 						</ListGroup>
 					</Card>

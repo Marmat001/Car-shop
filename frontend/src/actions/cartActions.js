@@ -7,6 +7,7 @@ export const addToCart = (model, brand, qty) => async (dispatch, getState) => {
 		type: 'CART_ADD_ITEM',
 		payload: {
 			car: data.model,
+			color: data.color,
 			name: data.name,
 			brand: data.brand,
 			image: data.image,

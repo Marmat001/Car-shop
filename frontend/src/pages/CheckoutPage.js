@@ -19,15 +19,6 @@ const CheckoutPage = ({ match, location, history }) => {
 	const cart = useSelector((state) => state.cart)
 	const { cartItems } = cart
 
-	// useEffect(
-	// 	() => {
-	// 		if (carModel) {
-	// 			dispatch(addToCart(carModel, carBrand, qty))
-	// 		}
-	// 	},
-	// 	[ dispatch, carModel, qty, pathname ]
-	// )
-
 	const removeFromCartHandler = (model) => {
 		dispatch(removeFromCart(model))
 	}

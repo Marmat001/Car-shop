@@ -96,6 +96,7 @@ const ProfilePage = ({ history }) => {
 					<Form onSubmit={submitHandler}>
 						<Form.Group className='layout-profile' controlId='image'>
 						{!image ? <h4>Add Profile Image</h4> : ''}
+						
 							{loading ? <Loader /> : <Image className='profile-image' src={image} />}
 							<Form.File id='image-file' label='Choose file' custom onChange={uploadFileHandler}>
 								{uploading && <Loader />}

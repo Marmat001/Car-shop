@@ -21,7 +21,8 @@ const OrderPage = ({ history }) => {
 	cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
 	cart.shippingPrice = cart.itemsPrice * 0.02
 	cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(0))
-	cart.totalPrice = Number(cart.itemsPrice) + Number(cart.taxPrice) // + Number(cart.shippingPrice)
+	cart.totalPrice = Number(cart.itemsPrice) + Number(cart.taxPrice) + Number(cart.shippingPrice)
+	cart.preliminaryPrice = Number(cart.itemsPrice) + Number(cart.taxPrice)
 
 	const orderCreate = useSelector((state) => state.orderCreate)
 	const { order, success, error } = orderCreate
@@ -127,7 +128,7 @@ const OrderPage = ({ history }) => {
 							<ListGroup.Item>
 								<Row>
 									<Col>Total</Col>
-									<Col>${cart.totalPrice.toFixed(0)}</Col>
+									<Col>${cart.preliminaryPrice.toFixed(0)}</Col>
 								</Row>
 							</ListGroup.Item>
 							<ListGroup.Item>{error && <Message variant='danger'>{error}</Message>}</ListGroup.Item>
