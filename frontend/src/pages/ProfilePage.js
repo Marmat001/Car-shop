@@ -9,6 +9,8 @@ import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 import CustomTitle from '../components/CustomTitle'
 import FormContainer from '../components/FormContainer'
+import Invoice from '../components/Invoice'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 const ProfilePage = ({ history }) => {
 	const [ name, setName ] = useState('')
@@ -48,8 +50,6 @@ const ProfilePage = ({ history }) => {
 					setImage(user.image)
 				}
 			}
-
-			
 		},
 		[ history, userInfo, dispatch, user, success ]
 	)
@@ -95,8 +95,8 @@ const ProfilePage = ({ history }) => {
 					{success && <Message variant='success'>Profile Updated</Message>}
 					<Form onSubmit={submitHandler}>
 						<Form.Group className='layout-profile' controlId='image'>
-						{!image ? <h4>Add Profile Image</h4> : ''}
-						
+							{!image ? <h4>Add Profile Image</h4> : ''}
+
 							{loading ? <Loader /> : <Image className='profile-image' src={image} />}
 							<Form.File id='image-file' label='Choose file' custom onChange={uploadFileHandler}>
 								{uploading && <Loader />}
@@ -159,7 +159,7 @@ const ProfilePage = ({ history }) => {
 				) : errorOrders ? (
 					<Message variant='danger'>{errorOrders}</Message>
 				) : (
-					<Table striped bordered hover responsive className='table-sm'>
+					<Table striped bordered hover responsive className='table-sm align-middle'>
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -167,6 +167,7 @@ const ProfilePage = ({ history }) => {
 								<th>TOTAL</th>
 								<th>PAID</th>
 								<th>DELIVERED</th>
+								<th />
 								<th />
 							</tr>
 						</thead>
@@ -196,6 +197,14 @@ const ProfilePage = ({ history }) => {
 												Details
 											</Button>
 										</LinkContainer>
+									</td>
+
+									<td>
+										<PDFDownloadLink document={<Invoice order={order} />} fileName='invoice.pdf'>
+											<Button className='btn-sm' variant='light'>
+												Download PDF
+											</Button>
+										</PDFDownloadLink>
 									</td>
 								</tr>
 							))}

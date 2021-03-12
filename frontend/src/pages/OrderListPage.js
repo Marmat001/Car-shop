@@ -6,6 +6,8 @@ import { Message } from '../components/Message'
 import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
 import CustomTitle from '../components/CustomTitle'
+import Invoice from '../components/Invoice'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 const OrderListPage = ({ history }) => {
 	const dispatch = useDispatch()
@@ -46,6 +48,7 @@ const OrderListPage = ({ history }) => {
 							<th>PAID</th>
 							<th>DELIVERED</th>
 							<th />
+							<th />
 						</tr>
 					</thead>
 					<tbody>
@@ -71,10 +74,18 @@ const OrderListPage = ({ history }) => {
 								</td>
 								<td>
 									<LinkContainer to={`/order/${order._id}`}>
-										<Button variant='light' className='btn-sm'>
+										<Button variant='light' className='btn-sm my-auto'>
 											Details
 										</Button>
 									</LinkContainer>
+								</td>
+
+								<td>
+									<PDFDownloadLink document={<Invoice order={order} />} fileName='invoice.pdf'>
+										<Button className='btn-sm' variant='light'>
+											Download PDF
+										</Button>
+									</PDFDownloadLink>
 								</td>
 							</tr>
 						))}

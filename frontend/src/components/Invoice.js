@@ -4,7 +4,6 @@ import { Table, TableHeader, TableCell, TableBody, DataTableCell } from '@david.
 
 const Invoice = ({ order }) => (
 	<Document>
-		{console.log(order)}
 		<Page style={styles.body}>
 			<Text style={styles.header} fixed>
 				~ {new Date().toLocaleString()} ~
@@ -51,7 +50,7 @@ const Invoice = ({ order }) => (
 				{'\n'}
 				<Text>
 					Total Amount: {'                  '}
-					{`$${order.totalPrice}`}
+					{`$${order.totalPrice.toFixed()}`}
 				</Text>
 			</Text>
 
