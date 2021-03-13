@@ -73,7 +73,7 @@ const UserListPage = ({ history }) => {
 								<td>
 									<LinkContainer to={`/admin/user/${user._id}/edit`}>
 										<Button variant='light' className='btn-sm'>
-											<i class='fas fa-user-edit' />
+											<i className='fas fa-user-edit' />
 										</Button>
 									</LinkContainer>
 									<Button variant='danger' className='btn-sm' onClick={() => deleteHandler(user._id)}>

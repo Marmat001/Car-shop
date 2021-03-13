@@ -156,6 +156,7 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 
 const googleLogin = (req, res) => {
 	const { idToken } = req.body
+	console.log(req.body)
 
 	client.verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT_ID }).then((response) => {
 		const { email_verified, name, email } = response.payload
@@ -165,7 +166,7 @@ const googleLogin = (req, res) => {
 					const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
 					const { _id, email, name, image, isAdmin } = user
 					return res.json({
-						user: { _id, email, name, image, isAdmin, token }
+						user: { _id, email, name, image, isAdmin, token: getWebToken(user._id) }
 					})
 				} else {
 					let password = email + process.env.JWT_SECRET
@@ -180,7 +181,7 @@ const googleLogin = (req, res) => {
 						const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
 						const { _id, email, name, image, isAdmin } = data
 						return res.json({
-							user: { _id, email, name, image, isAdmin, token }
+							user: { _id, email, name, image, isAdmin, token: getWebToken(user._id) }
 						})
 					})
 				}
