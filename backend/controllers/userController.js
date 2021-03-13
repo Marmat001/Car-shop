@@ -1,6 +1,8 @@
 import asyncHandler from 'express-async-handler'
 import getWebToken from '../utilities/getWebToken.js'
 import User from '../models/userModel.js'
+import { OAuth2Client } from 'google-auth-library'
+import jwt from 'jsonwebtoken'
 
 const authUser = asyncHandler(async (req, res) => {
 	const { email, password } = req.body
@@ -150,4 +152,55 @@ const updateUser = asyncHandler(async (req, res) => {
 	}
 })
 
-export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers, deleteUser, getUserById, updateUser }
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
+
+const googleLogin = (req, res) => {
+	const { idToken } = req.body
+
+	client.verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT_ID }).then((response) => {
+		const { email_verified, name, email } = response.payload
+		if (email_verified) {
+			User.findOne({ email }).exec((error, user) => {
+				if (user) {
+					const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
+					const { _id, email, name, image, isAdmin } = user
+					return res.json({
+						user: { _id, email, name, image, isAdmin, token }
+					})
+				} else {
+					let password = email + process.env.JWT_SECRET
+					user = new User({ name, email, password })
+					user.save((error, data) => {
+						if (error) {
+							console.log('ERROR GOOGLE LOGIN ON USER SAVE', error)
+							return res.status(400).json({
+								error: 'User signup failed with google'
+							})
+						}
+						const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
+						const { _id, email, name, image, isAdmin } = data
+						return res.json({
+							user: { _id, email, name, image, isAdmin, token }
+						})
+					})
+				}
+			})
+		} else {
+			return res.status(400).json({
+				error: 'Google login failed. Try again'
+			})
+		}
+	})
+}
+
+export {
+	authUser,
+	getUserProfile,
+	registerUser,
+	updateUserProfile,
+	getUsers,
+	deleteUser,
+	getUserById,
+	updateUser,
+	googleLogin
+}

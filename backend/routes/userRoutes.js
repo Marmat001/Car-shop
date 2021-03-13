@@ -8,7 +8,8 @@ import {
 	getUsers,
 	deleteUser,
 	getUserById,
-	updateUser
+	updateUser,
+	googleLogin
 } from '../controllers/userController.js'
 import { secure, admin } from '../middleware/authenticationMiddleware.js'
 
@@ -16,5 +17,6 @@ router.route('/').post(registerUser).get(secure, admin, getUsers)
 router.post('/login', authUser)
 router.route('/profile').get(secure, getUserProfile).put(secure, updateUserProfile)
 router.route('/:id').delete(secure, admin, deleteUser).get(secure, admin, getUserById).put(secure, admin, updateUser)
+router.post('/google-login', googleLogin)
 
 export default router

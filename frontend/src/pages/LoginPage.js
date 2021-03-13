@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
 import CustomTitle from '../components/CustomTitle'
+import Google from '../components/GoogleLogin'
 
 const LoginPage = ({ location, history }) => {
 	const [ email, setEmail ] = useState('')
@@ -31,6 +32,14 @@ const LoginPage = ({ location, history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault()
 		dispatch(login(email, password))
+	}
+
+	const informParent = (response) => {
+		dispatch({
+			type: 'USER_LOGIN_SUCCESS',
+			payload: response.data.user
+		})
+		localStorage.setItem('userInfo', JSON.stringify(response.data.user))
 	}
 
 	return (
@@ -65,10 +74,11 @@ const LoginPage = ({ location, history }) => {
 					/>
 				</Form.Group>
 
-				<Button type='submit' className='btn btn-block homebutton'>
+				<Button type='submit' className='btn btn-block homebutton mb-1'>
 					Sign In
 				</Button>
 			</Form>
+			<Google informParent={informParent} />
 
 			<Row className='py-3'>
 				<Col>
