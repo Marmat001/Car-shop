@@ -46,7 +46,7 @@ const LoginPage = ({ location, history }) => {
 		<FormContainer>
 			<CustomTitle title='Log In' />
 			<h1 className='secondary-heading text-center'>Sign In</h1>
-			{error && <FadeMessage variant='danger'>{error}</FadeMessage>}
+			{/* {error && <FadeMessage variant='danger'>{error}</FadeMessage>} */}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='email'>

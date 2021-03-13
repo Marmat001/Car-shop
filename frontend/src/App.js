@@ -2,6 +2,8 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import Navigation from './components/Navigation'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import ShopPage from './pages/ShopPage'
@@ -32,6 +34,7 @@ const App = () => {
 	return (
 		<Router>
 			<main className='py-4'>
+				<ToastContainer />
 				<Route path='/' component={HomePage} exact />
 				<Container fluid>
 					<Navigation />

@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import { listCarDetails, createCarReview } from '../actions/carActions'
 import Loader from '../components/Loader'
 import { Message, FadeMessage } from '../components/Message'
+import { toast } from 'react-toastify'
 import CustomTitle from '../components/CustomTitle'
 import { addToCart } from '../actions/cartActions'
 
@@ -169,7 +170,7 @@ const CarPage = ({ history, match }) => {
 								Reviews
 							</h2>
 							<ListGroup id='contact-form' className='mt-0'>
-								{car.reviews.length === 0 && <Message>No Reviews To Display</Message>}
+								{car.reviews.length === 0 && <Message>No reviews to display</Message>}
 								{car.reviews.map((review) => (
 									<ListGroup.Item key={review._id}>
 										<strong>{review.name}</strong>
@@ -181,8 +182,7 @@ const CarPage = ({ history, match }) => {
 								<ListGroup.Item>
 									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
 									{loadingCarReview && <Loader />}
-									{successCarReview && <Message variant='success'>Review submitted successfully</Message>}
-									{errorCarReview && <FadeMessage variant='danger'>{errorCarReview}</FadeMessage>}
+
 									{userInfo ? (
 										<Form onSubmit={submitHandler}>
 											<Form.Group controlId='rating'>

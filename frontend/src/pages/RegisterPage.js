@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Message, FadeMessage } from '../components/Message'
+import { toast } from 'react-toastify'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
@@ -34,7 +35,9 @@ const RegisterPage = ({ location, history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault()
 		if (password !== confirmPassword) {
-			setMessage('Passwords do not match')
+			toast.error('Passwords do not match')
+		} else if (password.length < 6) {
+			toast.error('Password has to be at least 6 characters long')
 		} else {
 			dispatch(register(name, email, password))
 		}

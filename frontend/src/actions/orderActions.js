@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const createOrder = (order) => async (dispatch, getState) => {
 	try {
@@ -25,12 +26,16 @@ export const createOrder = (order) => async (dispatch, getState) => {
 			type: 'CART_CLEAR_ITEMS',
 			payload: data
 		})
+
+		toast.success('Order successfully placed!')
 		localStorage.removeItem('cartItems')
 	} catch (error) {
 		dispatch({
 			type: 'ORDER_CREATE_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+
+		toast.error('Unable to place order')
 	}
 }
 
@@ -111,11 +116,15 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
 			type: 'ORDER_DELIVER_SUCCESS',
 			payload: data
 		})
+
+		toast.success('Order information successfully updated!')
 	} catch (error) {
 		dispatch({
 			type: 'ORDER_DELIVER_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+
+		toast.error('Unable to update order information')
 	}
 }
 

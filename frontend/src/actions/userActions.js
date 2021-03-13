@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const login = (email, password) => async (dispatch) => {
 	try {
@@ -18,12 +19,14 @@ export const login = (email, password) => async (dispatch) => {
 			type: 'USER_LOGIN_SUCCESS',
 			payload: data
 		})
+
 		localStorage.setItem('userInfo', JSON.stringify(data))
 	} catch (error) {
 		dispatch({
 			type: 'USER_LOGIN_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+		toast.error('Email and password do not match')
 	}
 }
 
@@ -126,7 +129,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 			type: 'USER_LOGIN_SUCCESS',
 			payload: data
 		})
-
+		toast.success('Profile successfully updated!')
 		localStorage.setItem('userInfo', JSON.stringify(data))
 	} catch (error) {
 		dispatch({
@@ -183,11 +186,15 @@ export const deleteUser = (id) => async (dispatch, getState) => {
 		dispatch({
 			type: 'USER_DELETE_SUCCESS'
 		})
+
+		toast.error('User removed')
 	} catch (error) {
 		dispatch({
 			type: 'USER_DELETE_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+
+		toast.error('Unable to remove user from database')
 	}
 }
 
@@ -213,6 +220,8 @@ export const updateUser = (user) => async (dispatch, getState) => {
 		dispatch({ type: 'USER_DETAILS_SUCCESS', payload: data })
 
 		dispatch({ type: 'USER_DETAILS_RESET' })
+
+		toast.success('User rights successfully updated!')
 	} catch (error) {
 		dispatch({
 			type: 'USER_UPDATE_FAIL',

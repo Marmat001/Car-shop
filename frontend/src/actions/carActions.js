@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const listCarBrands = (brand) => async (dispatch) => {
 	try {
@@ -120,11 +121,15 @@ export const updateCar = (car) => async (dispatch, getState) => {
 			type: 'CAR_UPDATE_SUCCESS',
 			payload: data
 		})
+
+		toast.success('Product successfully updated!')
 	} catch (error) {
 		dispatch({
 			type: 'CAR_UPDATE_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+
+		toast.error('Unable to updated product')
 	}
 }
 
@@ -148,11 +153,15 @@ export const createCarReview = (carId, carModel, review) => async (dispatch, get
 		dispatch({
 			type: 'CAR_CREATE_REVIEW_SUCCESS'
 		})
+
+		toast.success('Review Submitted!')
 	} catch (error) {
 		dispatch({
 			type: 'CAR_CREATE_REVIEW_FAIL',
 			payload: error.response && error.response.data.message ? error.response.data.message : error.message
 		})
+
+		toast.error('Car already reviewed')
 	}
 }
 

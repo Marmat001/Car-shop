@@ -3,7 +3,8 @@ import axios from 'axios'
 import { Form, Button, Row, Col, Table, Image } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { FadeMessage, Message } from '../components/Message'
+import { Message } from '../components/Message'
+import { toast } from 'react-toastify'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
@@ -25,7 +26,7 @@ const ProfilePage = ({ history }) => {
 
 	const userDetails = useSelector((state) => state.userDetails)
 	const { loading, error, user } = userDetails
-	
+
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
@@ -57,7 +58,7 @@ const ProfilePage = ({ history }) => {
 	const submitHandler = (e) => {
 		e.preventDefault()
 		if (password !== confirmPassword) {
-			setMessage('Passwords do not match')
+			toast.error('Passwords do not match')
 		} else {
 			dispatch(updateUserProfile({ id: user._id, name, email, password, image }))
 		}
@@ -89,7 +90,6 @@ const ProfilePage = ({ history }) => {
 			<Col xl={5}>
 				<h2>User Profile</h2>
 				{error && <Message variant='danger'>{error}</Message>}
-				{/* {loading && <Loader />} */}
 				<FormContainer>
 					{message && <Message variant='danger'>{message}</Message>}
 					{success && <Message variant='success'>Profile Updated</Message>}
