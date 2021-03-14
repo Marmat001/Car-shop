@@ -16,7 +16,7 @@ const SearchField = ({ history }) => {
 	}
 
 	return (
-		<Form onSubmit={submitHandler} inline>
+		<Form id='form-inline' onSubmit={submitHandler} inline>
 			<Form.Control
 				id='searchinput'
 				type='text'
