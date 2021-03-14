@@ -16,7 +16,7 @@ const HomePage = () => {
 				<Wave />
 				<IntroSection />
 				<AboutSection />
-				<ContactForm />
+				{/* <ContactForm /> */}
 			</Container>
 		</motion.div>
 	)

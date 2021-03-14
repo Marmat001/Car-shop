@@ -40,9 +40,9 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Route render={({ history }) => <SearchField history={history} />} />
-						<Nav id='nav-item' className='ml-auto'>
+						<Nav id='nav-items' className='ml-auto'>
 							<LinkContainer to='/vehicles'>
-								<Nav.Link id='nav-item' className='mx-3'>
+								<Nav.Link id='nav-item' className='mx-3 text-center'>
 									<i className='fas fa-car mx-1' />
 									<strong>Vehicles</strong>
 								</Nav.Link>
@@ -59,7 +59,7 @@ const Navigation = () => {
 									})}
 							>
 								<LinkContainer to='/cart'>
-									<Nav.Link id='nav-item-cart' className='mx-3 nav-cart'>
+									<Nav.Link id='nav-item-cart' className='mx-3 nav-cart text-center'>
 										<CartIcon />
 										<strong>Cart</strong>
 									</Nav.Link>
@@ -76,7 +76,7 @@ const Navigation = () => {
 							</div>
 
 							{userInfo ? (
-								<NavDropdown title={userInfo.name} id='username'>
+								<NavDropdown title={userInfo.name} id='username' className="text-center">
 									<LinkContainer to='/profile'>
 										<NavDropdown.Item>Profile</NavDropdown.Item>
 									</LinkContainer>
@@ -93,7 +93,7 @@ const Navigation = () => {
 
 							{userInfo &&
 							userInfo.isAdmin && (
-								<NavDropdown title='Admin' id='nav-item'>
+								<NavDropdown title='Admin' id='nav-item' className="text-center">
 									<LinkContainer to='/admin/userlist'>
 										<NavDropdown.Item>Users</NavDropdown.Item>
 									</LinkContainer>

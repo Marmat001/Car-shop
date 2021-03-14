@@ -367,6 +367,9 @@ textarea {
 
 #nav-item {
 	color: white;
+}
+#nav-items {
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -544,6 +547,10 @@ textarea {
 	.composition {
 		margin-top: 10rem;
 	}
+
+	/* .composition-photo {
+		margin-right: 8rem; inte dåligt men hitta så att bilderna behåller samma positionering i förhållande till varandra
+	} */
 }
 
 @media (max-width: 991px) {
@@ -558,16 +565,20 @@ textarea {
 	}
 
 	#searchinput {
-		margin: 1rem;
+		margin: 1.5rem;
 		width: 75%;
 	}
 
-	#nav-item {
-		justify-content: space-between;
+	.mx-3 {
+		margin-left: 0 !important;
 	}
 
-	.navbar-nav {
-		flex-direction: row;
+	.slogan {
+		font-size: 3rem;
+	}
+
+	.slogan > .primary-heading {
+		font-size: 3rem;
 	}
 }
 
@@ -583,7 +594,17 @@ textarea {
 		margin-bottom: 1rem;
 	}
 
-	.navbar-nav {
-		flex-direction: column;
+	.image > img {
+		height: 50vh;
+	}
+}
+
+@media (max-width: 500px) {
+	.slogan {
+		font-size: 2rem;
+	}
+
+	.slogan > .primary-heading {
+		font-size: 2rem;
 	}
 }
