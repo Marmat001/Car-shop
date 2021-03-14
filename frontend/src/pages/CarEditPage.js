@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
@@ -41,6 +40,7 @@ const CarEditPage = ({ match, history }) => {
 		() => {
 			if (successUpdate) {
 				dispatch({ type: 'CAR_UPDATE_RESET' })
+				dispatch({ type: 'CAR_DETAILS_CLEAR' })
 				history.goBack()
 			} else {
 				if ((!car.name && pathname.includes(carModel)) || (car._id !== carId && pathname.includes(carModel))) {
@@ -68,7 +68,7 @@ const CarEditPage = ({ match, history }) => {
 				}
 			}
 		},
-		[ dispatch, history, carBrand, carModel, carId, successUpdate, car ]
+		[ dispatch, history, carBrand, carModel, carId, successUpdate, car, pathname ]
 	)
 
 	const uploadFileHandler = async (e) => {

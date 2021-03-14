@@ -18,7 +18,6 @@ const ProfilePage = ({ history }) => {
 	const [ email, setEmail ] = useState('')
 	const [ password, setPassword ] = useState('')
 	const [ confirmPassword, setConfirmPassword ] = useState('')
-	const [ message, setMessage ] = useState(null)
 	const [ image, setImage ] = useState('')
 	const [ uploading, setUploading ] = useState(false)
 
@@ -91,7 +90,6 @@ const ProfilePage = ({ history }) => {
 				<h2>User Profile</h2>
 				{error && <Message variant='danger'>{error}</Message>}
 				<FormContainer>
-					{message && <Message variant='danger'>{message}</Message>}
 					{success && <Message variant='success'>Profile Updated</Message>}
 					<Form onSubmit={submitHandler}>
 						<Form.Group className='layout-profile' controlId='image'>

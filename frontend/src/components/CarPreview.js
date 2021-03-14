@@ -1,11 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
-import { useLocation } from 'react-router-dom'
 
 const CarBrandPreview = ({ car }) => {
-	const location = useLocation()
-
 	return (
 		<Card className='my-3 p-3 rounded'>
 			<Link to={`/vehicles/${car.brand}/${car.model}`}>

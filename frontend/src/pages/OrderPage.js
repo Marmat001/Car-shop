@@ -34,8 +34,7 @@ const OrderPage = ({ history }) => {
 				dispatch({ type: 'USER_DETAILS_RESET' })
 				dispatch({ type: 'ORDER_CREATE_RESET' })
 			}
-			// eslint-disable-next-line
-		},
+		}, // eslint-disable-next-line
 		[ history, success ]
 	)
 

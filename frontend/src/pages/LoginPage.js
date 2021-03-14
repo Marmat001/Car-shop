@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Message, FadeMessage } from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
@@ -16,7 +15,7 @@ const LoginPage = ({ location, history }) => {
 	const dispatch = useDispatch()
 
 	const userLogin = useSelector((state) => state.userLogin)
-	const { loading, error, userInfo } = userLogin
+	const { loading, userInfo } = userLogin
 
 	const redirect = location.search ? location.search.split('=')[1] : '/'
 

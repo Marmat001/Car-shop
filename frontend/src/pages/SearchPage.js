@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import CarPreview from '../components/CarPreview'
@@ -9,8 +9,6 @@ import Paginate from '../components/Paginate'
 import CustomTitle from '../components/CustomTitle'
 
 const SearchPage = ({ match }) => {
-	const [ price, setPrice ] = useState([ 0, 0 ])
-
 	const word = match.params.word
 
 	const pageNumber = match.params.pageNumber || 1

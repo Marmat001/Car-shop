@@ -1,20 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
-import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Button, Card } from 'react-bootstrap'
 import { Message } from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import CustomTitle from '../components/CustomTitle'
 
-const CheckoutPage = ({ match, location, history }) => {
-	const carModel = match.params.model
-	const carBrand = match.params.brand
-
-	const qty = location.search ? Number(location.search.split('=')[1]) : 1
-
+const CheckoutPage = ({ history }) => {
 	const dispatch = useDispatch()
-	const { pathname } = useLocation()
 
 	const cart = useSelector((state) => state.cart)
 	const { cartItems } = cart

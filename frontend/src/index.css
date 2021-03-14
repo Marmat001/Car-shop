@@ -551,6 +551,12 @@ textarea {
 		margin-bottom: 25rem;
 	}
 
+	.cart-dropdown {
+		width: 0;
+		height: 0;
+		visibility: hidden;
+	}
+
 	#searchinput {
 		margin: 1rem;
 		width: 75%;
@@ -562,8 +568,6 @@ textarea {
 
 	.navbar-nav {
 		flex-direction: row;
-		justify-content: space-around;
-		/* align-items: stretch; testa andra  */
 	}
 }
 

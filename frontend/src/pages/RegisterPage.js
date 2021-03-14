@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Message, FadeMessage } from '../components/Message'
 import { toast } from 'react-toastify'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
@@ -14,12 +13,11 @@ const RegisterPage = ({ location, history }) => {
 	const [ email, setEmail ] = useState('')
 	const [ password, setPassword ] = useState('')
 	const [ confirmPassword, setConfirmPassword ] = useState('')
-	const [ message, setMessage ] = useState(null)
 
 	const dispatch = useDispatch()
 
 	const userRegister = useSelector((state) => state.userRegister)
-	const { loading, error, userInfo } = userRegister
+	const { loading, userInfo } = userRegister
 
 	const redirect = location.search ? location.search.split('=')[1] : '/'
 
@@ -47,8 +45,6 @@ const RegisterPage = ({ location, history }) => {
 		<FormContainer>
 			<CustomTitle title='Register' />
 			<h1 className='secondary-heading text-center'>Sign Up</h1>
-			{message && <FadeMessage variant='danger'>{message}</FadeMessage>}
-			{error && <FadeMessage variant='danger'>Information missing. Please fill out all fields.</FadeMessage>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId='name'>

@@ -5,8 +5,7 @@ import { Row, Col, Image, ListGroup, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listCarDetails, createCarReview } from '../actions/carActions'
 import Loader from '../components/Loader'
-import { Message, FadeMessage } from '../components/Message'
-import { toast } from 'react-toastify'
+import { Message } from '../components/Message'
 import CustomTitle from '../components/CustomTitle'
 import { addToCart } from '../actions/cartActions'
 
@@ -21,13 +20,13 @@ const CarPage = ({ history, match }) => {
 	const dispatch = useDispatch()
 
 	const carDetails = useSelector((state) => state.carDetails)
-	const { loading: loadingDetails, error, car } = carDetails
+	const { error, car } = carDetails
 
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 
 	const carCreateReview = useSelector((state) => state.carCreateReview)
-	const { success: successCarReview, loading: loadingCarReview, error: errorCarReview } = carCreateReview
+	const { success: successCarReview, loading: loadingCarReview } = carCreateReview
 
 	useEffect(
 		() => {
@@ -45,7 +44,7 @@ const CarPage = ({ history, match }) => {
 				setLoading(false)
 			}, 200)
 		},
-		[ dispatch, match, successCarReview ]
+		[ dispatch, match, successCarReview, car, carModel ]
 	)
 
 	const AddCarToCartHandler = () => {
