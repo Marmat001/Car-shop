@@ -11,9 +11,11 @@ const AboutSection = () => {
 	const [ element, controls ] = IntersectionScroll()
 
 	return (
-		<motion.div className='about'>
+		<motion.div className='about' variants={scrollReveal} animate={controls} initial='hidden' ref={element}>
 			<div className='text-center'>
-				<h2 className='secondary-heading margin-bottom-lg slogan-2'>The whiff of that new car smell has never been closer</h2>
+				<h2 className='secondary-heading margin-bottom-lg slogan-2'>
+					The whiff of that new car smell has never been closer
+				</h2>
 			</div>
 
 			<Row>

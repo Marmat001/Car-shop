@@ -11,7 +11,7 @@ const ContactForm = () => {
 	const [ element, controls ] = IntersectionScroll()
 
 	return (
-		<motion.div className='margin-bottom-xl'>
+		<motion.div className='margin-bottom-xl' variants={scrollReveal} ref={element} animate={controls} initial='hidden'>
 			<div className='text-center'>
 				<h2 className='secondary-heading margin-bottom-md'>any questions or concerns?</h2>
 			</div>
