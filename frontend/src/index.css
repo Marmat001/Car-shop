@@ -309,6 +309,10 @@ textarea:focus {
 	margin-top: 3rem;
 }
 
+.margin-top-md {
+	margin-top: 5rem;
+}
+
 .side-padding {
 	padding: 0 15rem;
 }
@@ -541,23 +545,31 @@ textarea {
 	}
 
 	.about {
-		margin-bottom: 8rem;
+		margin-bottom: 35rem;
+	}
+
+	.contact {
+		margin-bottom: 45rem;
 	}
 
 	.composition {
 		margin-top: 10rem;
 	}
 
-	/* .composition-photo {
-		margin-right: 8rem; inte dåligt men hitta så att bilderna behåller samma positionering i förhållande till varandra
-	} */
+	.composition-photo {
+		width: 50%;
+		margin-right: 8rem;
+	}
+	.promises {
+		margin-top: 10rem;
+	}
+
+	footer {
+		margin-top: 10rem;
+	}
 }
 
 @media (max-width: 991px) {
-	.about {
-		margin-bottom: 25rem;
-	}
-
 	.cart-dropdown {
 		width: 0;
 		height: 0;
@@ -586,6 +598,14 @@ textarea {
 	.carousel-caption h2 {
 		font-size: 2.5vw;
 	}
+
+	.intro {
+		margin-bottom: 6rem;
+	}
+
+	.slogan-2 {
+		margin-bottom: 5rem;
+	}
 }
 
 @media (max-width: 650px) {
@@ -594,8 +614,39 @@ textarea {
 		margin-bottom: 1rem;
 	}
 
+	.promises {
+		margin-top: 5rem;
+	}
+
+	footer {
+		margin-top: 5rem;
+	}
+
 	.image > img {
 		height: 50vh;
+	}
+
+	.composition-photo {
+		width: 70%;
+		margin-left: 4rem;
+	}
+	.composition {
+		margin-top: 5rem;
+		margin-bottom: 15rem;
+	}
+
+	.photo-3 {
+		left: 0%;
+		top: 10rem;
+	}
+
+	.photo-2 {
+		left: 0%;
+		top: 22rem;
+	}
+
+	.slogan-2 {
+		font-size: 1.7rem;
 	}
 }
 
@@ -606,5 +657,10 @@ textarea {
 
 	.slogan > .primary-heading {
 		font-size: 2rem;
+	}
+
+	.composition-photo {
+		width: 80%;
+		margin-left: 3rem;
 	}
 }

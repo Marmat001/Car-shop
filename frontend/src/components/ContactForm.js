@@ -11,7 +11,7 @@ const ContactForm = () => {
 	const [ element, controls ] = IntersectionScroll()
 
 	return (
-		<motion.div className='margin-bottom-xl' variants={scrollReveal} ref={element} animate={controls} initial='hidden'>
+		<motion.div className='margin-bottom-xl'>
 			<div className='text-center'>
 				<h2 className='secondary-heading margin-bottom-md'>any questions or concerns?</h2>
 			</div>
@@ -37,7 +37,7 @@ const ContactForm = () => {
 					</form>
 				</Col>
 
-				<Col className='text-center'>
+				<Col className='text-center promises'>
 					<h2 className='margin-bottom-sm'>High Quality Service Guaranteed</h2>
 
 					<div className='margin-bottom-md'>
