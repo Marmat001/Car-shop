@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { IntersectionScroll } from './IntersectionScroll'
+import emailjs from 'emailjs-com'
+import { toast } from 'react-toastify'
 import { scrollReveal } from '../animations'
 import { Row, Col } from 'react-bootstrap'
 import currency from '../img/currency.svg'
@@ -9,6 +11,20 @@ import agreement from '../img/agreement.svg'
 
 const ContactForm = () => {
 	const [ element, controls ] = IntersectionScroll()
+
+	const sendEmailHandler = (e) => {
+		e.preventDefault()
+
+		emailjs.sendForm('service_z03iwzt', 'template_dy075w9', e.target, `${process.env.REACT_APP_EMAILJS_USER_ID}`).then(
+			(result) => {
+				toast.success('Email successfully sent!')
+			},
+			(error) => {
+				toast.error(error.text)
+			}
+		)
+		e.target.reset()
+	}
 
 	return (
 		<motion.div className='margin-bottom-xl' variants={scrollReveal} ref={element} animate={controls} initial='hidden'>
@@ -19,7 +35,7 @@ const ContactForm = () => {
 				<Col xl={6}>
 					<h3 className='text-center'>Get In Touch</h3>
 
-					<form id='contact-form'>
+					<form onSubmit={sendEmailHandler} id='contact-form'>
 						<label>Your Name</label>
 						<input className='input-field name' type='text' name='name' required />
 
