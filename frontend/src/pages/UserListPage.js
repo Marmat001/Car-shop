@@ -37,14 +37,14 @@ const UserListPage = ({ history }) => {
 	}
 
 	return (
-		<div>
+		<div className="mt-4">
 			<h1>Users</h1>
 			{loading ? (
 				<Loader />
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<Table striped bordered hover responsive className='table-sm'>
+				<Table striped bordered hover responsive className='table-sm userlist-table'>
 					<CustomTitle title='Users' />
 					<thead>
 						<tr>

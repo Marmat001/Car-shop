@@ -86,7 +86,7 @@ const ProfilePage = ({ history }) => {
 	return (
 		<Row>
 			<CustomTitle title='Profile' />
-			<Col xl={5}>
+			<Col xl={4}>
 				<h2>User Profile</h2>
 				{error && <Message variant='danger'>{error}</Message>}
 				<FormContainer>
@@ -151,14 +151,14 @@ const ProfilePage = ({ history }) => {
 					</Form>
 				</FormContainer>
 			</Col>
-			<Col xl={7}>
+			<Col xl={8}>
 				<h2>My Orders</h2>
 				{loadingOrders ? (
 					<Loader />
 				) : errorOrders ? (
 					<Message variant='danger'>{errorOrders}</Message>
 				) : (
-					<Table striped bordered hover responsive className='table-sm align-middle'>
+					<Table striped bordered hover responsive className='table-md align-middle order-table'>
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -175,7 +175,7 @@ const ProfilePage = ({ history }) => {
 								<tr key={order._id}>
 									<td>{order._id}</td>
 									<td>{order.createdAt.substring(0, 10)}</td>
-									<td>{order.totalPrice.toFixed(0)}</td>
+									<td>${order.totalPrice.toFixed(0)}</td>
 									<td>
 										{order.isPaid ? (
 											order.paidAt.substring(0, 10)
@@ -198,7 +198,7 @@ const ProfilePage = ({ history }) => {
 										</LinkContainer>
 									</td>
 
-									<td>
+									<td className='table-end'>
 										<PDFDownloadLink document={<Invoice order={order} />} fileName='invoice.pdf'>
 											<Button className='btn-sm' variant='light'>
 												Download PDF

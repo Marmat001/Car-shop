@@ -30,14 +30,14 @@ const OrderListPage = ({ history }) => {
 	)
 
 	return (
-		<div>
+		<div className='mt-4'>
 			<h1>Orders</h1>
 			{loading ? (
 				<Loader />
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<Table striped bordered hover responsive className='table-sm'>
+				<Table striped bordered hover responsive className='table-md orderlist-table'>
 					<CustomTitle title='Orders' />
 					<thead>
 						<tr>
@@ -80,7 +80,7 @@ const OrderListPage = ({ history }) => {
 									</LinkContainer>
 								</td>
 
-								<td>
+								<td className='table-end'>
 									<PDFDownloadLink document={<Invoice order={order} />} fileName='invoice.pdf'>
 										<Button className='btn-sm' variant='light'>
 											Download PDF

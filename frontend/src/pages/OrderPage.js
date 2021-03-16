@@ -53,7 +53,7 @@ const OrderPage = ({ history }) => {
 	}
 
 	return (
-		<div>
+		<div className='mt-5'>
 			<CustomTitle title='Order Summary' />
 			<CheckoutSteps step1 step2 step3 step4 />
 			<Row>

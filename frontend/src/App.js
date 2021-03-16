@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import Navigation from './components/Navigation'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import ShopPage from './pages/ShopPage'
@@ -49,11 +49,11 @@ const App = () => {
 					<Route path='/vehicles/lamborghini' component={LamborghiniPage} exact />
 					<Route path='/vehicles/:brand/:model' component={CarPage} exact />
 					<Route path='/profile' component={ProfilePage} />
+					<Route path='/admin/orderlist' component={OrderListPage} />
 				</Container>
 
 				<Container>
 					<Route path='/admin/vehicles/:id/:model?/edit' component={CarEditPage} />
-					<Route path='/admin/orderlist' component={OrderListPage} />
 					<Route path='/admin/userlist' component={UserListPage} />
 					<Route path='/admin/user/:id/edit' component={EditUserPage} />
 					<Route path='/login' component={LoginPage} />

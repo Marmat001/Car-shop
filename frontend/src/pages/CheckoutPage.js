@@ -28,7 +28,7 @@ const CheckoutPage = ({ history }) => {
 		<Row>
 			<CustomTitle title='Cart' />
 			<Col md={8}>
-				<h1>Shopping Cart</h1>
+				<h1 className="cart-title">Shopping Cart</h1>
 				{cartItems.length === 0 ? (
 					<div>
 						<Message className='homebutton mb-3'>Your cart is empty</Message>

@@ -52,7 +52,7 @@ const CarListPage = ({ history, match }) => {
 
 	return (
 		<div>
-			<Row className='align-items-center'>
+			<Row className='align-items-center mt-5'>
 				<Col>
 					<h1>Cars</h1>
 				</Col>
@@ -73,7 +73,7 @@ const CarListPage = ({ history, match }) => {
 			) : (
 				<div>
 					<CustomTitle title='Car Inventory' />
-					<Table striped bordered hover responsive className='table-sm'>
+					<Table striped bordered hover responsive className='table-md carlist-table'>
 						<thead>
 							<tr>
 								<th>ID</th>

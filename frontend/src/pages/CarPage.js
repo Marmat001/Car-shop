@@ -71,7 +71,7 @@ const CarPage = ({ history, match }) => {
 
 	return (
 		<div>
-			<Button className='btn homebutton' onClick={() => history.goBack()}>
+			<Button className='btn homebutton mt-5 mb-4' onClick={() => history.goBack()}>
 				Go Back
 			</Button>
 			{loading ? (
@@ -179,7 +179,7 @@ const CarPage = ({ history, match }) => {
 									</ListGroup.Item>
 								))}
 								<ListGroup.Item>
-									<h2 className='car-heading'>WRITE A CUSTOMER REVIEW</h2>
+									<h2 className='car-heading customer-review'>WRITE A CUSTOMER REVIEW</h2>
 									{loadingCarReview && <Loader />}
 
 									{userInfo ? (
