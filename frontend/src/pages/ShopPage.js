@@ -29,7 +29,7 @@ const ShopPage = () => {
 	) : error ? (
 		<Message variant='danger'>{error}</Message>
 	) : (
-		<div>
+		<>
 			<CustomTitle title='Vehicles' />
 
 			<div className='py-5 pb-4 text-center tertiary-heading jumbotron'>
@@ -64,7 +64,7 @@ const ShopPage = () => {
 					))}
 				</Row>
 			</div>
-		</div>
+		</>
 	)
 }
 

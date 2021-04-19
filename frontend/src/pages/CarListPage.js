@@ -51,7 +51,7 @@ const CarListPage = ({ history, match }) => {
 	}
 
 	return (
-		<div>
+		<>
 			<Row className='align-items-center mt-5'>
 				<Col>
 					<h1>Cars</h1>
@@ -71,7 +71,7 @@ const CarListPage = ({ history, match }) => {
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<div>
+				<>
 					<CustomTitle title='Car Inventory' />
 					<Table striped bordered hover responsive className='table-md carlist-table'>
 						<thead>
@@ -107,9 +107,9 @@ const CarListPage = ({ history, match }) => {
 						</tbody>
 					</Table>
 					<Paginate pages={pages} page={page} isAdmin={true} />
-				</div>
+				</>
 			)}
-		</div>
+		</>
 	)
 }
 

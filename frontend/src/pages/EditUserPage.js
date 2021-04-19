@@ -46,7 +46,7 @@ const EditUserPage = ({ match, history }) => {
 	}
 
 	return (
-		<div>
+		<>
 			<Link to='/admin/userlist' className='btn btn-light my-3'>
 				Go Back
 			</Link>
@@ -97,7 +97,7 @@ const EditUserPage = ({ match, history }) => {
 					</Form>
 				)}
 			</FormContainer>
-		</div>
+		</>
 	)
 }
 

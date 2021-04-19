@@ -112,7 +112,7 @@ const CarEditPage = ({ match, history }) => {
 	}
 
 	return (
-		<div>
+		<>
 			<Button className='btn homebutton mt-5' onClick={() => history.goBack()}>
 				Go Back
 			</Button>
@@ -235,7 +235,7 @@ const CarEditPage = ({ match, history }) => {
 					</Form>
 				)}
 			</FormContainer>
-		</div>
+		</>
 	)
 }
 

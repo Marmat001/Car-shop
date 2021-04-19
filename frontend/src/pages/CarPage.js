@@ -70,7 +70,7 @@ const CarPage = ({ history, match }) => {
 	}
 
 	return (
-		<div>
+		<>
 			<Button className='btn homebutton mt-5 mb-4' onClick={() => history.goBack()}>
 				Go Back
 			</Button>
@@ -79,7 +79,7 @@ const CarPage = ({ history, match }) => {
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (
-				<div>
+				<>
 					<CustomTitle title={car.name} />
 					<Row className='pt-3'>
 						<Col id='contact-form' className='mt-0' lg={12}>
@@ -222,9 +222,9 @@ const CarPage = ({ history, match }) => {
 							</ListGroup>
 						</Col>
 					</Row>
-				</div>
+				</>
 			)}
-		</div>
+		</>
 	)
 }
 

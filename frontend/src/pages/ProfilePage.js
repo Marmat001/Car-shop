@@ -210,7 +210,7 @@ const ProfilePage = ({ history }) => {
 						</tbody>
 					</Table>
 				)}
-				{orders?.length === 0 ? <h1 style={{ textAlign: 'center' }}>No Orders To display</h1> : ''}
+				{orders?.length === 0 ? <h1 style={{ textAlign: 'center' }}>No orders to display</h1> : ''}
 			</Col>
 		</Row>
 	)

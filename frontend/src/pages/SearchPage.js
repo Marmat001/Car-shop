@@ -30,7 +30,7 @@ const SearchPage = ({ match }) => {
 	)
 
 	return (
-		<div>
+		<>
 			<h1 className='py-3'>Searched Cars</h1>
 			{loading ? (
 				<Loader />
@@ -50,7 +50,7 @@ const SearchPage = ({ match }) => {
 				</div>
 			)}
 			<Paginate pages={pages} page={page} word={word ? word : ''} />
-		</div>
+		</>
 	)
 }
 

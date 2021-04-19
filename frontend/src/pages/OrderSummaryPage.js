@@ -79,7 +79,7 @@ const OrderSummaryPage = ({ match, history }) => {
 	) : error ? (
 		<Message variant='danger'>{error}</Message>
 	) : (
-		<div>
+		<>
 			<CustomTitle title='Order Summary' />
 			<h1 className='order-Id'>Order {order._id}</h1>
 			<Row>
@@ -215,7 +215,7 @@ const OrderSummaryPage = ({ match, history }) => {
 					</Card>
 				</Col>
 			</Row>
-		</div>
+		</>
 	)
 }
 
