@@ -167,7 +167,7 @@ export const createCarReview = (carId, carModel, review) => async (dispatch, get
 
 export const listTopCars = () => async (dispatch) => {
 	try {
-		dispatch({ type: 'CAR_TOP_REQUEST ' })
+		dispatch({ type: 'CAR_TOP_REQUEST' })
 
 		const { data } = await axios.get(`/api/vehicles/top`)
 
