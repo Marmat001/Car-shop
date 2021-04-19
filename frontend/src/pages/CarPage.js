@@ -209,7 +209,7 @@ const CarPage = ({ history, match }) => {
 													onChange={(e) => setComment(e.target.value)}
 												/>
 											</Form.Group>
-											<Button type='submit' className='btn btn-block homebutton'>
+											<Button type='submit' disabled={!comment} className='btn btn-block homebutton'>
 												Submit
 											</Button>
 										</Form>
