@@ -22,6 +22,7 @@ const Invoice = ({ order }) => (
 				</TableHeader>
 			</Table>
 
+
 			<Table data={order.orderItems}>
 				<TableBody>
 					<DataTableCell getContent={(p) => p.car.charAt(0).toUpperCase() + p.car.slice(1)} />
@@ -34,12 +35,12 @@ const Invoice = ({ order }) => (
 
 			<Text style={styles.text}>
 				<Text>
-					Date: {'                                '}
-					{`${order.paidAt?.substring(0, 10)} ${order.paidAt?.substring(11, 19)}`}
+					Date: {'                               '}
+					{order.paidAt ? `Paid on: ${order.paidAt.substring(0, 10)} ${order.paidAt.substring(11, 19)}` : `Placed on: ${order.createdAt.substring(0, 10)} ${order.createdAt.substring(11, 19)}` }
 				</Text>
 				{'\n'}
 				<Text>
-					Order Id: {'                          '}
+					Order Id: {'                         '}
 					{order._id}
 				</Text>
 				{'\n'}
@@ -56,12 +57,12 @@ const Invoice = ({ order }) => (
 
 			<Text style={styles.text}>
 				<Text>
-					Shipping Address: {'           '}
+					Shipping Address: {'          '}
 					{order.shippingAddress.address}
 				</Text>
 				{'\n'}
 				<Text>
-					City: {'                                 '}
+					City: {'                                '}
 					{order.shippingAddress.city}
 				</Text>
 				{'\n'}
@@ -79,16 +80,16 @@ const Invoice = ({ order }) => (
 			<Text style={styles.text}>
 				<Text>
 					Name: {'                             '}
-					{order.user.name}
+					{order.user.name ? order.user.name : "Sensitive Information"}
 				</Text>
 				{'\n'}
 				<Text>
 					Email: {'                              '}
-					{order.user.email}
+					{order.user.email ? order.user.email : "Sensitive Information"}
 				</Text>
 			</Text>
 
-			<Text style={styles.footer}> ~ Thank you for shopping with us ~ </Text>
+			<Text style={styles.footer}>  Thank you for shopping with us  </Text>
 		</Page>
 	</Document>
 )

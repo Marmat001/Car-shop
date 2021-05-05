@@ -39,8 +39,7 @@ const ProfilePage = ({ history }) => {
 		() => {
 			if (!userInfo) {
 				history.push('/login')
-			} else {
-				if (!user || !user.name || success) {
+			} else if (!user || !user.name || success) {
 					dispatch({ type: 'USER_UPDATE_PROFILE_RESET' })
 					dispatch(getUserDetails('profile'))
 					dispatch(listMyOrders())
@@ -48,10 +47,11 @@ const ProfilePage = ({ history }) => {
 					setName(user.name)
 					setEmail(user.email)
 					setImage(user.image)
+					dispatch(listMyOrders())
 				}
-			}
+			
 		},
-		[ history, userInfo, dispatch, user, success ]
+		[ history, userInfo, dispatch, user, success ]   
 	)
 
 	const submitHandler = (e) => {
