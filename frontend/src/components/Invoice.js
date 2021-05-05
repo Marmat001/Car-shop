@@ -35,7 +35,7 @@ const Invoice = ({ order }) => (
 			<Text style={styles.text}>
 				<Text>
 					Date: {'                                '}
-					{`${order.paidAt.substring(0, 10)} ${order.paidAt.substring(11, 19)}`}
+					{`${order.paidAt?.substring(0, 10)} ${order.paidAt?.substring(11, 19)}`}
 				</Text>
 				{'\n'}
 				<Text>

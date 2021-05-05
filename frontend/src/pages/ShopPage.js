@@ -21,7 +21,6 @@ const ShopPage = () => {
     dispatch(listTopCars())
   }, [dispatch])
 
-  console.log(loading)
 
   return loading ? (
     <Loader />
