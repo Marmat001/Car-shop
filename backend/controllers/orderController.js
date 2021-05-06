@@ -42,7 +42,9 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
 	if (order) {
 		order.isPaid = true
-		order.paidAt = Date.now()
+		const paid = new Date()
+		order.paidAt = paid.setHours(paid.getHours() + 2)
+	
 		order.paymentResult = {
 			id: req.body.id,
 			status: req.body.status,
@@ -64,7 +66,8 @@ const updateOrderToOutForDelivery = asyncHandler(async (req, res) => {
 
 	if (order) {
 		order.isDelivered = true
-		order.deliveredAt = Date.now()
+		const delivered = new Date()
+		order.deliveredAt = delivered.setHours(delivered.getHours() + 2)
 
 		const updatedOrder = await order.save()
 

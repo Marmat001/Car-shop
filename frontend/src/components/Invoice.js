@@ -50,7 +50,7 @@ const Invoice = ({ order }) => (
 				</Text>
 				{'\n'}
 				<Text>
-					Total Amount: {'                  '}
+					Total Amount with fees: {'  '}
 					{`$${order.totalPrice.toFixed()}`}
 				</Text>
 			</Text>
