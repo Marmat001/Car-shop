@@ -20,7 +20,7 @@ const Google = ({ informParent = (f) => f }) => {
 	return (
 		<div className='pt-3 pb-3'>
 			<GoogleLogin
-				clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
+				clientId={`373275282129-0k3mfcc4plr019jun1vfn7pt63fqpt6c.apps.googleusercontent.com`}
 				onSuccess={googleResponse}
 				onFailure={googleResponse}
 				render={(renderProps) => (
