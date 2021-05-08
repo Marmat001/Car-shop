@@ -15,10 +15,10 @@ const ContactForm = () => {
 	const sendEmailHandler = (e) => {
 		e.preventDefault()
 
-		emailjs.sendForm('service_z03iwzt', 'template_dy075w9', e.target, "user_CvygBOIdszlTwdMIlTSG9").then(
+		emailjs.sendForm('service_z03iwzt', 'template_dy075w9', e.target, `${process.env.REACT_APP_EMAILJS_USER_ID}`).then(
 			(result) => {
 				toast.success('Email successfully sent!')
-				e.target.reset()
+					e.target.reset()
 			},
 			(error) => {
 				toast.error(error.text)
