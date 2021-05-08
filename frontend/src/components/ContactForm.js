@@ -18,12 +18,13 @@ const ContactForm = () => {
 		emailjs.sendForm('service_z03iwzt', 'template_dy075w9', e.target, `${process.env.REACT_APP_EMAILJS_USER_ID}`).then(
 			(result) => {
 				toast.success('Email successfully sent!')
+				e.target.reset()
 			},
 			(error) => {
 				toast.error(error.text)
 			}
 		)
-		e.target.reset()
+	
 	}
 
 	return (
