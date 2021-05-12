@@ -30,7 +30,7 @@ const ShopPage = () => {
     <>
       <CustomTitle title='Vehicles' />
 
-      <div className='py-5 pb-4 text-center tertiary-heading jumbotron'>
+      <div className='py-5 pb-4 text-center commercial tertiary-heading jumbotron'>
         <Typewriter
           text={[
             'New Arrivals every week',
