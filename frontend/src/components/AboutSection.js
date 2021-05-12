@@ -7,7 +7,7 @@ import { Row, Col, Image } from 'react-bootstrap'
 import { IntersectionScroll } from './IntersectionScroll'
 import { scrollReveal } from '../animations'
 
-const AboutSection = ({ innerWidth }) => {
+const AboutSection = () => {
   const [element, controls] = IntersectionScroll()
 
   return (

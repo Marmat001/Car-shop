@@ -9,7 +9,7 @@ import currency from '../img/currency.svg'
 import clock from '../img/clock.svg'
 import agreement from '../img/agreement.svg'
 
-const ContactForm = ({ innerWidth }) => {
+const ContactForm = () => {
   const [element, controls] = IntersectionScroll()
 
   const sendEmailHandler = (e) => {
