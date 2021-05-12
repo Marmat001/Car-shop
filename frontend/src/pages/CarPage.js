@@ -42,7 +42,7 @@ const CarPage = ({ history, match }) => {
 
 			setTimeout(() => {
 				setLoading(false)
-			}, 200)
+			}, 300)
 		},
 		[ dispatch, match, successCarReview, car, carModel ]
 	)
