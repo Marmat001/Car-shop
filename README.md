@@ -23,5 +23,11 @@ Some of the features provided in this application are:
 - Car search feature <br />
 - Car Inventory functionality with real time "in stock count" update <br />
 - Login authentication system with email & password / Google login <br />
-
-Mobile responsive
+- User profile with order summaries and the ability to add / update profile picture <br />
+- Admin area to manage orders, cars and customers. Some of the functionality included: Updating orders to approved / payed / delivered. Add / update / remove cars from website inventory. View all order details. Give admin rights to other users and create / remove user accounts <br />
+- Ecommerce checkout process (shipping, payment method, etc) <br />
+- Download / view order payment PDF for both customers and admins <br />
+- Contact form with legitimate email dispatch on send <br />
+- Keyframe transition animations on homepage and typewriter styled headings on shop page <br />
+- Fully mobile responsive, both user and admin view, including data tables <br />
+- Mobile responsive
