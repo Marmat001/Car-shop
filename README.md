@@ -30,4 +30,3 @@ Some of the features provided in this application are:
 - Contact form with legitimate email dispatch on send <br />
 - Keyframe transition animations on homepage and typewriter styled headings on shop page <br />
 - Fully mobile responsive, both user and admin view, including data tables <br />
-- Mobile responsive
