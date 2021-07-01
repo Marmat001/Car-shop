@@ -15,13 +15,13 @@ Building this ecommerce styled full-stack application was a great opportunity to
 Some of the features provided in this application are:
 <br /><br />
 
-Custom database seeder script to insert development data <br />
-Shopping cart with PayPal and debit / credit card payment integration <br />
-Car reviews and ratings system <br />
-Carousel that displays latest additions <br />
-Page pagination <br />
-Car search feature <br />
-Car Inventory functionality with real time "in stock count" update <br />
-Login authentication system with email & password / Google login <br />
+- Custom database seeder script to insert development data <br />
+- Shopping cart with PayPal and debit / credit card payment integration <br />
+- Car reviews and ratings system <br />
+- Carousel that displays latest additions <br />
+- Page pagination <br />
+- Car search feature <br />
+- Car Inventory functionality with real time "in stock count" update <br />
+- Login authentication system with email & password / Google login <br />
 
 Mobile responsive
