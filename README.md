@@ -1,6 +1,6 @@
-# Amplified React Music Player
+# Vroom Car Shop
 
-This project is a React music player with expected functionality such as: Play / Pause, Forward / Back, drag handler to change position in any song. There is also a library with a selection of royalty free music that the user can browse through and play.
+This project was built when I first started learning the MERN stack (React, MongoDB, Express & Node). This was the first larger project I worked on from scratch, without using some kind of prebuilt plugin or platform.
 
 ## About The Build
 
