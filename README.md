@@ -4,12 +4,13 @@ This project was built when I first started learning the MERN stack (React, Mong
 
 ## About The Build
 
-Some of the concepts this application has really helped me with: <br />
+Building this ecommerce styled full-stack application was a great opportunity to familiarise myself with the core concepts I had been learning at the time such as: <br />
 
-- Working with hooks such as useRef for capturing input values <br />
-- Passing, drilling and destructuring props <br />
-- Passing, lifting and modifying state <br />
-
+- Managing global state with Redux (Actions & Reducers) <br />
+- Using redux state in components (useDispatch & useSelector) <br />
+- Creating an extensive backend with JWT authentication and Google login functionality using Express <br />
+- Working with a mongoDB database and the Mongoose ODM <br />
+- Creating custom authentication middleware <br />
 <br />
 Some of the features provided in this application are:
 <br /><br />
